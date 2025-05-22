@@ -75,8 +75,8 @@ void app_main(void)
 
 | Function                                  | Description                                 |
 |-------------------------------------------|---------------------------------------------|
-| `esp_err_t ws2812_control_init()`         | Initialize RMT hardware and driver          |
-| `esp_err_t ws2812_write_leds(...)`        | Send color values to the LED chain          |
+| `esp_err_t ws2812ControlInit()`         | Initialize RMT hardware and driver          |
+| `esp_err_t ws2812WriteLeds(...)`        | Send color values to the LED chain          |
 | `WS2812Strip::begin()`                    | Initialize the C++ driver wrapper           |
 | `WS2812Strip::setPixel(index, color)`     | Set individual LED color                    |
 | `WS2812Strip::show()`                     | Transmit buffered colors to the LED chain   |

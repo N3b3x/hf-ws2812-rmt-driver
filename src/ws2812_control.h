@@ -42,7 +42,7 @@ struct led_state {
  *
  * @return ESP_OK on success or an error code from the ESP-IDF drivers.
  */
-esp_err_t ws2812_control_init(void);
+esp_err_t ws2812ControlInit(void);
 
 /**
  * @brief Send LED colour data.
@@ -53,7 +53,7 @@ esp_err_t ws2812_control_init(void);
  * @param new_state Desired LED colours.
  * @return ESP_OK on success or an ESP-IDF error code.
  */
-esp_err_t ws2812_write_leds(struct led_state new_state);
+esp_err_t ws2812WriteLeds(struct led_state new_state);
 
 #endif
 

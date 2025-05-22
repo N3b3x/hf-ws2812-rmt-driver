@@ -25,7 +25,7 @@ public:
      *
      * @return ESP_OK on success.
      */
-    esp_err_t begin() { return ws2812_control_init(); }
+    esp_err_t begin() { return ws2812ControlInit(); }
 
     /**
      * @brief Set the colour of a single LED.
@@ -42,7 +42,7 @@ public:
     /**
      * @brief Send the currently stored colours to the LED strip.
      */
-    esp_err_t show() { return ws2812_write_leds(state); }
+    esp_err_t show() { return ws2812WriteLeds(state); }
 
     /**
      * @brief Generate a colour from a 0-255 position on a colour wheel.
