@@ -1,85 +1,117 @@
-# ESP32-NeoPixel-WS2812-RMT
-NeoPixel (WS2812) Driver Example code using RMT peripheral
+# HF-WS2812
+Hardware Agnostic WS2812/NeoPixel driver - as used in the HardFOC-V1 controller
 
-This project contains example code for driving a chain of NeoPixels connected to an ESP32 using the RMT peripheral build into the micro.
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This code assumes you are using FreeRTOS.
+## \ud83d\udcc6 Overview
+**HF-WS2812** is a lightweight ESP-IDF component that generates the precise timing required by WS2812 compatible LED strips via the RMT peripheral. All parameters\u2014number of LEDs, timings and GPIO\u2014are configurable through Kconfig. A small C API is provided along with an optional C++ wrapper for easier use in modern applications.
 
-## Pros
-- It's very simple to use!
-- The code utilizes hardware to drive the data out line so your application can be free to do other things.
-- Easily and consistently meets the timing requirements spec'd out by the WS2812 datasheet.
+---
 
-## Cons
-Because of the way the ESP32 RMT peripheral works this technique for driving NeoPixels is a little heavy on memory usage. It requires (4 bytes * 24 * NUM_LEDS) of dedicated memory.
+## \ud83d\ude80 Features
+- \u2705 Accurate signal generation with the RMT hardware
+- \u2699\ufe0f Configurable timings, LED type (RGB or RGBW) and GPIO
+- \u2728 Optional `WS2812Strip` C++ class
+- \ud83d\udd1c Simple API to update the entire LED chain
+- \ud83d\udcdd Doxygen documentation
 
-## Usage
-Copy the source and header files into your project. Update the following config options based on your project needs / arrangement.
+---
 
-- CONFIG_WS2812_NUM_LEDS
-- CONFIG_WS2812_LED_RMT_TX_GPIO
-- CONFIG_WS2812_T0H  // 0 bit high time
-- CONFIG_WS2812_T1H  // 1 bit high time
-- CONFIG_WS2812_T0L  // 0 bit low time
-- CONFIG_WS2812_T1L  // 1 bit low time
+## \ud83d\udcc2 Project Structure
+```text
+├── src/
+│   ├── ws2812_control.c        # Core driver implementation
+│   ├── ws2812_control.h        # C API
+│   └── ws2812_cpp.hpp          # Optional C++ wrapper
+├── CMakeLists.txt              # Component build file
+├── component.mk                # Legacy build support
+├── Kconfig                     # Configuration options
+├── Doxyfile                    # Doxygen configuration
+└── README.md                   # Project documentation
+```
 
-To calculate values for these configuration times, multiply the desired time in _micro_ seconds (μs or us in data sheets) by the default clock rate in MHz and divide by 2. E.g., for 280ns (0.28μs) on an ESP32 with an 80MHz clock: 0.28 * 80 / 2 = 11.2 => 11 (rounded when needed)
+---
 
-In your application init section call `void ws2812_control_init(void)` to initialize the RMT peripheral with the correct configuration.
+## \ud83d\udd27 Installation
+1. Copy this component into your project's `components` directory.
+2. Run `idf.py menuconfig` and configure **HF-ESP32-WS2812-RMT**.
+3. Include the header in your application:
+   ```c
+   #include "ws2812_control.h"
+   ```
+4. For C++ projects you may include `ws2812_cpp.hpp` to use the convenience class.
 
-Whenever you need to update the LEDs simply call `void ws2812_write_leds(struct led_state new_state)`. The `led_state` structure just contains an array of 32-bit integers - one for each LED - that you must set to the desired RGB values. The bottom three bytes of each value are R, G and B.
+---
 
-_Note:_ many surface-mount addressable LEDs that use this protocol arrange the bytes G, R, B instead of R, G, B.
-
-### Example
+## \ud83e\udde0 Quick Start
 ```c
-#include "ws2812_control.h"
+#include "ws2812_cpp.hpp"
 
-#define RED   0xFF0000
-#define GREEN 0x00FF00
-#define BLUE  0x0000FF
+WS2812Strip strip;                // Uses NUM_LEDS from Kconfig
 
-int main(void)
+void app_main(void)
 {
-  ws2812_control_init();
-
-  struct led_state new_state;
-  new_state.leds[0] = RED;
-  new_state.leds[1] = GREEN;
-  new_state.leds[2] = BLUE;
-
-  ws2812_write_leds(new_state);
+    strip.begin();
+    for (uint8_t i = 0; i < NUM_LEDS; ++i) {
+        strip.setPixel(i, WS2812Strip::colorWheel(i * (256 / NUM_LEDS)));
+    }
+    strip.show();
 }
 ```
 
-### Timing
-This code is tuned based on the timing specifications indicated in the following datasheet provided by Sparkfun: https://cdn.sparkfun.com/datasheets/Components/LED/COM-12877.pdf
+---
+
+## \ud83d\udcf0 API Summary
+| Function | Description |
+|----------|-------------|
+| `esp_err_t ws2812_control_init()` | Initialise RMT hardware and driver |
+| `esp_err_t ws2812_write_leds(struct led_state)` | Send colour values to the LED chain |
+| `WS2812Strip::begin()` | Initialise driver (C++ wrapper) |
+| `WS2812Strip::setPixel(index, color)` | Set individual LED colour |
+| `WS2812Strip::show()` | Transmit buffered colours |
+| `WS2812Strip::colorWheel(pos)` | Generate rainbow colour |
+
+---
+
+## \u23f1\ufe0f Timing
+This driver is tuned according to the timing information from [SparkFun's datasheet](https://cdn.sparkfun.com/datasheets/Components/LED/COM-12877.pdf).
 
 #### LED TIMINGS, per their datasheets:
 
 ##### WS2811: (2.5us bit time, 400Kbps)
-    T0H: 0.5us <-- 0 bit
-    T0L: 2.0us
-    T1H: 1.2us <-- 1 bit
-    T1L: 1.3us
-    RES: 50us
+```
+T0H: 0.5us  \u2190 0 bit
+T0L: 2.0us
+T1H: 1.2us  \u2190 1 bit
+T1L: 1.3us
+RES: 50us
+```
 ##### WS2812: (1.25us bit time, 800Kbps)
-    T0H: 0.35us <-- 0 bit
-    T0L: 0.8us
-    T1H: 0.7us <-- 1 bit
-    T1L: 0.6us
-    RES: 50us
+```
+T0H: 0.35us \u2190 0 bit
+T0L: 0.8us
+T1H: 0.7us  \u2190 1 bit
+T1L: 0.6us
+RES: 50us
+```
 ##### WS2812b: (1.25us bit time, 800Kbps)
-    T0H: 0.4us <-- 0 bit
-    T0L: 0.85us
-    T1H: 0.8us <-- 1 bit
-    T1L: 0.45us
-    RES: 50us
+```
+T0H: 0.4us  \u2190 0 bit
+T0L: 0.85us
+T1H: 0.8us  \u2190 1 bit
+T1L: 0.45us
+RES: 50us
+```
 
-If you use WiFi, you may find that it causes problems with the LEDs not being set correctly.
-You can use xTaskCreatePinnedToCore to run the thread which initializes the library (and registers the rtm_isr), to run on core 1.
+If WiFi interrupts timing, create the driver task on core 1 with `xTaskCreatePinnedToCore`.
 
-## Contribution
-If you find a problem or have ideas about how to improve this please submit a PR and I will happily review and merge. Thanks!
+---
 
-Enjoy!
+## \ud83d\udcdd License
+This project is licensed under the **GNU General Public License v3.0**. See [LICENSE](./LICENSE) for details.
+
+---
+
+## \ud83e\udd1d Contributing
+Pull requests and suggestions are welcome. Fork the repo, create your feature branch, commit your changes and open a PR.
+

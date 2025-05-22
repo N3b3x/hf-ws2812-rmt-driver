@@ -29,8 +29,21 @@ static const char *TAG = "NeoPixel WS2812 Driver";
 // This is the buffer which the hw peripheral will access while pulsing the output pin
 static rmt_item32_t led_data_buffer[LED_BUFFER_ITEMS];
 
+/**
+ * @brief Prepare the RMT buffer from an array of LED colours.
+ *
+ * @param new_state Colours to transmit to the LEDs.
+ */
 static void setup_rmt_data_buffer(struct led_state new_state);
 
+/**
+ * @brief Initialise the RMT driver for WS2812 output.
+ *
+ * This function configures the selected RMT channel and must be
+ * called once before any LED data is transmitted.
+ *
+ * @return ESP_OK on success or an ESP-IDF error code.
+ */
 esp_err_t ws2812_control_init(void)
 {
   rmt_config_t config = {
@@ -51,6 +64,15 @@ esp_err_t ws2812_control_init(void)
   return ESP_OK;
 }
 
+/**
+ * @brief Transmit colour values to the LED chain.
+ *
+ * The function blocks until the RMT peripheral finishes sending
+ * all LED data.
+ *
+ * @param new_state Desired LED colours.
+ * @return ESP_OK on success or an ESP-IDF error code.
+ */
 esp_err_t ws2812_write_leds(struct led_state new_state)
 {
   setup_rmt_data_buffer(new_state);
@@ -60,6 +82,11 @@ esp_err_t ws2812_write_leds(struct led_state new_state)
   return ESP_OK;
 }
 
+/**
+ * @brief Convert colour values into RMT items for transmission.
+ *
+ * @param new_state Colours to send.
+ */
 static void setup_rmt_data_buffer(struct led_state new_state)
 {
   for (uint32_t led = 0; led < NUM_LEDS; led++) {
