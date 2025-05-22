@@ -34,7 +34,7 @@ static rmt_item32_t led_data_buffer[LED_BUFFER_ITEMS];
  *
  * @param new_state Colours to transmit to the LEDs.
  */
-static void setup_rmt_data_buffer(struct led_state new_state);
+static void setupRmtDataBuffer(struct led_state new_state);
 
 /**
  * @brief Initialise the RMT driver for WS2812 output.
@@ -44,7 +44,7 @@ static void setup_rmt_data_buffer(struct led_state new_state);
  *
  * @return ESP_OK on success or an ESP-IDF error code.
  */
-esp_err_t ws2812_control_init(void)
+esp_err_t ws2812ControlInit(void)
 {
   rmt_config_t config = {
     .rmt_mode = RMT_MODE_TX,
@@ -58,8 +58,14 @@ esp_err_t ws2812_control_init(void)
     .clk_div = 2
   };
 
-  ESP_RETURN_ON_ERROR(rmt_config(&config), TAG, "Failed to configure RMT");
-  ESP_RETURN_ON_ERROR(rmt_driver_install(config.channel, 0, 0), TAG, "Failed to install RMT driver");
+  ESP_RETURN_ON_ERROR(
+    rmt_config(&config),
+    TAG,
+    "Failed to configure RMT");
+  ESP_RETURN_ON_ERROR(
+    rmt_driver_install(config.channel, 0, 0),
+    TAG,
+    "Failed to install RMT driver");
 
   return ESP_OK;
 }
@@ -73,11 +79,17 @@ esp_err_t ws2812_control_init(void)
  * @param new_state Desired LED colours.
  * @return ESP_OK on success or an ESP-IDF error code.
  */
-esp_err_t ws2812_write_leds(struct led_state new_state)
+esp_err_t ws2812WriteLeds(struct led_state new_state)
 {
-  setup_rmt_data_buffer(new_state);
-  ESP_RETURN_ON_ERROR(rmt_write_items(LED_RMT_TX_CHANNEL, led_data_buffer, LED_BUFFER_ITEMS, false), TAG, "Failed to write items");
-  ESP_RETURN_ON_ERROR(rmt_wait_tx_done(LED_RMT_TX_CHANNEL, portMAX_DELAY), TAG, "Failed to wait for RMT transmission to finish");
+  setupRmtDataBuffer(new_state);
+  ESP_RETURN_ON_ERROR(
+    rmt_write_items(LED_RMT_TX_CHANNEL, led_data_buffer, LED_BUFFER_ITEMS, false),
+    TAG,
+    "Failed to write items");
+  ESP_RETURN_ON_ERROR(
+    rmt_wait_tx_done(LED_RMT_TX_CHANNEL, portMAX_DELAY),
+    TAG,
+    "Failed to wait for RMT transmission to finish");
 
   return ESP_OK;
 }
@@ -87,7 +99,7 @@ esp_err_t ws2812_write_leds(struct led_state new_state)
  *
  * @param new_state Colours to send.
  */
-static void setup_rmt_data_buffer(struct led_state new_state)
+static void setupRmtDataBuffer(struct led_state new_state)
 {
   for (uint32_t led = 0; led < NUM_LEDS; led++) {
     uint32_t bits_to_send = new_state.leds[led];
@@ -95,9 +107,9 @@ static void setup_rmt_data_buffer(struct led_state new_state)
 
     for (uint32_t bit = 0; bit < BITS_PER_LED_CMD; bit++) {
       uint32_t bit_is_set = bits_to_send & mask;
-      led_data_buffer[(led * BITS_PER_LED_CMD) + bit] = bit_is_set ?
-                                                      (rmt_item32_t){{{T1H, 1, T1L, 0}}} :
-                                                      (rmt_item32_t){{{T0H, 1, T0L, 0}}};
+      led_data_buffer[(led * BITS_PER_LED_CMD) + bit] =
+          bit_is_set ? (rmt_item32_t){{{T1H, 1, T1L, 0}}}
+                     : (rmt_item32_t){{{T0H, 1, T0L, 0}}};
       mask >>= 1;
     }
   }
