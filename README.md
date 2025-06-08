@@ -16,6 +16,8 @@
 - ✅ Accurate signal generation using RMT hardware
 - ⚙️ Fully configurable (timings, RGB/RGBW format, GPIO)
 - ✨ Optional `WS2812Strip` C++ class
+- 🌈 Built-in effects with `WS2812Animator`
+- 🧰 `RmtChannel` RAII helper for the RMT peripheral
 - 👉 Simple API for updating entire LED chains
 - 🔆 Global brightness control
 - 📝 Doxygen documentation available
@@ -28,7 +30,8 @@
 ├── src/
 │   ├── ws2812_control.c        # Core driver implementation
 │   ├── ws2812_control.h        # C API header
-│   └── ws2812_cpp.hpp          # Optional C++ wrapper
+│   ├── ws2812_cpp.hpp          # Optional C++ wrapper
+│   └── ws2812_effects.hpp      # Basic animation helper
 ├── CMakeLists.txt              # Component build configuration
 ├── component.mk                # Legacy build support
 ├── Kconfig                     # Configuration options
@@ -50,6 +53,10 @@
    ```cpp
    #include "ws2812_cpp.hpp"
    ```
+5. To use built-in animations, also include:
+   ```cpp
+   #include "ws2812_effects.hpp"
+   ```
 
 ---
 
@@ -57,19 +64,66 @@
 
 ```cpp
 #include "ws2812_cpp.hpp"
+#include "ws2812_effects.hpp"
 
-WS2812Strip strip;  // Uses NUM_LEDS from Kconfig
+WS2812Strip strip(GPIO_NUM_18); // runtime pin selection
+WS2812Animator anim(strip);
 
 void app_main(void)
 {
     strip.begin();
-    strip.setBrightness(128); // Dim to 50%
-    for (uint8_t i = 0; i < NUM_LEDS; ++i) {
-        strip.setPixel(i, WS2812Strip::colorWheel(i * (256 / NUM_LEDS)));
+    anim.setEffect(WS2812Animator::Effect::Rainbow);
+    while (true) {
+        anim.tick();
+        vTaskDelay(pdMS_TO_TICKS(50));
     }
-    strip.show();
 }
 ```
+
+### FreeRTOS Task Example
+
+```cpp
+static void ledTask(void *)
+{
+    WS2812Strip strip(GPIO_NUM_18);
+    WS2812Animator anim(strip);
+    strip.begin();
+    anim.setEffect(WS2812Animator::Effect::Breath, 0x00FF00);
+    for (;;) {
+        anim.tick();
+        vTaskDelay(pdMS_TO_TICKS(20));
+    }
+}
+
+void app_main(void)
+{
+    xTaskCreate(ledTask, "led", 2048, nullptr, 5, nullptr);
+} 
+```
+
+### Low-level RMT Example
+
+```cpp
+RmtChannel rmt(GPIO_NUM_18, RMT_CHANNEL_0);
+
+void app_main(void)
+{
+    rmt.begin();
+    // transmit your own rmt_item32_t sequences
+}
+```
+
+## 🎨 Animation Effects
+
+| Effect | Description |
+|--------------|---------------------------------------|
+| `Off` | All LEDs off |
+| `SolidColor` | Static color across the strip |
+| `Rainbow` | Moving rainbow pattern |
+| `Chase` | Single-color chase effect |
+| `Blink` | Blink entire strip on and off |
+| `Breath` | Smooth fade in/out using brightness |
+| `Larson` | Scanning dot back and forth |
 
 ---
 
@@ -77,14 +131,17 @@ void app_main(void)
 
 | Function                                  | Description                                 |
 |-------------------------------------------|---------------------------------------------|
-| `esp_err_t ws2812ControlInit()`         | Initialize RMT hardware and driver          |
+| `esp_err_t ws2812ControlInit(gpio, channel)` | Initialize RMT hardware with selected pin |
 | `esp_err_t ws2812WriteLeds(...)`        | Send color values to the LED chain          |
+| `RmtChannel::begin()`                   | Configure an RMT channel for output |
+| `RmtChannel::transmit(items, len)`      | Write raw RMT items and wait for finish |
 | `WS2812Strip::begin()`                    | Initialize the C++ driver wrapper           |
 | `WS2812Strip::setPixel(index, color)`     | Set individual LED color                    |
 | `WS2812Strip::show()`                     | Transmit buffered colors to the LED chain   |
 | `ws2812SetBrightness(value)`              | Set global brightness (0-255)     |
 | `WS2812Strip::setBrightness(value)`       | Set brightness from C++ wrapper   |
-| `WS2812Strip::colorWheel(pos)`            | Generate a rainbow-style color              |
+| `WS2812Animator`                          | Helper class for simple animations      |
+| `WS2812Animator::setEffect(type, color)`  | Change the active animation effect      |
 
 ---
 

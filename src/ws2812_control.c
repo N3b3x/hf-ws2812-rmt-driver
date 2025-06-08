@@ -28,6 +28,8 @@ static const char *TAG = "NeoPixel WS2812 Driver";
 
 // This is the buffer which the hw peripheral will access while pulsing the output pin
 static rmt_item32_t led_data_buffer[LED_BUFFER_ITEMS];
+static rmt_channel_t s_channel = LED_RMT_TX_CHANNEL;
+static gpio_num_t s_gpio = LED_RMT_TX_GPIO;
 
 // Global brightness scaling value
 static uint8_t s_brightness = CONFIG_WS2812_DEFAULT_BRIGHTNESS;
@@ -42,17 +44,21 @@ static void setupRmtDataBuffer(struct led_state new_state);
 /**
  * @brief Initialise the RMT driver for WS2812 output.
  *
- * This function configures the selected RMT channel and must be
- * called once before any LED data is transmitted.
+ * Must be called once before any LED data is transmitted. The
+ * pin and channel can be chosen at runtime.
  *
+ * @param gpio_num GPIO connected to the LED strip.
+ * @param channel  RMT channel used for transmission.
  * @return ESP_OK on success or an ESP-IDF error code.
  */
-esp_err_t ws2812ControlInit(void)
+esp_err_t ws2812ControlInit(gpio_num_t gpio_num, rmt_channel_t channel)
 {
+  s_channel = channel;
+  s_gpio = gpio_num;
   rmt_config_t config = {
     .rmt_mode = RMT_MODE_TX,
-    .channel = LED_RMT_TX_CHANNEL,
-    .gpio_num = LED_RMT_TX_GPIO,
+    .channel = channel,
+    .gpio_num = gpio_num,
     .mem_block_num = 3,
     .tx_config.loop_en = false,
     .tx_config.carrier_en = false,
@@ -86,11 +92,11 @@ esp_err_t ws2812WriteLeds(struct led_state new_state)
 {
   setupRmtDataBuffer(new_state);
   ESP_RETURN_ON_ERROR(
-    rmt_write_items(LED_RMT_TX_CHANNEL, led_data_buffer, LED_BUFFER_ITEMS, false),
+    rmt_write_items(s_channel, led_data_buffer, LED_BUFFER_ITEMS, false),
     TAG,
     "Failed to write items");
   ESP_RETURN_ON_ERROR(
-    rmt_wait_tx_done(LED_RMT_TX_CHANNEL, portMAX_DELAY),
+    rmt_wait_tx_done(s_channel, portMAX_DELAY),
     TAG,
     "Failed to wait for RMT transmission to finish");
 
