@@ -1,11 +1,15 @@
 idf_component_register(
     SRCS
-        "src/ws2812_control.c"     # C source
+        "src/ws2812_control.c"
+        "src/rmt_wrapper.cpp"
+        "src/ws2812_cpp.cpp"
+        "src/ws2812_effects.cpp"
+        "src/ws2812_multi_animator.cpp"
     INCLUDE_DIRS
-        "include"                  # makes <ws2812_cpp.hpp> visible everywhere
+        "include"
     REQUIRES
-        driver                     # uses RMT, GPIO, etc.
-        freertos                   # if your C++ needs vTaskDelay, xQueue*
+        driver
+        freertos
 )
 
 # (optional) clip the C++ standard or extra flags
