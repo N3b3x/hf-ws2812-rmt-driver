@@ -13,6 +13,7 @@
 
 #include "ws2812_control.h"
 #include "rmt_wrapper.hpp"
+#include <vector>
 
 #ifdef __cplusplus
 
@@ -31,8 +32,11 @@ public:
      * @param channel RMT channel for signal generation.
      */
     explicit WS2812Strip(gpio_num_t gpio = (gpio_num_t)CONFIG_WS2812_LED_RMT_TX_GPIO,
-                         rmt_channel_t channel = (rmt_channel_t)CONFIG_WS2812_LED_RMT_TX_CHANNEL)
-        : m_rmt(gpio, channel), m_gpio(gpio), m_channel(channel) {}
+                         rmt_channel_t channel = (rmt_channel_t)CONFIG_WS2812_LED_RMT_TX_CHANNEL,
+                         uint32_t numLeds = NUM_LEDS)
+        : m_rmt(gpio, channel), m_gpio(gpio), m_channel(channel), m_numLeds(numLeds),
+          m_pixels(numLeds, 0), m_buffer(numLeds * WS2812_BITS_PER_LED)
+    {}
 
     /**
      * @brief Initialise the underlying driver.
@@ -48,10 +52,13 @@ public:
      * @param rgbw Packed 24/32-bit colour value.
      */
     void setPixel(uint32_t index, uint32_t rgbw) {
-        if (index < NUM_LEDS) {
-            state.leds[index] = rgbw;
+        if (index < m_numLeds) {
+            m_pixels[index] = rgbw;
         }
     }
+
+    /** Get the number of LEDs managed by this strip. */
+    uint32_t length() const { return m_numLeds; }
 
     /**
      * @brief Send the currently stored colours to the LED strip.
@@ -74,12 +81,13 @@ public:
     static uint32_t colorWheel(uint8_t pos);
 
 private:
-    struct led_state state = {};
+    std::vector<uint32_t> m_pixels;
+    std::vector<rmt_item32_t> m_buffer;
     RmtChannel m_rmt;
     gpio_num_t m_gpio;
     rmt_channel_t m_channel;
     uint8_t m_brightness = WS2812_DEFAULT_BRIGHTNESS;
-    rmt_item32_t m_buffer[WS2812_LED_BUFFER_ITEMS] = {};
+    uint32_t m_numLeds = NUM_LEDS;
 };
 
 inline uint32_t WS2812Strip::colorWheel(uint8_t pos)
@@ -98,8 +106,8 @@ inline uint32_t WS2812Strip::colorWheel(uint8_t pos)
 
 inline esp_err_t WS2812Strip::show()
 {
-    for (uint32_t led = 0; led < NUM_LEDS; ++led) {
-        uint32_t color = state.leds[led];
+    for (uint32_t led = 0; led < m_numLeds; ++led) {
+        uint32_t color = m_pixels[led];
 #if CONFIG_WS2812_LED_TYPE_RGBW
         uint8_t w = (color >> 24) & 0xFF;
 #endif
@@ -126,7 +134,7 @@ inline esp_err_t WS2812Strip::show()
         }
     }
 
-    return m_rmt.transmit(m_buffer, WS2812_LED_BUFFER_ITEMS);
+    return m_rmt.transmit(m_buffer.data(), m_numLeds * WS2812_BITS_PER_LED);
 }
 
 #endif // __cplusplus

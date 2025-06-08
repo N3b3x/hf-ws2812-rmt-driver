@@ -23,8 +23,8 @@ public:
         Larson
     };
 
-    explicit WS2812Animator(WS2812Strip &strip)
-        : m_strip(strip) {}
+    explicit WS2812Animator(WS2812Strip &strip, uint32_t virtualLength = 0)
+        : m_strip(strip), m_virtualLength(virtualLength) {}
 
     /**
      * @brief Select the active effect.
@@ -40,6 +40,13 @@ public:
         m_brightness = 0;
     }
 
+    /** Adjust the virtual length used for effects. */
+    void setVirtualLength(uint32_t length) { m_virtualLength = length; }
+
+    /** Set the current step (used for external synchronization). */
+    void setStep(uint16_t step) { m_step = step; }
+    uint16_t step() const { return m_step; }
+
     /**
      * @brief Advance the animation by one step.
      */
@@ -47,6 +54,8 @@ public:
 
 private:
     WS2812Strip &m_strip;
+    bool m_initialized = false;
+    uint32_t m_virtualLength = 0;
     Effect m_effect = Effect::Off;
     uint32_t m_color = 0xFFFFFF;
     uint16_t m_step = 0;
@@ -56,17 +65,29 @@ private:
 
 inline void WS2812Animator::tick()
 {
+    if (!m_initialized) {
+        if (m_strip.begin() == ESP_OK) {
+            m_initialized = true;
+        } else {
+            return;
+        }
+    }
+
+    uint32_t stripLen = m_strip.length();
+    uint32_t virtLen = m_virtualLength ? m_virtualLength : stripLen;
+
     switch (m_effect) {
     case Effect::SolidColor:
-        for (uint32_t i = 0; i < NUM_LEDS; ++i) {
+        for (uint32_t i = 0; i < stripLen; ++i) {
             m_strip.setPixel(i, m_color);
         }
         m_strip.show();
         break;
 
     case Effect::Rainbow:
-        for (uint32_t i = 0; i < NUM_LEDS; ++i) {
-            uint8_t pos = static_cast<uint8_t>((i * 256 / NUM_LEDS + m_step) & 0xFF);
+        for (uint32_t i = 0; i < stripLen; ++i) {
+            uint32_t vIndex = (virtLen == stripLen) ? i : (i * virtLen / stripLen);
+            uint8_t pos = static_cast<uint8_t>((vIndex * 256 / virtLen + m_step) & 0xFF);
             m_strip.setPixel(i, WS2812Strip::colorWheel(pos));
         }
         m_strip.show();
@@ -74,7 +95,7 @@ inline void WS2812Animator::tick()
         break;
 
     case Effect::Chase:
-        for (uint32_t i = 0; i < NUM_LEDS; ++i) {
+        for (uint32_t i = 0; i < stripLen; ++i) {
             if (((i + m_step) % 3) == 0) {
                 m_strip.setPixel(i, m_color);
             } else {
@@ -86,7 +107,7 @@ inline void WS2812Animator::tick()
         break;
 
     case Effect::Blink:
-        for (uint32_t i = 0; i < NUM_LEDS; ++i) {
+        for (uint32_t i = 0; i < stripLen; ++i) {
             m_strip.setPixel(i, (m_step & 1) ? m_color : 0);
         }
         m_strip.show();
@@ -96,7 +117,7 @@ inline void WS2812Animator::tick()
     case Effect::Breath:
         m_brightness = (m_step < 256) ? m_step : 511 - m_step;
         m_strip.setBrightness(m_brightness);
-        for (uint32_t i = 0; i < NUM_LEDS; ++i) {
+        for (uint32_t i = 0; i < stripLen; ++i) {
             m_strip.setPixel(i, m_color);
         }
         m_strip.show();
@@ -104,18 +125,18 @@ inline void WS2812Animator::tick()
         break;
 
     case Effect::Larson:
-        for (uint32_t i = 0; i < NUM_LEDS; ++i) {
+        for (uint32_t i = 0; i < stripLen; ++i) {
             m_strip.setPixel(i, (i == m_step) ? m_color : 0);
         }
         m_strip.show();
-        if ((m_step == 0 && m_dir < 0) || (m_step == NUM_LEDS - 1 && m_dir > 0)) {
+        if ((m_step == 0 && m_dir < 0) || (m_step == stripLen - 1 && m_dir > 0)) {
             m_dir = -m_dir;
         }
         m_step = static_cast<uint16_t>(m_step + m_dir);
         break;
 
     default:
-        for (uint32_t i = 0; i < NUM_LEDS; ++i) {
+        for (uint32_t i = 0; i < stripLen; ++i) {
             m_strip.setPixel(i, 0);
         }
         m_strip.show();
