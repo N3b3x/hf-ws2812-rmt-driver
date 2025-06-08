@@ -17,6 +17,8 @@
 - ⚙️ Fully configurable (timings, RGB/RGBW format, GPIO)
 - ✨ Optional `WS2812Strip` C++ class
 - 🌈 Built-in effects with `WS2812Animator`
+- 🎛️ Synchronised multi-strip animations with `WS2812MultiAnimator`
+- 📏 Flexible strip lengths at runtime
 - 🧰 `RmtChannel` RAII helper for the RMT peripheral
 - 👉 Simple API for updating entire LED chains
 - 🔆 Global brightness control
@@ -31,7 +33,8 @@
 │   ├── ws2812_control.c        # Core driver implementation
 │   ├── ws2812_control.h        # C API header
 │   ├── ws2812_cpp.hpp          # Optional C++ wrapper
-│   └── ws2812_effects.hpp      # Basic animation helper
+│   ├── ws2812_effects.hpp      # Basic animation helper
+│   └── ws2812_multi_animator.hpp # Multi-strip animator
 ├── CMakeLists.txt              # Component build configuration
 ├── component.mk                # Legacy build support
 ├── Kconfig                     # Configuration options
@@ -56,6 +59,10 @@
 5. To use built-in animations, also include:
    ```cpp
    #include "ws2812_effects.hpp"
+   ```
+6. For synchronized multi-strip control, include:
+   ```cpp
+   #include "ws2812_multi_animator.hpp"
    ```
 
 ---
