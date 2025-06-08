@@ -29,6 +29,9 @@ static const char *TAG = "NeoPixel WS2812 Driver";
 // This is the buffer which the hw peripheral will access while pulsing the output pin
 static rmt_item32_t led_data_buffer[LED_BUFFER_ITEMS];
 
+// Global brightness scaling value
+static uint8_t s_brightness = CONFIG_WS2812_DEFAULT_BRIGHTNESS;
+
 /**
  * @brief Prepare the RMT buffer from an array of LED colours.
  *
@@ -94,6 +97,11 @@ esp_err_t ws2812WriteLeds(struct led_state new_state)
   return ESP_OK;
 }
 
+void ws2812SetBrightness(uint8_t brightness)
+{
+  s_brightness = brightness;
+}
+
 /**
  * @brief Convert colour values into RMT items for transmission.
  *
@@ -102,7 +110,23 @@ esp_err_t ws2812WriteLeds(struct led_state new_state)
 static void setupRmtDataBuffer(struct led_state new_state)
 {
   for (uint32_t led = 0; led < NUM_LEDS; led++) {
-    uint32_t bits_to_send = new_state.leds[led];
+    uint32_t color = new_state.leds[led];
+#if CONFIG_WS2812_LED_TYPE_RGBW
+    uint8_t w = (color >> 24) & 0xFF;
+#endif
+    uint8_t r = (color >> 16) & 0xFF;
+    uint8_t g = (color >> 8) & 0xFF;
+    uint8_t b = color & 0xFF;
+
+    r = (r * s_brightness) / 255;
+    g = (g * s_brightness) / 255;
+    b = (b * s_brightness) / 255;
+#if CONFIG_WS2812_LED_TYPE_RGBW
+    w = (w * s_brightness) / 255;
+    uint32_t bits_to_send = (w << 24) | (r << 16) | (g << 8) | b;
+#else
+    uint32_t bits_to_send = (r << 16) | (g << 8) | b;
+#endif
     uint32_t mask = 1 << (BITS_PER_LED_CMD - 1);
 
     for (uint32_t bit = 0; bit < BITS_PER_LED_CMD; bit++) {
