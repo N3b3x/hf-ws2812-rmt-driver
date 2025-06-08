@@ -17,6 +17,7 @@
 - ⚙️ Fully configurable (timings, RGB/RGBW format, GPIO)
 - ✨ Optional `WS2812Strip` C++ class
 - 👉 Simple API for updating entire LED chains
+- 🔆 Global brightness control
 - 📝 Doxygen documentation available
 
 ---
@@ -62,6 +63,7 @@ WS2812Strip strip;  // Uses NUM_LEDS from Kconfig
 void app_main(void)
 {
     strip.begin();
+    strip.setBrightness(128); // Dim to 50%
     for (uint8_t i = 0; i < NUM_LEDS; ++i) {
         strip.setPixel(i, WS2812Strip::colorWheel(i * (256 / NUM_LEDS)));
     }
@@ -80,6 +82,8 @@ void app_main(void)
 | `WS2812Strip::begin()`                    | Initialize the C++ driver wrapper           |
 | `WS2812Strip::setPixel(index, color)`     | Set individual LED color                    |
 | `WS2812Strip::show()`                     | Transmit buffered colors to the LED chain   |
+| `ws2812SetBrightness(value)`              | Set global brightness (0-255)     |
+| `WS2812Strip::setBrightness(value)`       | Set brightness from C++ wrapper   |
 | `WS2812Strip::colorWheel(pos)`            | Generate a rainbow-style color              |
 
 ---

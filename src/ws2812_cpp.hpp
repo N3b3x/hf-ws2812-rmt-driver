@@ -45,6 +45,13 @@ public:
     esp_err_t show() { return ws2812WriteLeds(state); }
 
     /**
+     * @brief Set global brightness for the strip.
+     *
+     * @param value Brightness 0-255.
+     */
+    void setBrightness(uint8_t value) { ws2812SetBrightness(value); }
+
+    /**
      * @brief Generate a colour from a 0-255 position on a colour wheel.
      *
      * @param pos Position on the colour wheel.

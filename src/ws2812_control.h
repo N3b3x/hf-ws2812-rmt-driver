@@ -55,8 +55,18 @@ esp_err_t ws2812ControlInit(void);
  */
 esp_err_t ws2812WriteLeds(struct led_state new_state);
 
-#endif
+/**
+ * @brief Set global brightness for subsequent transmissions.
+ *
+ * All LED values are scaled by this factor before being sent. 255 means
+ * full brightness.
+ *
+ * @param brightness Brightness level 0-255.
+ */
+void ws2812SetBrightness(uint8_t brightness);
 
 #ifdef __cplusplus
 }
 #endif
+
+#endif // WS2812_CONTROL_H
