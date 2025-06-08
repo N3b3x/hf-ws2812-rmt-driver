@@ -13,9 +13,37 @@
 #include <stdint.h>
 #include "sdkconfig.h"
 #include "esp_err.h"
+#include "driver/gpio.h"
+#include "driver/rmt.h"
+
+/**
+ * @name Driver constants
+ * @{*/
 
 /** Number of LEDs that will be driven by the component. */
 #define NUM_LEDS CONFIG_WS2812_NUM_LEDS
+
+#if CONFIG_WS2812_LED_TYPE_RGB
+#define WS2812_BITS_PER_LED 24
+#elif CONFIG_WS2812_LED_TYPE_RGBW
+#define WS2812_BITS_PER_LED 32
+#endif
+
+/** Number of RMT items required to represent the LED chain. */
+#define WS2812_LED_BUFFER_ITEMS (NUM_LEDS * WS2812_BITS_PER_LED)
+
+/** Timing for a '0' bit high pulse in RMT ticks */
+#define WS2812_T0H CONFIG_WS2812_T0H
+/** Timing for a '1' bit high pulse in RMT ticks */
+#define WS2812_T1H CONFIG_WS2812_T1H
+/** Low time for any bit in RMT ticks */
+#define WS2812_T0L CONFIG_WS2812_T0L
+#define WS2812_T1L CONFIG_WS2812_T1L
+
+/** Default global brightness scaling */
+#define WS2812_DEFAULT_BRIGHTNESS CONFIG_WS2812_DEFAULT_BRIGHTNESS
+
+/**@}*/
 
 #ifdef __cplusplus
 extern "C" {
@@ -37,12 +65,14 @@ struct led_state {
 /**
  * @brief Initialise the RMT peripheral for WS2812 output.
  *
- * This function must be called once before any attempt to transmit LED data.
- * It configures the selected RMT channel and installs the driver.
+ * This function must be called once before any LED data is transmitted.
+ * The GPIO and channel can be specified at runtime.
  *
+ * @param gpio_num GPIO connected to the LED strip.
+ * @param channel  RMT channel to use.
  * @return ESP_OK on success or an error code from the ESP-IDF drivers.
  */
-esp_err_t ws2812ControlInit(void);
+esp_err_t ws2812ControlInit(gpio_num_t gpio_num, rmt_channel_t channel);
 
 /**
  * @brief Send LED colour data.
