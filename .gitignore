@@ -1,3 +1,59 @@
+# ESP-IDF build output
+/build/
+/*.elf
+/*.bin
+/*.map
+/*.hex
+/*.log
+
+# ESP-IDF specific
+/sdkconfig.*
+/sdkconfig.old
+/sdkconfig.defaults
+/partition_table.csv
+
+# CMake and Make build folders
+CMakeFiles/
+*/CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# VSCode settings
+.vscode/
+
+# CLion settings
+.idea/
+
+# Python virtual environments
+venv/
+.env/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+
+# Backup files
+*~
+*.swp
+*.swo
+
+# ESP-IDF Python dependencies
+.python_env/
+
+# ESP-IDF OTA update files
+*.ota
+
+# ESP-IDF flash images
+*.img
+
+# ESP-IDF test output
+/test_output/
+
+# Misc
+.DS_Store
+Thumbs.db
+
 # Prerequisites
 *.d
 
