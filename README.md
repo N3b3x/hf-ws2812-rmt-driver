@@ -65,6 +65,24 @@
    #include "ws2812_multi_animator.hpp"
    ```
 
+## 🏗️ Building
+
+1. Ensure the [ESP-IDF](https://github.com/espressif/esp-idf) is installed and `IDF_PATH` is set.
+2. Install Doxygen if you wish to generate the reference documentation. On Ubuntu run:
+   ```bash
+   sudo apt-get install doxygen
+   ```
+3. From your application project run:
+   ```bash
+   idf.py set-target esp32  # adjust for your target
+   idf.py build
+   ```
+4. Generate the API reference with:
+   ```bash
+   doxygen Doxyfile
+   ```
+   The HTML output can be found under `docs/html/index.html`.
+
 ---
 
 ## 🧠 Quick Start Example
@@ -120,6 +138,23 @@ void app_main(void)
 }
 ```
 
+### Virtual Length Example
+
+```cpp
+WS2812Strip strip(GPIO_NUM_18);
+WS2812Animator anim(strip, 60); // animate as if 60 LEDs are connected
+
+void app_main(void)
+{
+    strip.begin();
+    anim.setEffect(WS2812Animator::Effect::Rainbow);
+    while (true) {
+        anim.tick();
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+}
+```
+
 ## 🎨 Animation Effects
 
 | Effect | Description |
@@ -133,25 +168,50 @@ void app_main(void)
 | `Larson` | Scanning dot back and forth |
 
 ---
-
 ## 📰 API Summary
 
-| Function                                  | Description                                 |
-|-------------------------------------------|---------------------------------------------|
-| `esp_err_t ws2812ControlInit(gpio, channel)` | Initialize RMT hardware with selected pin |
-| `esp_err_t ws2812WriteLeds(...)`        | Send color values to the LED chain          |
-| `RmtChannel::begin()`                   | Configure an RMT channel for output |
-| `RmtChannel::transmit(items, len)`      | Write raw RMT items and wait for finish |
-| `WS2812Strip::begin()`                    | Initialize the C++ driver wrapper           |
-| `WS2812Strip::setPixel(index, color)`     | Set individual LED color                    |
-| `WS2812Strip::show()`                     | Transmit buffered colors to the LED chain   |
-| `ws2812SetBrightness(value)`              | Set global brightness (0-255)     |
-| `WS2812Strip::setBrightness(value)`       | Set brightness from C++ wrapper   |
-| `WS2812Animator`                          | Helper class for simple animations      |
-| `WS2812Animator::setEffect(type, color)`  | Change the active animation effect      |
+### C Functions
+
+| Function | Description |
+|----------|-------------|
+| `esp_err_t ws2812ControlInit(gpio, channel)` | Initialize RMT hardware for the selected pin |
+| `esp_err_t ws2812WriteLeds(new_state)` | Send color values to the LED chain |
+| `void ws2812SetBrightness(value)` | Set global brightness scaling |
+
+### C++ Classes
+
+#### RmtChannel
+| Method | Description |
+|--------|-------------|
+| `begin()` | Configure an RMT channel for output |
+| `transmit(items, len)` | Write raw RMT items and wait for finish |
+| `end()` | Uninstall the driver |
+
+#### WS2812Strip
+| Method | Description |
+|--------|-------------|
+| `begin()` | Initialize the C++ driver wrapper |
+| `setPixel(index, color)` | Set individual LED color |
+| `show()` | Transmit buffered colors to the LED chain |
+| `setBrightness(value)` | Set brightness from C++ wrapper |
+| `length()` | Get the number of LEDs |
+| `colorWheel(pos)` | Convert color wheel position to RGB |
+
+#### WS2812Animator
+| Method | Description |
+|--------|-------------|
+| `setEffect(type, color)` | Change the active animation effect |
+| `setVirtualLength(value)` | Set a custom animation length |
+| `tick()` | Advance the animation step |
+
+#### WS2812MultiAnimator
+| Method | Description |
+|--------|-------------|
+| `setEffect(eff, color)` | Apply an effect to all strips |
+| `setEffect(idx, eff, color)` | Apply an effect to one strip |
+| `tick()` | Advance all animations in sync |
 
 ---
-
 ## ⏱️ Timing Details
 
 This driver is tuned according to timing specifications from [SparkFun’s datasheet](https://cdn.sparkfun.com/datasheets/Components/LED/COM-12877.pdf).
