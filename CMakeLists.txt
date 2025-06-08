@@ -1,13 +1,12 @@
-cmake_minimum_required(VERSION 3.5)
+idf_component_register(
+    SRCS
+        "src/ws2812_control.c"     # C source
+    INCLUDE_DIRS
+        "include"                  # makes <ws2812_cpp.hpp> visible everywhere
+    REQUIRES
+        driver                     # uses RMT, GPIO, etc.
+        freertos                   # if your C++ needs vTaskDelay, xQueue*
+)
 
-if(IDF_VERSION_MAJOR GREATER_EQUAL 4)
-    idf_component_register(
-        SRC_DIRS src
-        INCLUDE_DIRS src
-        REQUIRES log driver)
-else()
-    set(COMPONENT_SRCDIRS src)
-    set(COMPONENT_ADD_INCLUDEDIRS src)
-    set(COMPONENT_REQUIRES log driver)
-    register_component()
-endif()
+# (optional) clip the C++ standard or extra flags
+target_compile_options(${COMPONENT_LIB} PRIVATE -std=gnu++23)
