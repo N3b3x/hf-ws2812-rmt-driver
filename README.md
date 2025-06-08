@@ -7,18 +7,19 @@
 
 ## 📦 Overview
 
-**HF-WS2812** is a lightweight ESP-IDF component that provides precise timing for WS2812-compatible LED strips via the RMT peripheral. All parameters—including the number of LEDs, timings, and GPIO—are configurable through Kconfig. A minimal C API is provided, with an optional C++ wrapper for easier integration in modern applications.
+**HF-WS2812** is a lightweight ESP-IDF component that provides precise timing for WS2812-compatible LED strips via the RMT peripheral. While compile-time defaults exist, the `WS2812Strip` C++ class lets you supply GPIO, channel, LED type and timing parameters dynamically. A minimal C API is provided, with an optional C++ wrapper for easier integration in modern applications.
 
 ---
 
 ## 🚀 Features
 
 - ✅ Accurate signal generation using RMT hardware
-- ⚙️ Fully configurable (timings, RGB/RGBW format, GPIO)
+- ⚙️ Compile-time defaults with runtime override capability
 - ✨ Optional `WS2812Strip` C++ class
 - 🌈 Built-in effects with `WS2812Animator`
 - 🎛️ Synchronised multi-strip animations with `WS2812MultiAnimator`
 - 📏 Flexible strip lengths at runtime
+- 🔧 All timings and LED type configurable at runtime using `WS2812Strip`
 - 🧰 `RmtChannel` RAII helper for the RMT peripheral
 - 👉 Simple API for updating entire LED chains
 - 🔆 Global brightness control
@@ -87,11 +88,17 @@
 
 ## 🧠 Quick Start Example
 
+`WS2812Strip` accepts the output pin, RMT channel, LED count and a `LedType` to
+select either 24‑bit RGB or 32‑bit RGBW. Optional custom timings may be applied
+after construction.
+
 ```cpp
 #include "ws2812_cpp.hpp"
 #include "ws2812_effects.hpp"
 
-WS2812Strip strip(GPIO_NUM_18); // runtime pin selection
+// GPIO, RMT channel, number of LEDs and more can be set here
+WS2812Strip strip(GPIO_NUM_18, RMT_CHANNEL_0, 30, LedType::RGB); // runtime config
+// strip.setTimings(custom_t0h, custom_t1h, custom_t0l, custom_t1l); // optional
 WS2812Animator anim(strip);
 
 void app_main(void)
@@ -110,7 +117,7 @@ void app_main(void)
 ```cpp
 static void ledTask(void *)
 {
-    WS2812Strip strip(GPIO_NUM_18);
+    WS2812Strip strip(GPIO_NUM_18, RMT_CHANNEL_0, 30, LedType::RGB);
     WS2812Animator anim(strip);
     strip.begin();
     anim.setEffect(WS2812Animator::Effect::Breath, 0x00FF00);
@@ -141,7 +148,7 @@ void app_main(void)
 ### Virtual Length Example
 
 ```cpp
-WS2812Strip strip(GPIO_NUM_18);
+WS2812Strip strip(GPIO_NUM_18, RMT_CHANNEL_0, 30, LedType::RGB);
 WS2812Animator anim(strip, 60); // animate as if 60 LEDs are connected
 
 void app_main(void)
@@ -153,6 +160,18 @@ void app_main(void)
         vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
+```
+
+### Custom Timings Example
+
+By default the driver uses timings from Kconfig. You can tweak these at runtime
+to fine‑tune compatibility with different LED variants. The values are specified
+in **RMT ticks** (1 tick ≈ 50 ns when `clk_div` is 2).
+
+```cpp
+WS2812Strip strip(GPIO_NUM_18, RMT_CHANNEL_0, 30, LedType::RGB);
+strip.setTimings(14, 52, 52, 52); // t0h, t1h, t0l, t1l
+strip.begin();
 ```
 
 ## 🎨 Animation Effects
@@ -194,6 +213,7 @@ void app_main(void)
 | `setPixel(index, color)` | Set individual LED color |
 | `show()` | Transmit buffered colors to the LED chain |
 | `setBrightness(value)` | Set brightness from C++ wrapper |
+| `setTimings(t0h, t1h, t0l, t1l)` | Adjust protocol timings |
 | `length()` | Get the number of LEDs |
 | `colorWheel(pos)` | Convert color wheel position to RGB |
 
