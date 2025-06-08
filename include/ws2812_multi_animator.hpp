@@ -19,29 +19,12 @@ public:
      * @param sync     If true keep animation steps in sync.
      */
     explicit WS2812MultiAnimator(const std::vector<WS2812Strip*>& strips,
-                                 bool unified = true, bool sync = true)
-        : m_sync(sync)
-    {
-        uint32_t maxLen = 0;
-        for (auto* s : strips) {
-            if (s && s->length() > maxLen) {
-                maxLen = s->length();
-            }
-        }
-        for (auto* s : strips) {
-            if (!s) continue;
-            m_animators.emplace_back(*s, unified ? maxLen : 0);
-        }
-    }
+                                 bool unified = true, bool sync = true);
 
     /**
      * @brief Apply an effect to all managed strips.
      */
-    void setEffect(WS2812Animator::Effect eff, uint32_t color = 0xFFFFFF) {
-        for (auto& a : m_animators) {
-            a.setEffect(eff, color);
-        }
-    }
+    void setEffect(WS2812Animator::Effect eff, uint32_t color = 0xFFFFFF);
 
     /**
      * @brief Apply an effect to a single strip.
@@ -50,28 +33,12 @@ public:
      * @param eff   Desired animation effect.
      * @param color Base colour for the effect.
      */
-    void setEffect(size_t idx, WS2812Animator::Effect eff, uint32_t color = 0xFFFFFF) {
-        if (idx < m_animators.size()) {
-            m_animators[idx].setEffect(eff, color);
-        }
-    }
+    void setEffect(size_t idx, WS2812Animator::Effect eff, uint32_t color = 0xFFFFFF);
 
     /**
      * @brief Advance all animations by one step.
      */
-    void tick() {
-        if (m_sync) {
-            for (auto& a : m_animators) {
-                a.setStep(m_step);
-            }
-        }
-        for (auto& a : m_animators) {
-            a.tick();
-        }
-        if (m_sync && !m_animators.empty()) {
-            m_step = m_animators.front().step();
-        }
-    }
+    void tick();
 
 private:
     /** Animators for each strip. */
