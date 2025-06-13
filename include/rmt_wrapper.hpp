@@ -2,6 +2,7 @@
 #define RMT_WRAPPER_HPP
 
 #include "driver/rmt_tx.h"
+#include "driver/rmt_types.h"
 #include "led_strip_encoder.h"
 #include "driver/gpio.h"
 #include "esp_err.h"

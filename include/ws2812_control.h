@@ -15,6 +15,7 @@
 #include "esp_err.h"
 #include "driver/gpio.h"
 #include "driver/rmt_tx.h"
+#include "driver/rmt_types.h"
 #include "led_strip_encoder.h"
 
 /**
