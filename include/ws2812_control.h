@@ -14,7 +14,8 @@
 #include "sdkconfig.h"
 #include "esp_err.h"
 #include "driver/gpio.h"
-#include "driver/rmt.h"
+#include "driver/rmt_tx.h"
+#include "led_strip_encoder.h"
 
 /**
  * @name Driver constants
