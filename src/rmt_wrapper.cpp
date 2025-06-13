@@ -1,4 +1,5 @@
 #include "rmt_wrapper.hpp"
+#include "driver/rmt_types.h"
 
 #ifdef __cplusplus
 

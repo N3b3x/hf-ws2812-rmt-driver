@@ -1,4 +1,5 @@
 #include "ws2812_effects.hpp"
+#include "driver/rmt_types.h"
 
 #ifdef __cplusplus
 

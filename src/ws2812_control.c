@@ -1,5 +1,6 @@
 #include "ws2812_control.h"
 #include "driver/rmt_tx.h"
+#include "driver/rmt_types.h"
 #include "led_strip_encoder.h"
 #include "esp_err.h"
 #include "esp_check.h"
