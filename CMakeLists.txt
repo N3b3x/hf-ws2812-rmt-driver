@@ -13,4 +13,5 @@ idf_component_register(
 )
 
 # (optional) clip the C++ standard or extra flags
-target_compile_options(${COMPONENT_LIB} PRIVATE -std=gnu++23)
+# Use C++17 for compatibility with ESP-IDF toolchains
+target_compile_options(${COMPONENT_LIB} PRIVATE -std=gnu++17)
