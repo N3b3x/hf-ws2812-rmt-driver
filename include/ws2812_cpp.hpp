@@ -98,7 +98,7 @@ public:
 private:
     std::vector<uint32_t> m_pixels;
     std::vector<rmt_item32_t> m_buffer;
-    RmtChannel m_rmt;
+    hf::RmtTx m_rmt;
     gpio_num_t m_gpio;
     rmt_channel_t m_channel;
     LedType m_type;

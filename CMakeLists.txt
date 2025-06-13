@@ -1,7 +1,6 @@
 idf_component_register(
     SRCS
         "src/ws2812_control.c"
-        "src/rmt_wrapper.cpp"
         "src/ws2812_cpp.cpp"
         "src/ws2812_effects.cpp"
         "src/ws2812_multi_animator.cpp"
