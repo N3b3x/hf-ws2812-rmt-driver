@@ -97,7 +97,7 @@ after construction.
 #include "ws2812_effects.hpp"
 
 // GPIO, RMT channel, number of LEDs and more can be set here
-WS2812Strip strip(GPIO_NUM_18, RMT_CHANNEL_0, 30, LedType::RGB); // runtime config
+WS2812Strip strip(GPIO_NUM_18, 0, 30, LedType::RGB); // runtime config
 // strip.setTimings(custom_t0h, custom_t1h, custom_t0l, custom_t1l); // optional
 WS2812Animator anim(strip);
 
@@ -117,7 +117,7 @@ void app_main(void)
 ```cpp
 static void ledTask(void *)
 {
-    WS2812Strip strip(GPIO_NUM_18, RMT_CHANNEL_0, 30, LedType::RGB);
+    WS2812Strip strip(GPIO_NUM_18, 0, 30, LedType::RGB);
     WS2812Animator anim(strip);
     strip.begin();
     anim.setEffect(WS2812Animator::Effect::Breath, 0x00FF00);
@@ -136,19 +136,19 @@ void app_main(void)
 ### Low-level RMT Example
 
 ```cpp
-RmtChannel rmt(GPIO_NUM_18, RMT_CHANNEL_0);
+RmtChannel rmt(GPIO_NUM_18, 0);
 
 void app_main(void)
 {
     rmt.begin();
-    // transmit your own rmt_item32_t sequences
+    // transmit your own rmt_symbol_word_t sequences
 }
 ```
 
 ### Virtual Length Example
 
 ```cpp
-WS2812Strip strip(GPIO_NUM_18, RMT_CHANNEL_0, 30, LedType::RGB);
+WS2812Strip strip(GPIO_NUM_18, 0, 30, LedType::RGB);
 WS2812Animator anim(strip, 60); // animate as if 60 LEDs are connected
 
 void app_main(void)
@@ -169,7 +169,7 @@ to fine‑tune compatibility with different LED variants. The values are specifi
 in **RMT ticks** (1 tick ≈ 50 ns when `clk_div` is 2).
 
 ```cpp
-WS2812Strip strip(GPIO_NUM_18, RMT_CHANNEL_0, 30, LedType::RGB);
+WS2812Strip strip(GPIO_NUM_18, 0, 30, LedType::RGB);
 strip.setTimings(14, 52, 52, 52); // t0h, t1h, t0l, t1l
 strip.begin();
 ```

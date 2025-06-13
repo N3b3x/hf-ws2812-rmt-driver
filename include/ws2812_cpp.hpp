@@ -37,7 +37,7 @@ public:
      * @param channel RMT channel for signal generation.
      */
     explicit WS2812Strip(gpio_num_t gpio = (gpio_num_t)CONFIG_WS2812_LED_RMT_TX_GPIO,
-                         rmt_channel_t channel = (rmt_channel_t)CONFIG_WS2812_LED_RMT_TX_CHANNEL,
+                         int channel = CONFIG_WS2812_LED_RMT_TX_CHANNEL,
                          uint32_t numLeds = NUM_LEDS,
 #if CONFIG_WS2812_LED_TYPE_RGBW
                          LedType type = LedType::RGBW,
@@ -97,10 +97,10 @@ public:
 
 private:
     std::vector<uint32_t> m_pixels;
-    std::vector<rmt_item32_t> m_buffer;
+    std::vector<rmt_symbol_word_t> m_buffer;
     hf::RmtTx m_rmt;
     gpio_num_t m_gpio;
-    rmt_channel_t m_channel;
+    int m_channel;
     LedType m_type;
     uint16_t m_t0h;
     uint16_t m_t1h;

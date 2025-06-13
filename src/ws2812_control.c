@@ -4,6 +4,7 @@
 #include "led_strip_encoder.h"
 #include "esp_err.h"
 #include "esp_check.h"
+#include "freertos/FreeRTOS.h"
 
 // Configure these based on your project needs using menuconfig ********
 #define LED_RMT_TX_CHANNEL		CONFIG_WS2812_LED_RMT_TX_CHANNEL
@@ -29,7 +30,7 @@
 static const char *TAG = "NeoPixel WS2812 Driver";
 
 // This is the buffer which the hw peripheral will access while pulsing the output pin
-static rmt_item32_t led_data_buffer[LED_BUFFER_ITEMS];
+static rmt_symbol_word_t led_data_buffer[LED_BUFFER_ITEMS];
 static gpio_num_t s_gpio = LED_RMT_TX_GPIO;
 static rmt_channel_handle_t s_handle = NULL;
 static rmt_encoder_handle_t s_encoder = NULL;
@@ -54,18 +55,17 @@ static void setupRmtDataBuffer(struct led_state new_state);
  * @param channel  RMT channel used for transmission.
  * @return ESP_OK on success or an ESP-IDF error code.
  */
-esp_err_t ws2812ControlInit(gpio_num_t gpio_num, rmt_channel_t channel)
+esp_err_t ws2812ControlInit(gpio_num_t gpio_num, int channel)
 {
   (void)channel;
   s_gpio = gpio_num;
 
-  rmt_tx_channel_config_t tx_cfg = {
-    .clk_src = RMT_CLK_SRC_DEFAULT,
-    .gpio_num = gpio_num,
-    .mem_block_symbols = 64,
-    .resolution_hz = 10 * 1000 * 1000,
-    .trans_queue_depth = 1,
-  };
+  rmt_tx_channel_config_t tx_cfg = {};
+  tx_cfg.gpio_num = gpio_num;
+  tx_cfg.clk_src = RMT_CLK_SRC_DEFAULT;
+  tx_cfg.mem_block_symbols = 64;
+  tx_cfg.resolution_hz = 10 * 1000 * 1000;
+  tx_cfg.trans_queue_depth = 1;
   ESP_RETURN_ON_ERROR(
     rmt_new_tx_channel(&tx_cfg, &s_handle),
     TAG,
@@ -99,9 +99,8 @@ esp_err_t ws2812ControlInit(gpio_num_t gpio_num, rmt_channel_t channel)
 esp_err_t ws2812WriteLeds(struct led_state new_state)
 {
   setupRmtDataBuffer(new_state);
-  rmt_transmit_config_t tx_cfg = {
-    .loop_count = 0,
-  };
+  rmt_transmit_config_t tx_cfg = {};
+  tx_cfg.loop_count = 0;
   ESP_RETURN_ON_ERROR(
     rmt_transmit(s_handle, s_encoder, led_data_buffer,
                  sizeof(led_data_buffer), &tx_cfg),
@@ -150,8 +149,10 @@ static void setupRmtDataBuffer(struct led_state new_state)
     for (uint32_t bit = 0; bit < BITS_PER_LED_CMD; bit++) {
       uint32_t bit_is_set = bits_to_send & mask;
       led_data_buffer[(led * BITS_PER_LED_CMD) + bit] =
-          bit_is_set ? (rmt_item32_t){{{T1H, 1, T1L, 0}}}
-                     : (rmt_item32_t){{{T0H, 1, T0L, 0}}};
+          bit_is_set ? (rmt_symbol_word_t){.duration0 = T1H, .level0 = 1,
+                                           .duration1 = T1L, .level1 = 0}
+                     : (rmt_symbol_word_t){.duration0 = T0H, .level0 = 1,
+                                           .duration1 = T0L, .level1 = 0};
       mask >>= 1;
     }
   }
