@@ -1,7 +1,8 @@
 #ifndef RMT_WRAPPER_HPP
 #define RMT_WRAPPER_HPP
 
-#include "driver/rmt.h"
+#include "driver/rmt_tx.h"
+#include "led_strip_encoder.h"
 #include "driver/gpio.h"
 #include "esp_err.h"
 
@@ -38,7 +39,8 @@ public:
 
 private:
     gpio_num_t m_gpio;
-    rmt_channel_t m_channel;
+    rmt_channel_handle_t m_handle = nullptr;
+    rmt_encoder_handle_t m_encoder = nullptr;
     bool m_active = false;
 };
 
