@@ -15,18 +15,18 @@ WS2812Strip::WS2812Strip(gpio_num_t gpio,
                          uint16_t t0l,
                          uint16_t t1l,
                          uint8_t brightness)
-    : m_rmt(gpio, channel),
+    : m_pixels(numLeds, 0),
+      m_buffer(numLeds * (type == LedType::RGBW ? 32 : 24)),
+      m_rmt(gpio, channel),
       m_gpio(gpio),
       m_channel(channel),
-      m_numLeds(numLeds),
       m_type(type),
       m_t0h(t0h),
       m_t1h(t1h),
       m_t0l(t0l),
       m_t1l(t1l),
       m_brightness(brightness),
-      m_pixels(numLeds, 0),
-      m_buffer(numLeds * (type == LedType::RGBW ? 32 : 24))
+      m_numLeds(numLeds)
 {}
 
 esp_err_t WS2812Strip::begin()
