@@ -18,7 +18,7 @@ WS2812Strip::WS2812Strip(gpio_num_t gpio,
                          uint8_t brightness)
     : m_pixels(numLeds, 0),
       m_buffer(numLeds * (type == LedType::RGBW ? 32 : 24)),
-      m_rmt(gpio, channel),
+      m_rmt(gpio, 10'000'000, 64, false, 4, RMT_CLK_SRC_DEFAULT, channel),
       m_gpio(gpio),
       m_channel(channel),
       m_type(type),
@@ -32,7 +32,7 @@ WS2812Strip::WS2812Strip(gpio_num_t gpio,
 
 esp_err_t WS2812Strip::begin()
 {
-    return m_rmt.begin();
+    return ESP_OK; // channel already active in constructor
 }
 
 void WS2812Strip::setPixel(uint32_t index, uint32_t rgbw)
@@ -79,7 +79,8 @@ esp_err_t WS2812Strip::show()
         }
     }
 
-    return m_rmt.transmit(m_buffer.data(), m_numLeds * bitsPerLed);
+    return m_rmt.transmit(reinterpret_cast<rmt_symbol_word_t*>(m_buffer.data()),
+                          m_numLeds * bitsPerLed);
 }
 
 void WS2812Strip::setBrightness(uint8_t value)
