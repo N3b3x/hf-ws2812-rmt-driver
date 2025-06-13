@@ -25,10 +25,12 @@ config WS2812_NUM_LEDS
 	Specify the number of LEDs that will be controlled through the component. Keep in mind that for every LED in the strip an RGB value needs to be stored in a buffer.
 
 config WS2812_LED_RMT_TX_CHANNEL
-	int "RMT Channel that will be used to modulate the signal."
-	default 0
-	help
-	Defines that RMT Channel that will be used to modulate the signal. Valid values are defined by enum rmt_channel_t (0-7)
+        int "RMT channel number (-1 for auto)"
+        default -1
+        help
+        Select a fixed RMT channel to use for output. Set to -1 to let the
+        driver pick the first free channel automatically. On ESP32-C6 only
+        channels 0-3 are available.
 
 config WS2812_LED_RMT_TX_GPIO
 	int "GPIO number where the WS2812 strip is connected."

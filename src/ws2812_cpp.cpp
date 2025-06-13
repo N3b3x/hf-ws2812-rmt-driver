@@ -4,7 +4,7 @@
 #ifdef __cplusplus
 
 WS2812Strip::WS2812Strip(gpio_num_t gpio,
-                         rmt_channel_t channel,
+                         int channel,
                          uint32_t numLeds,
 #if CONFIG_WS2812_LED_TYPE_RGBW
                          LedType type,
@@ -73,14 +73,15 @@ esp_err_t WS2812Strip::show()
         for (uint32_t bit = 0; bit < bitsPerLed; ++bit) {
             bool set = bits & mask;
             m_buffer[led * bitsPerLed + bit] =
-                set ? (rmt_item32_t){{{m_t1h, 1, m_t1l, 0}}}
-                    : (rmt_item32_t){{{m_t0h, 1, m_t0l, 0}}};
+                set ? (rmt_symbol_word_t){.duration0 = (uint16_t)m_t1h, .level0 = 1,
+                                          .duration1 = (uint16_t)m_t1l, .level1 = 0}
+                    : (rmt_symbol_word_t){.duration0 = (uint16_t)m_t0h, .level0 = 1,
+                                          .duration1 = (uint16_t)m_t0l, .level1 = 0};
             mask >>= 1;
         }
     }
 
-    return m_rmt.transmit(reinterpret_cast<rmt_symbol_word_t*>(m_buffer.data()),
-                          m_numLeds * bitsPerLed);
+    return m_rmt.transmit(m_buffer.data(), m_numLeds * bitsPerLed);
 }
 
 void WS2812Strip::setBrightness(uint8_t value)

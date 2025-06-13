@@ -74,7 +74,7 @@ struct led_state {
  * @param channel  RMT channel to use.
  * @return ESP_OK on success or an error code from the ESP-IDF drivers.
  */
-esp_err_t ws2812ControlInit(gpio_num_t gpio_num, rmt_channel_t channel);
+esp_err_t ws2812ControlInit(gpio_num_t gpio_num, int channel);
 
 /**
  * @brief Send LED colour data.
