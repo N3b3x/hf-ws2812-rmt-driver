@@ -58,7 +58,7 @@ jobs:
             cp -r example/main ${{ env.BUILD_PATH }}/main
             idf.py -C ${{ env.BUILD_PATH }} -DIDF_TARGET=${{ env.IDF_TARGET }} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} build
             idf.py -C ${{ env.BUILD_PATH }} size-components > ${{ env.BUILD_PATH }}/build/size.txt
-            idf.py -C ${{ env.BUILD_PATH }} size-json > ${{ env.BUILD_PATH }}/build/size.json
+            idf.py -C ${{ env.BUILD_PATH }} size --format json > ${{ env.BUILD_PATH }}/build/size.json
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
