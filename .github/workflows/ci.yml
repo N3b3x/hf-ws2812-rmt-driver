@@ -76,6 +76,7 @@ jobs:
 
 
   static-analysis:
+    if: github.event_name == 'pull_request'
     name: Static analyse (cppcheck + clang-tidy)
     runs-on: ubuntu-latest
     needs: build
