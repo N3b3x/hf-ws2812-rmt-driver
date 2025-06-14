@@ -91,9 +91,8 @@ jobs:
 
       - uses: ZedThree/clang-tidy-review@v0.21.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .clang-tidy
-          style: file
 
 
   workflow-lint:
