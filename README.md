@@ -82,7 +82,7 @@
    ```bash
    doxygen Doxyfile
    ```
-   The HTML output can be found under `docs/html/index.html`.
+   The HTML output will be generated in `docs/html/index.html` (ignored from version control).
 
 ---
 
