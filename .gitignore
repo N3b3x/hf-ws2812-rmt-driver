@@ -86,6 +86,3 @@ Thumbs.db
 *.exe
 *.out
 *.app
-
-# Documentation
-docs/
