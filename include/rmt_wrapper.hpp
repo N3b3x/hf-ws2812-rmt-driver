@@ -39,6 +39,8 @@
  */
 #pragma once
 
+#include "esp_idf_version.h"
+
 #if !defined(ESP_IDF_VERSION)
 #error "ESP_IDF_VERSION macro is not defined. Is <esp_idf_version.h> included?"
 #elif ESP_IDF_VERSION_MAJOR < 5
