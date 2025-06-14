@@ -90,6 +90,7 @@ jobs:
           include: main
 
       - uses: ZedThree/clang-tidy-review@v0.21.0
+        if: github.event_name == 'pull_request'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .clang-tidy
