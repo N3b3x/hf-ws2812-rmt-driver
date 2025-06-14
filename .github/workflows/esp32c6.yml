@@ -1,0 +1,38 @@
+name: ESP32C6 CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: espressif/idf:release-v5.5
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install build tools
+        run: |
+          apt-get update
+          apt-get install -y doxygen graphviz clang-format
+
+      - name: Format check
+        run: clang-format --dry-run --Werror include/*.[ch]pp include/*.h src/*.[ch] src/*.cpp example/main/*.cpp
+
+      - name: Build documentation
+        run: doxygen Doxyfile
+
+      - name: Build Release
+        run: |
+          cd example
+          idf.py set-target esp32c6
+          idf.py -DCMAKE_BUILD_TYPE=Release build
+
+      - name: Build Debug
+        run: |
+          cd example
+          idf.py fullclean
+          idf.py set-target esp32c6
+          idf.py -DCMAKE_BUILD_TYPE=Debug build

@@ -10,13 +10,13 @@
  * functions declared here form the public interface for the driver.
  */
 
-#include <stdint.h>
-#include "sdkconfig.h"
-#include "esp_err.h"
 #include "driver/gpio.h"
 #include "driver/rmt_tx.h"
 #include "driver/rmt_types.h"
+#include "esp_err.h"
 #include "led_strip_encoder.h"
+#include "sdkconfig.h"
+#include <stdint.h>
 
 /**
  * @name Driver constants
@@ -60,8 +60,8 @@ extern "C" {
  * white channel value.
  */
 struct led_state {
-    /** Array of packed color values for each LED. */
-    uint32_t leds[NUM_LEDS];
+  /** Array of packed color values for each LED. */
+  uint32_t leds[NUM_LEDS];
 };
 
 /**
