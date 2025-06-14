@@ -81,7 +81,7 @@ jobs:
         with:
           submodules: recursive
 
-      - uses: Sydius/cppcheck-action@v1
+      - uses: deep5050/cppcheck-action@v3.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           enable: all
@@ -89,7 +89,7 @@ jobs:
           std: c99
           include: main
 
-      - uses: ZedThree/clang-tidy-action@v3
+      - uses: ZedThree/clang-tidy-review@v0.21.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .clang-tidy
