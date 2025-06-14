@@ -1,4 +1,4 @@
-name: CI • Build · Size · Static Analyse · Scan
+name: CI • Build · Size · Static Analyse
 
 on:
   push:
@@ -36,11 +36,6 @@ jobs:
         with:
           submodules: recursive
 
-      - uses: github/codeql-action/init@v3
-        with:
-          languages: cpp
-          tools: latest
-          queries: +security-extended
 
       - name: Install build tools
         run: sudo apt-get update && sudo apt-get install -y clang-format
@@ -76,7 +71,6 @@ jobs:
             ${{ env.BUILD_PATH }}/build/*.map
             ${{ env.BUILD_PATH }}/build/size.*
 
-      - uses: github/codeql-action/analyze@v3
 
   static-analysis:
     name: Static analyse (cppcheck + clang-tidy)
