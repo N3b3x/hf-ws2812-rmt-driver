@@ -39,7 +39,9 @@
  */
 #pragma once
 
-#if !defined(ESP_IDF_VERSION) || (ESP_IDF_VERSION_MAJOR < 5)
+#if !defined(ESP_IDF_VERSION)
+#error "ESP_IDF_VERSION macro is not defined. Is <esp_idf_version.h> included?"
+#elif ESP_IDF_VERSION_MAJOR < 5
 #error "This wrapper requires ESP‑IDF v5.0 or newer (uses the new RMT driver)."
 #endif
 
