@@ -66,8 +66,7 @@ esp_err_t ws2812ControlInit(gpio_num_t gpio_num, int channel) {
   tx_cfg.mem_block_symbols = 64;
   tx_cfg.resolution_hz = 10 * 1000 * 1000;
   tx_cfg.trans_queue_depth = 1;
-  ESP_RETURN_ON_ERROR(rmt_new_tx_channel(&tx_cfg, &s_handle), TAG,
-                      "Failed to create RMT channel");
+  ESP_RETURN_ON_ERROR(rmt_new_tx_channel(&tx_cfg, &s_handle), TAG, "Failed to create RMT channel");
 
   led_strip_encoder_config_t enc_cfg = {
       .resolution = tx_cfg.resolution_hz,
@@ -75,8 +74,7 @@ esp_err_t ws2812ControlInit(gpio_num_t gpio_num, int channel) {
   ESP_RETURN_ON_ERROR(rmt_new_led_strip_encoder(&enc_cfg, &s_encoder), TAG,
                       "Failed to create LED encoder");
 
-  ESP_RETURN_ON_ERROR(rmt_enable(s_handle), TAG,
-                      "Failed to enable RMT channel");
+  ESP_RETURN_ON_ERROR(rmt_enable(s_handle), TAG, "Failed to enable RMT channel");
 
   return ESP_OK;
 }
@@ -94,9 +92,9 @@ esp_err_t ws2812WriteLeds(struct led_state new_state) {
   setupRmtDataBuffer(new_state);
   rmt_transmit_config_t tx_cfg = {};
   tx_cfg.loop_count = 0;
-  ESP_RETURN_ON_ERROR(rmt_transmit(s_handle, s_encoder, led_data_buffer,
-                                   sizeof(led_data_buffer), &tx_cfg),
-                      TAG, "Failed to transmit LED data");
+  ESP_RETURN_ON_ERROR(
+      rmt_transmit(s_handle, s_encoder, led_data_buffer, sizeof(led_data_buffer), &tx_cfg), TAG,
+      "Failed to transmit LED data");
   ESP_RETURN_ON_ERROR(rmt_tx_wait_all_done(s_handle, portMAX_DELAY), TAG,
                       "Failed waiting for RMT done");
 
@@ -134,14 +132,9 @@ static void setupRmtDataBuffer(struct led_state new_state) {
     for (uint32_t bit = 0; bit < BITS_PER_LED_CMD; bit++) {
       uint32_t bit_is_set = bits_to_send & mask;
       led_data_buffer[(led * BITS_PER_LED_CMD) + bit] =
-          bit_is_set ? (rmt_symbol_word_t){.duration0 = T1H,
-                                           .level0 = 1,
-                                           .duration1 = T1L,
-                                           .level1 = 0}
-                     : (rmt_symbol_word_t){.duration0 = T0H,
-                                           .level0 = 1,
-                                           .duration1 = T0L,
-                                           .level1 = 0};
+          bit_is_set
+              ? (rmt_symbol_word_t){.duration0 = T1H, .level0 = 1, .duration1 = T1L, .level1 = 0}
+              : (rmt_symbol_word_t){.duration0 = T0H, .level0 = 1, .duration1 = T0L, .level1 = 0};
       mask >>= 1;
     }
   }

@@ -36,10 +36,8 @@ public:
    * @param gpio    Output pin connected to the LEDs.
    * @param channel RMT channel for signal generation.
    */
-  explicit WS2812Strip(gpio_num_t gpio = (gpio_num_t)
-                           CONFIG_WS2812_LED_RMT_TX_GPIO,
-                       int channel = CONFIG_WS2812_LED_RMT_TX_CHANNEL,
-                       uint32_t numLeds = NUM_LEDS,
+  explicit WS2812Strip(gpio_num_t gpio = (gpio_num_t)CONFIG_WS2812_LED_RMT_TX_GPIO,
+                       int channel = CONFIG_WS2812_LED_RMT_TX_CHANNEL, uint32_t numLeds = NUM_LEDS,
 #if CONFIG_WS2812_LED_TYPE_RGBW
                        LedType type = LedType::RGBW,
 #else

@@ -14,9 +14,7 @@ void WS2812Animator::setEffect(Effect effect, uint32_t color) {
   m_brightness = 0;
 }
 
-void WS2812Animator::setVirtualLength(uint32_t length) {
-  m_virtualLength = length;
-}
+void WS2812Animator::setVirtualLength(uint32_t length) { m_virtualLength = length; }
 
 void WS2812Animator::setStep(uint16_t step) { m_step = step; }
 
@@ -45,8 +43,7 @@ void WS2812Animator::tick() {
   case Effect::Rainbow:
     for (uint32_t i = 0; i < stripLen; ++i) {
       uint32_t vIndex = (virtLen == stripLen) ? i : (i * virtLen / stripLen);
-      uint8_t pos =
-          static_cast<uint8_t>((vIndex * 256 / virtLen + m_step) & 0xFF);
+      uint8_t pos = static_cast<uint8_t>((vIndex * 256 / virtLen + m_step) & 0xFF);
       m_strip.setPixel(i, WS2812Strip::colorWheel(pos));
     }
     m_strip.show();
