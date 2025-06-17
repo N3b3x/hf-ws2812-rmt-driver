@@ -24,12 +24,12 @@
  * ### Minimum snippet
  * ```cpp
  * #include "rmt_wrapper.hpp"
- * using namespace hf;
+ * using namespace ws2812;
  *
  * extern "C" void app_main(void)
  * {
  *     static constexpr gpio_num_t LED_PIN = GPIO_NUM_8;  // verified GPIO for
- * ESP32‑C6 hf::RmtTx tx(LED_PIN, 40'000'000);                 // 25 ns
+ * ESP32‑C6 ws2812::RmtTx tx(LED_PIN, 40'000'000);             // 25 ns
  * resolution
  *
  *     uint8_t grb[3] = {0x00, 0xFF, 0x00};               // green pixel
@@ -63,7 +63,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 
-namespace hf {
+namespace ws2812 {
 
 namespace detail {
 [[nodiscard]] inline esp_err_t log_if_error(esp_err_t err, const char *tag, const char *msg) {
@@ -314,4 +314,4 @@ private:
   rmt_receive_config_t _rcv_cfg = {};
 };
 
-} // namespace hf
+} // namespace ws2812
