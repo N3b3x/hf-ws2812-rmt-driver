@@ -1,26 +1,40 @@
-# ESP-IDF build output
+# Build directories (ESP-IDF and general)
+**/build/
+**/build_*/
+**/build*/
 /build/
-/*.elf
-/*.bin
-/*.map
-/*.hex
-/*.log
+build/
+examples/esp32/build*/
+examples/esp32/**/build*/
 
 # ESP-IDF specific
-/sdkconfig.*
-/sdkconfig.old
-/sdkconfig.defaults
-/partition_table.csv
+# sdkconfig and sdkconfig.defaults should be tracked (contain important ESP32 configuration)
+# Only ignore backup files
+**/sdkconfig.old
+**/partition_table.csv
+**/*.elf
+**/*.bin
+**/*.map
+**/*.hex
+**/*.img
+**/*.ota
 
 # CMake and Make build folders
 CMakeFiles/
-*/CMakeFiles/
+**/CMakeFiles/
 CMakeCache.txt
+**/CMakeCache.txt
 cmake_install.cmake
+**/cmake_install.cmake
 Makefile
+**/Makefile
 
-# VSCode settings
-.vscode/
+# Dependencies
+**/dependencies.lock
+
+# VSCode user-specific files (keep .vscode/ but ignore user files)
+.vscode/settings.json.user
+.vscode/*.backup
 
 # CLion settings
 .idea/
@@ -50,8 +64,25 @@ __pycache__/
 # ESP-IDF test output
 /test_output/
 
-# Misc
+# Documentation output
+**/docs/html/
+**/docs/doxygen/
+docs/doxygen/
+
+# Cache
+**/.cache/
+.cache/
+
+# Compile commands
+**/compile_commands.json
+
+# Log files
+**/logs/
+**/*.log
+
+# OS files
 .DS_Store
+**/.DS_Store
 Thumbs.db
 
 # Prerequisites

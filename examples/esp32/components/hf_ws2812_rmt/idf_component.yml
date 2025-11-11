@@ -1,0 +1,8 @@
+name: hf-ws2812-rmt-driver
+version: "1.0.0"
+description: Hardware-agnostic WS2812 driver component
+maintainers:
+  - "HardFOC"
+targets:
+  - esp32
+  - esp32c6

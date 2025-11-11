@@ -6,7 +6,7 @@ idf_component_register(
         "src/ws2812_multi_animator.cpp"
         "src/led_strip_encoder.c"
     INCLUDE_DIRS
-        "include"
+        "inc"
     REQUIRES
         driver
         freertos

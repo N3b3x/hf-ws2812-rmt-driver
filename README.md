@@ -1,7 +1,26 @@
-# HF-WS2812  
+---
+layout: default
+title: "HardFOC WS2812 Driver"
+description: "ESP32 RMT based WS2812/NeoPixel Driver"
+nav_order: 1
+permalink: /
+---
+
+# HF-WS2812 Driver
 **ESP32 RMT based WS2812/NeoPixel Driver — used in the HardFOC-V1 controller**
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+## 📚 Table of Contents
+1. [Overview](#-overview)
+2. [Features](#-features)
+3. [Quick Start](#-quick-start)
+4. [Installation](#-installation)
+5. [API Reference](#-api-reference)
+6. [Examples](#-examples)
+7. [Documentation](#-documentation)
+8. [Contributing](#-contributing)
+9. [License](#-license)
 
 ---
 
@@ -39,7 +58,7 @@
 ├── CMakeLists.txt              # Component build configuration
 ├── component.mk                # Legacy build support
 ├── Kconfig                     # Configuration options
-├── Doxyfile                    # Doxygen config
+├── _config/Doxyfile                    # Doxygen config
 └── README.md                   # Project documentation
 ```
 
@@ -80,7 +99,7 @@
    ```
 4. Generate the API reference with:
    ```bash
-   doxygen Doxyfile
+   doxygen _config/Doxyfile
    ```
    The HTML output will be generated in `docs/html/index.html` (ignored from version control).
 
@@ -276,12 +295,13 @@ See the [LICENSE](./LICENSE) file for more information.
 
 ---
 
+## 📚 Documentation
+
+For detailed documentation, see the [docs](docs/) directory. Generate API reference with:
+```bash
+doxygen _config/Doxyfile
+```
+
 ## 🤝 Contributing
 
-Pull requests and suggestions are welcome!  
-To contribute:
-
-1. Fork the repository  
-2. Create a new branch for your feature/fix  
-3. Commit your changes  
-4. Open a pull request and describe your contribution  
+Pull requests and suggestions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.  
