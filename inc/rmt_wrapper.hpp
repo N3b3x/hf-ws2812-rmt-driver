@@ -66,7 +66,7 @@
 namespace ws2812 {
 
 namespace detail {
-[[nodiscard]] inline esp_err_t log_if_error(esp_err_t err, const char *tag, const char *msg) {
+[[nodiscard]] inline esp_err_t log_if_error(esp_err_t err, const char* tag, const char* msg) {
   if (err != ESP_OK) {
     ESP_LOGE(tag, "%s: %s", msg, esp_err_to_name(err));
   }
@@ -118,11 +118,13 @@ public:
     ESP_ERROR_CHECK(rmt_new_copy_encoder(&copy_cfg, &_copy_encoder));
   }
 
-  RmtTx(const RmtTx &) = delete;
-  RmtTx &operator=(const RmtTx &) = delete;
+  RmtTx(const RmtTx&) = delete;
+  RmtTx& operator=(const RmtTx&) = delete;
 
-  RmtTx(RmtTx &&other) noexcept { *this = std::move(other); }
-  RmtTx &operator=(RmtTx &&other) noexcept {
+  RmtTx(RmtTx&& other) noexcept {
+    *this = std::move(other);
+  }
+  RmtTx& operator=(RmtTx&& other) noexcept {
     std::swap(_handle, other._handle);
     std::swap(_copy_encoder, other._copy_encoder);
     std::swap(_ws_encoder, other._ws_encoder);
@@ -142,7 +144,7 @@ public:
   /**
    * @brief Transmit raw RMT symbols (blocking until done).
    */
-  esp_err_t transmit(const rmt_symbol_word_t *symbols, size_t count,
+  esp_err_t transmit(const rmt_symbol_word_t* symbols, size_t count,
                      TickType_t timeout = portMAX_DELAY) const {
     rmt_transmit_config_t tx_cfg = {};
     tx_cfg.loop_count = 0;
@@ -160,8 +162,8 @@ public:
    * @param bit0  Symbol encoding logic‑0 (LSB first by default).
    * @param bit1  Symbol encoding logic‑1.
    */
-  esp_err_t transmit_bytes(const uint8_t *data, size_t length, const rmt_symbol_word_t &bit0,
-                           const rmt_symbol_word_t &bit1, TickType_t timeout = portMAX_DELAY) {
+  esp_err_t transmit_bytes(const uint8_t* data, size_t length, const rmt_symbol_word_t& bit0,
+                           const rmt_symbol_word_t& bit1, TickType_t timeout = portMAX_DELAY) {
     // Create a throw‑away bytes encoder (kept only for this call)
     rmt_bytes_encoder_config_t be_cfg = {};
     be_cfg.bit0 = bit0;
@@ -184,7 +186,7 @@ public:
    * @brief Helper dedicated to WS2812/NeoPixel @ 800 kHz.
    * Uses 10 MHz or faster resolution to achieve accurate timings.
    */
-  esp_err_t transmit_ws2812(const uint8_t *grb, size_t length, TickType_t timeout = portMAX_DELAY) {
+  esp_err_t transmit_ws2812(const uint8_t* grb, size_t length, TickType_t timeout = portMAX_DELAY) {
     if (!_ws_encoder) {
       rmt_bytes_encoder_config_t ws_cfg = {};
       ws_cfg.bit0 = make_ws2812_bit0();
@@ -200,7 +202,9 @@ public:
     return err;
   }
 
-  rmt_channel_handle_t handle() const { return _handle; }
+  rmt_channel_handle_t handle() const {
+    return _handle;
+  }
 
 private:
   static constexpr rmt_symbol_word_t make_ws2812_bit0(uint32_t resolution_hz = 10'000'000) {
@@ -259,10 +263,12 @@ public:
     _rcv_cfg.signal_range_min_ns = filter_ns;
   }
 
-  RmtRx(const RmtRx &) = delete;
-  RmtRx &operator=(const RmtRx &) = delete;
-  RmtRx(RmtRx &&o) noexcept { *this = std::move(o); }
-  RmtRx &operator=(RmtRx &&o) noexcept {
+  RmtRx(const RmtRx&) = delete;
+  RmtRx& operator=(const RmtRx&) = delete;
+  RmtRx(RmtRx&& o) noexcept {
+    *this = std::move(o);
+  }
+  RmtRx& operator=(RmtRx&& o) noexcept {
     std::swap(_handle, o._handle);
     std::swap(_queue, o._queue);
     std::swap(_rcv_cfg, o._rcv_cfg);
@@ -281,7 +287,7 @@ public:
    *
    * The caller must provide a buffer sized to hold `buffer_symbols` symbols.
    */
-  esp_err_t receive(rmt_symbol_word_t *buffer, size_t buffer_symbols, size_t *out_symbols,
+  esp_err_t receive(rmt_symbol_word_t* buffer, size_t buffer_symbols, size_t* out_symbols,
                     TickType_t timeout = portMAX_DELAY) {
     if (!buffer || !out_symbols)
       return ESP_ERR_INVALID_ARG;
@@ -298,12 +304,14 @@ public:
     return ESP_OK;
   }
 
-  rmt_channel_handle_t handle() const { return _handle; }
+  rmt_channel_handle_t handle() const {
+    return _handle;
+  }
 
 private:
   static bool rx_done_cb_static(rmt_channel_handle_t /*chan*/,
-                                const rmt_rx_done_event_data_t *edata, void *user_ctx) {
-    auto *self = static_cast<RmtRx *>(user_ctx);
+                                const rmt_rx_done_event_data_t* edata, void* user_ctx) {
+    auto* self = static_cast<RmtRx*>(user_ctx);
     BaseType_t HPW = pdFALSE;
     xQueueSendFromISR(self->_queue, &edata->num_symbols, &HPW);
     return HPW == pdTRUE; // context switch request

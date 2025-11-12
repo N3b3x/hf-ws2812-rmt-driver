@@ -27,7 +27,7 @@
 #define T1L CONFIG_WS2812_T1L
 
 // Tag for log messages
-static const char *TAG = "NeoPixel WS2812 Driver";
+static const char* TAG = "NeoPixel WS2812 Driver";
 
 // This is the buffer which the hw peripheral will access while pulsing the
 // output pin
@@ -101,7 +101,9 @@ esp_err_t ws2812WriteLeds(struct led_state new_state) {
   return ESP_OK;
 }
 
-void ws2812SetBrightness(uint8_t brightness) { s_brightness = brightness; }
+void ws2812SetBrightness(uint8_t brightness) {
+  s_brightness = brightness;
+}
 
 /**
  * @brief Convert colour values into RMT items for transmission.

@@ -26,7 +26,9 @@ void WS2812Strip::setPixel(uint32_t index, uint32_t rgbw) {
   }
 }
 
-uint32_t WS2812Strip::length() const { return m_numLeds; }
+uint32_t WS2812Strip::length() const {
+  return m_numLeds;
+}
 
 esp_err_t WS2812Strip::show() {
   uint32_t bitsPerLed = (m_type == LedType::RGBW) ? 32 : 24;
@@ -67,7 +69,9 @@ esp_err_t WS2812Strip::show() {
   return m_rmt.transmit(m_buffer.data(), m_numLeds * bitsPerLed);
 }
 
-void WS2812Strip::setBrightness(uint8_t value) { m_brightness = value; }
+void WS2812Strip::setBrightness(uint8_t value) {
+  m_brightness = value;
+}
 
 void WS2812Strip::setTimings(uint16_t t0h, uint16_t t1h, uint16_t t0l, uint16_t t1l) {
   m_t0h = t0h;

@@ -26,6 +26,9 @@ permalink: /
 
 ## 📦 Overview
 
+> **📖 [📚🌐 Live Complete Documentation](https://n3b3x.github.io/hf-ws2812-rmt-driver/)** - 
+> Interactive guides, examples, and step-by-step tutorials
+
 **HF-WS2812** is a lightweight ESP-IDF component that provides precise timing for WS2812-compatible LED strips via the RMT peripheral. While compile-time defaults exist, the `WS2812Strip` C++ class lets you supply GPIO, channel, LED type and timing parameters dynamically. A minimal C API is provided, with an optional C++ wrapper for easier integration in modern applications.
 
 ---

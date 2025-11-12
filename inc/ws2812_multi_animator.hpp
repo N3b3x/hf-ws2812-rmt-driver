@@ -18,7 +18,7 @@ public:
    * @param unified  If true all strips share the longest length.
    * @param sync     If true keep animation steps in sync.
    */
-  explicit WS2812MultiAnimator(const std::vector<WS2812Strip *> &strips, bool unified = true,
+  explicit WS2812MultiAnimator(const std::vector<WS2812Strip*>& strips, bool unified = true,
                                bool sync = true);
 
   /**

@@ -2,16 +2,16 @@
 
 #ifdef __cplusplus
 
-WS2812MultiAnimator::WS2812MultiAnimator(const std::vector<WS2812Strip *> &strips, bool unified,
+WS2812MultiAnimator::WS2812MultiAnimator(const std::vector<WS2812Strip*>& strips, bool unified,
                                          bool sync)
     : m_sync(sync) {
   uint32_t maxLen = 0;
-  for (auto *s : strips) {
+  for (auto* s : strips) {
     if (s && s->length() > maxLen) {
       maxLen = s->length();
     }
   }
-  for (auto *s : strips) {
+  for (auto* s : strips) {
     if (!s)
       continue;
     m_animators.emplace_back(*s, unified ? maxLen : 0);
@@ -19,7 +19,7 @@ WS2812MultiAnimator::WS2812MultiAnimator(const std::vector<WS2812Strip *> &strip
 }
 
 void WS2812MultiAnimator::setEffect(WS2812Animator::Effect eff, uint32_t color) {
-  for (auto &a : m_animators) {
+  for (auto& a : m_animators) {
     a.setEffect(eff, color);
   }
 }
@@ -32,11 +32,11 @@ void WS2812MultiAnimator::setEffect(size_t idx, WS2812Animator::Effect eff, uint
 
 void WS2812MultiAnimator::tick() {
   if (m_sync) {
-    for (auto &a : m_animators) {
+    for (auto& a : m_animators) {
       a.setStep(m_step);
     }
   }
-  for (auto &a : m_animators) {
+  for (auto& a : m_animators) {
     a.tick();
   }
   if (m_sync && !m_animators.empty()) {

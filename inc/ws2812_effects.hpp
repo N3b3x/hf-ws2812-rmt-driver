@@ -15,7 +15,7 @@ class WS2812Animator {
 public:
   enum class Effect { Off, SolidColor, Rainbow, Chase, Blink, Breath, Larson };
 
-  explicit WS2812Animator(WS2812Strip &strip, uint32_t virtualLength = 0);
+  explicit WS2812Animator(WS2812Strip& strip, uint32_t virtualLength = 0);
 
   /**
    * @brief Select the active effect.
@@ -38,7 +38,7 @@ public:
   void tick();
 
 private:
-  WS2812Strip &m_strip;
+  WS2812Strip& m_strip;
   bool m_initialized = false;
   uint32_t m_virtualLength = 0;
   Effect m_effect = Effect::Off;

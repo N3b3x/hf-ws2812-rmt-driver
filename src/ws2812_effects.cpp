@@ -3,7 +3,7 @@
 
 #ifdef __cplusplus
 
-WS2812Animator::WS2812Animator(WS2812Strip &strip, uint32_t virtualLength)
+WS2812Animator::WS2812Animator(WS2812Strip& strip, uint32_t virtualLength)
     : m_strip(strip), m_virtualLength(virtualLength) {}
 
 void WS2812Animator::setEffect(Effect effect, uint32_t color) {
@@ -14,11 +14,17 @@ void WS2812Animator::setEffect(Effect effect, uint32_t color) {
   m_brightness = 0;
 }
 
-void WS2812Animator::setVirtualLength(uint32_t length) { m_virtualLength = length; }
+void WS2812Animator::setVirtualLength(uint32_t length) {
+  m_virtualLength = length;
+}
 
-void WS2812Animator::setStep(uint16_t step) { m_step = step; }
+void WS2812Animator::setStep(uint16_t step) {
+  m_step = step;
+}
 
-uint16_t WS2812Animator::step() const { return m_step; }
+uint16_t WS2812Animator::step() const {
+  return m_step;
+}
 
 void WS2812Animator::tick() {
   if (!m_initialized) {

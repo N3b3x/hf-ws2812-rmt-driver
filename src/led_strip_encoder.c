@@ -7,20 +7,20 @@
 #include "led_strip_encoder.h"
 #include "esp_check.h"
 
-static const char *TAG = "led_encoder";
+static const char* TAG = "led_encoder";
 
 typedef struct {
   rmt_encoder_t base;
-  rmt_encoder_t *bytes_encoder;
-  rmt_encoder_t *copy_encoder;
+  rmt_encoder_t* bytes_encoder;
+  rmt_encoder_t* copy_encoder;
   int state;
   rmt_symbol_word_t reset_code;
 } rmt_led_strip_encoder_t;
 
-static size_t rmt_encode_led_strip(rmt_encoder_t *encoder, rmt_channel_handle_t channel,
-                                   const void *primary_data, size_t data_size,
-                                   rmt_encode_state_t *ret_state) {
-  rmt_led_strip_encoder_t *led_encoder = __containerof(encoder, rmt_led_strip_encoder_t, base);
+static size_t rmt_encode_led_strip(rmt_encoder_t* encoder, rmt_channel_handle_t channel,
+                                   const void* primary_data, size_t data_size,
+                                   rmt_encode_state_t* ret_state) {
+  rmt_led_strip_encoder_t* led_encoder = __containerof(encoder, rmt_led_strip_encoder_t, base);
   rmt_encoder_handle_t bytes_encoder = led_encoder->bytes_encoder;
   rmt_encoder_handle_t copy_encoder = led_encoder->copy_encoder;
   rmt_encode_state_t session_state = RMT_ENCODING_RESET;
@@ -55,26 +55,26 @@ out:
   return encoded_symbols;
 }
 
-static esp_err_t rmt_del_led_strip_encoder(rmt_encoder_t *encoder) {
-  rmt_led_strip_encoder_t *led_encoder = __containerof(encoder, rmt_led_strip_encoder_t, base);
+static esp_err_t rmt_del_led_strip_encoder(rmt_encoder_t* encoder) {
+  rmt_led_strip_encoder_t* led_encoder = __containerof(encoder, rmt_led_strip_encoder_t, base);
   rmt_del_encoder(led_encoder->bytes_encoder);
   rmt_del_encoder(led_encoder->copy_encoder);
   free(led_encoder);
   return ESP_OK;
 }
 
-static esp_err_t rmt_led_strip_encoder_reset(rmt_encoder_t *encoder) {
-  rmt_led_strip_encoder_t *led_encoder = __containerof(encoder, rmt_led_strip_encoder_t, base);
+static esp_err_t rmt_led_strip_encoder_reset(rmt_encoder_t* encoder) {
+  rmt_led_strip_encoder_t* led_encoder = __containerof(encoder, rmt_led_strip_encoder_t, base);
   rmt_encoder_reset(led_encoder->bytes_encoder);
   rmt_encoder_reset(led_encoder->copy_encoder);
   led_encoder->state = RMT_ENCODING_RESET;
   return ESP_OK;
 }
 
-esp_err_t rmt_new_led_strip_encoder(const led_strip_encoder_config_t *config,
-                                    rmt_encoder_handle_t *ret_encoder) {
+esp_err_t rmt_new_led_strip_encoder(const led_strip_encoder_config_t* config,
+                                    rmt_encoder_handle_t* ret_encoder) {
   esp_err_t ret = ESP_OK;
-  rmt_led_strip_encoder_t *led_encoder = NULL;
+  rmt_led_strip_encoder_t* led_encoder = NULL;
   ESP_GOTO_ON_FALSE(config && ret_encoder, ESP_ERR_INVALID_ARG, err, TAG, "invalid argument");
   led_encoder = rmt_alloc_encoder_mem(sizeof(rmt_led_strip_encoder_t));
   ESP_GOTO_ON_FALSE(led_encoder, ESP_ERR_NO_MEM, err, TAG, "no mem for led strip encoder");
