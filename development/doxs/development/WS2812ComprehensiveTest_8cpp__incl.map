@@ -1,0 +1,72 @@
+<map id="examples/esp32/main/WS2812ComprehensiveTest.cpp" name="examples/esp32/main/WS2812ComprehensiveTest.cpp">
+<area shape="rect" id="Node000001" title="Comprehensive test suite for WS2812 driver on ESP32&#45;C6." alt="" coords="2089,5,2323,45"/>
+<area shape="rect" id="Node000002" href="$ws2812__cpp_8hpp.html" title=" " alt="" coords="973,93,1103,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2089,37,1117,102,1117,97,2089,32"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1971,240,2055,265"/>
+<area shape="poly" id="edge40_Node000001_Node000011" title=" " alt="" coords="2192,47,2034,231,2030,227,2188,44"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="2079,240,2229,265"/>
+<area shape="poly" id="edge38_Node000001_Node000016" title=" " alt="" coords="2204,46,2162,227,2157,226,2199,45"/>
+<area shape="rect" id="Node000026" href="$TestFramework_8h.html" title="Shared testing framework for ESP32&#45;C6 comprehensive test suites." alt="" coords="2191,167,2325,192"/>
+<area shape="poly" id="edge29_Node000001_Node000026" title=" " alt="" coords="2215,45,2252,153,2247,154,2210,47"/>
+<area shape="rect" id="Node000029" title=" " alt="" coords="2691,240,2809,265"/>
+<area shape="poly" id="edge39_Node000001_Node000029" title=" " alt="" coords="2241,43,2309,78,2388,116,2561,184,2703,233,2701,238,2559,189,2386,121,2306,83,2239,48"/>
+<area shape="rect" id="Node000030" title=" " alt="" coords="2399,93,2477,119"/>
+<area shape="poly" id="edge37_Node000001_Node000030" title=" " alt="" coords="2262,43,2392,86,2390,91,2261,48"/>
+<area shape="rect" id="Node000003" href="$rmt__wrapper_8hpp.html" title="A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT driver." alt="" coords="1160,167,1292,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1069,116,1184,159,1182,164,1067,121"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="734,240,801,265"/>
+<area shape="poly" id="edge27_Node000002_Node000008" title=" " alt="" coords="1018,121,802,236,800,231,1015,117"/>
+<area shape="rect" id="Node000018" href="$ws2812__control_8h.html" title="ESP&#45;IDF RMT based driver for WS2812 / NeoPixel LED chains." alt="" coords="390,167,526,192"/>
+<area shape="poly" id="edge17_Node000002_Node000018" title=" " alt="" coords="973,118,540,171,539,165,972,113"/>
+<area shape="rect" id="Node000025" title=" " alt="" coords="1007,167,1069,192"/>
+<area shape="poly" id="edge28_Node000002_Node000025" title=" " alt="" coords="1041,119,1041,153,1035,153,1035,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="1810,240,1946,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1292,184,1512,206,1797,237,1796,242,1511,211,1292,189"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="825,240,881,265"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="1160,193,1041,213,895,242,894,237,1040,208,1159,188"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="905,240,971,265"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="1180,195,985,242,984,237,1178,189"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="996,240,1067,265"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="1196,195,1077,238,1075,233,1194,190"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="1160,191,1006,211,815,243,814,237,1006,205,1159,185"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1091,240,1151,265"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="1211,194,1151,235,1148,230,1208,190"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1175,240,1277,265"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="1229,192,1229,226,1223,226,1223,192"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="1293,181,1577,198,1764,214,1957,237,1957,243,1764,220,1577,203,1292,186"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="1353,240,1515,265"/>
+<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="1260,189,1388,233,1386,238,1259,195"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="670,313,827,339"/>
+<area shape="poly" id="edge12_Node000003_Node000013" title=" " alt="" coords="1247,190,1268,205,1287,224,1297,245,1297,257,1291,267,1268,279,1227,290,1109,306,969,317,841,324,841,318,968,312,1108,300,1226,284,1266,274,1287,263,1292,255,1292,246,1283,227,1264,209,1244,194"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1668,240,1787,265"/>
+<area shape="poly" id="edge13_Node000003_Node000014" title=" " alt="" coords="1293,187,1655,237,1654,243,1292,192"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="591,240,709,265"/>
+<area shape="poly" id="edge14_Node000003_Node000015" title=" " alt="" coords="1160,190,969,212,723,243,723,237,968,206,1160,185"/>
+<area shape="poly" id="edge15_Node000003_Node000016" title=" " alt="" coords="1293,181,1620,201,2065,237,2065,243,1620,207,1292,187"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="2253,240,2383,265"/>
+<area shape="poly" id="edge16_Node000003_Node000017" title=" " alt="" coords="1292,180,1689,197,1960,214,2240,237,2239,243,1959,219,1688,202,1292,185"/>
+<area shape="poly" id="edge19_Node000018_Node000015" title=" " alt="" coords="490,190,607,232,605,237,488,195"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="1539,240,1643,265"/>
+<area shape="poly" id="edge18_Node000018_Node000019" title=" " alt="" coords="527,179,699,183,945,193,1231,210,1526,237,1525,243,1230,215,944,198,699,188,526,184"/>
+<area shape="rect" id="Node000020" title=" " alt="" coords="319,240,461,265"/>
+<area shape="poly" id="edge20_Node000018_Node000020" title=" " alt="" coords="449,194,413,232,409,228,445,190"/>
+<area shape="rect" id="Node000021" title=" " alt="" coords="485,240,567,265"/>
+<area shape="poly" id="edge21_Node000018_Node000021" title=" " alt="" coords="471,190,507,228,504,232,467,194"/>
+<area shape="rect" id="Node000022" href="$led__strip__encoder_8h.html" title=" " alt="" coords="25,240,173,265"/>
+<area shape="poly" id="edge22_Node000018_Node000022" title=" " alt="" coords="401,195,171,240,170,235,400,189"/>
+<area shape="rect" id="Node000023" title=" " alt="" coords="8,313,79,339"/>
+<area shape="poly" id="edge26_Node000018_Node000023" title=" " alt="" coords="390,188,166,208,66,223,32,232,15,242,9,255,10,270,26,301,21,303,5,271,3,254,11,238,30,227,65,218,166,202,390,182"/>
+<area shape="rect" id="Node000024" title=" " alt="" coords="198,240,294,265"/>
+<area shape="poly" id="edge25_Node000018_Node000024" title=" " alt="" coords="425,195,294,238,292,233,423,189"/>
+<area shape="poly" id="edge23_Node000022_Node000013" title=" " alt="" coords="174,261,186,263,657,313,656,318,186,268,173,266"/>
+<area shape="poly" id="edge24_Node000022_Node000023" title=" " alt="" coords="92,267,63,304,59,301,88,264"/>
+<area shape="poly" id="edge30_Node000026_Node000011" title=" " alt="" coords="2219,195,2066,239,2065,234,2218,189"/>
+<area shape="poly" id="edge33_Node000026_Node000016" title=" " alt="" coords="2243,194,2184,234,2181,230,2240,190"/>
+<area shape="poly" id="edge34_Node000026_Node000017" title=" " alt="" coords="2270,191,2302,228,2298,231,2266,194"/>
+<area shape="poly" id="edge32_Node000026_Node000019" title=" " alt="" coords="2191,188,1959,208,1657,243,1657,237,1959,203,2191,183"/>
+<area shape="rect" id="Node000027" title=" " alt="" coords="2569,240,2667,265"/>
+<area shape="poly" id="edge31_Node000026_Node000027" title=" " alt="" coords="2316,189,2556,236,2555,242,2315,195"/>
+<area shape="rect" id="Node000028" title=" " alt="" coords="2407,240,2544,265"/>
+<area shape="poly" id="edge35_Node000026_Node000028" title=" " alt="" coords="2294,189,2428,233,2426,238,2292,195"/>
+<area shape="poly" id="edge36_Node000026_Node000029" title=" " alt="" coords="2325,187,2678,237,2677,242,2325,192"/>
+</map>

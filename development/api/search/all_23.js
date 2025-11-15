@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['🏗️_20common_20integration_20patterns_0',['🏗️ Common Integration Patterns',['../md_examples_2esp32_2scripts_2docs_2ci-integration-patterns.html#autotoc_md253',1,'']]],
+  ['🏗️_20project_20structure_1',['🏗️ Project Structure',['../md_examples_2esp32_2scripts_2docs_2contributing_2index.html#autotoc_md328',1,'']]],
+  ['🏗️_20strong_20architecture_20and_20design_20strong_2',['🏗️ strong Architecture and Design strong',['../md_examples_2esp32_2scripts_2docs_2advanced_2port-detection_2index.html#autotoc_md73',1,'🏗️ &lt;strong&gt;Architecture and Design&lt;/strong&gt;'],['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html#autotoc_md159',1,'🏗️ &lt;strong&gt;Architecture and Design&lt;/strong&gt;'],['../md_examples_2esp32_2scripts_2docs_2configuration_2index.html#autotoc_md294',1,'🏗️ &lt;strong&gt;Architecture and Design&lt;/strong&gt;'],['../md_examples_2esp32_2scripts_2docs_2flash-system_2index.html#autotoc_md379',1,'🏗️ &lt;strong&gt;Architecture and Design&lt;/strong&gt;'],['../md_examples_2esp32_2scripts_2docs_2logging-system_2index.html#autotoc_md561',1,'🏗️ &lt;strong&gt;Architecture and Design&lt;/strong&gt;']]]
+];

@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['generate_5fmatrix_0',['generate_matrix',['../namespacegenerate__matrix.html',1,'generate_matrix'],['../namespacegenerate__matrix.html#a6b067b122c544c69a47ededfbb89a251',1,'generate_matrix.generate_matrix()']]],
+  ['generate_5fmatrix_2epy_1',['generate_matrix.py',['../generate__matrix_8py.html',1,'']]],
+  ['generated_20configuration_2',['Generated Configuration',['../md_examples_2esp32_2scripts_2docs_2getting-started_2project-setup_2index.html#autotoc_md522',1,'']]],
+  ['generated_20project_20structure_3',['Generated Project Structure',['../md_examples_2esp32_2scripts_2docs_2getting-started_2project-setup_2index.html#autotoc_md521',1,'']]],
+  ['generation_20and_20capture_20strong_4',['📝 &lt;strong&gt;Log Generation and Capture&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2logging-system_2index.html#autotoc_md565',1,'']]],
+  ['generation_20strong_5',['Generation strong',['../md_examples_2esp32_2scripts_2docs_2logging-system_2index.html#autotoc_md566',1,'&lt;strong&gt;Automatic Log Generation&lt;/strong&gt;'],['../md_examples_2esp32_2scripts_2docs_2flash-system_2index.html#autotoc_md408',1,'&lt;strong&gt;Log Generation&lt;/strong&gt;']]],
+  ['get_6',['🛠️ What You Get',['../md_examples_2esp32_2scripts_2docs_2getting-started_2index.html#autotoc_md485',1,'']]],
+  ['get_5fapp_5finfo_7',['get_app_info',['../namespaceget__app__info.html',1,'']]],
+  ['get_5fapp_5finfo_2epy_8',['get_app_info.py',['../get__app__info_8py.html',1,'']]],
+  ['get_5fapp_5fsource_5ffile_9',['get_app_source_file',['../namespaceget__app__info.html#a207e4f805a038aac16ad474c48ced656',1,'get_app_info']]],
+  ['get_5fsuccess_5fpercentage_10',['get_success_percentage',['../structTestResults.html#ab98f9ad5f994aa31bd7c0cd8ae551fb8',1,'TestResults']]],
+  ['get_5ftotal_5ftime_5fms_11',['get_total_time_ms',['../structTestResults.html#a6d2e718d81a8b4a4dcca515ee858de57',1,'TestResults']]],
+  ['getting_20help_12',['Getting Help',['../md_examples_2esp32_2scripts_2docs_2troubleshooting_2index.html#autotoc_md670',1,'🆘 Getting Help'],['../md_examples_2esp32_2scripts_2docs_2contributing_2index.html#autotoc_md332',1,'📞 Getting Help'],['../md_examples_2esp32_2scripts_2docs_2reference.html#autotoc_md648',1,'Getting Help']]],
+  ['getting_20started_13',['Getting Started',['../md_examples_2esp32_2scripts_2docs_2contributing_2index.html#autotoc_md306',1,'']]],
+  ['getting_20started_20with_20hardfoc_20esp_20idf_20project_20tools_14',['Getting Started with HardFOC ESP-IDF Project Tools',['../md_examples_2esp32_2scripts_2docs_2getting-started_2index.html',1,'']]],
+  ['git_20submodule_15',['Method 2: Git Submodule',['../md_examples_2esp32_2scripts_2docs_2getting-started_2installation_2index.html#autotoc_md498',1,'']]],
+  ['github_20actions_16',['GitHub Actions',['../md_examples_2esp32_2scripts_2docs_2advanced_2multi-version-idf_2index.html#autotoc_md54',1,'']]],
+  ['github_20actions_20integration_17',['GitHub Actions Integration',['../md_examples_2esp32_2scripts_2docs_2ci-pipeline.html#autotoc_md271',1,'']]],
+  ['github_20actions_20integration_20strong_18',['&lt;strong&gt;GitHub Actions Integration&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html#autotoc_md240',1,'']]],
+  ['github_20actions_20secrets_19',['GitHub Actions Secrets',['../md_examples_2esp32_2scripts_2docs_2getting-started_2configuration_2index.html#autotoc_md469',1,'']]],
+  ['gitlab_20ci_20integration_20strong_20',['&lt;strong&gt;GitLab CI Integration&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html#autotoc_md241',1,'']]],
+  ['gpio14_20test_20indicator_21',['GPIO14 Test Indicator',['../index.html#autotoc_md25',1,'']]],
+  ['guide_22',['Guide',['../md_examples_2esp32_2scripts_2docs_2configuration_2centralized_2index.html',1,'Centralized Configuration Guide'],['../md_examples_2esp32_2scripts_2docs_2getting-started_2configuration_2index.html',1,'Configuration Guide'],['../md_examples_2esp32_2scripts_2docs_2configuration_2index.html',1,'ESP-IDF Configuration System Guide'],['../md_examples_2esp32_2scripts_2docs_2flash-system_2index.html',1,'ESP-IDF Flash System Guide'],['../md_examples_2esp32_2scripts_2docs_2logging-system_2index.html',1,'ESP-IDF Logging System Guide'],['../md_examples_2esp32_2scripts_2docs_2advanced_2port-detection_2index.html',1,'ESP-IDF Port Detection Guide'],['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html',1,'ESP32 Utility Scripts Guide'],['../md_examples_2esp32_2scripts_2docs_2getting-started_2installation_2index.html',1,'Installation Guide'],['../md_examples_2esp32_2scripts_2docs_2troubleshooting_2index.html',1,'Troubleshooting Guide']]],
+  ['guide_20strong_23',['&lt;strong&gt;Setup Script Selection Guide&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html#autotoc_md182',1,'']]],
+  ['guidelines_24',['Guidelines',['../md_examples_2esp32_2scripts_2docs_2contributing_2index.html#autotoc_md327',1,'Community Guidelines'],['../md_examples_2esp32_2scripts_2docs_2contributing_2index.html#autotoc_md320',1,'Documentation Guidelines'],['../md_examples_2esp32_2scripts_2docs_2contributing_2index.html#autotoc_md324',1,'Test Guidelines']]]
+];

@@ -1,0 +1,13 @@
+version: "0.1.0"
+description: "ESP32 RMT based WS2812/NeoPixel driver"
+url: https://github.com/N3b3x/hf-ws2812-rmt-driver
+license: GPL-3.0-or-later
+targets:
+  - esp32
+  - esp32s2
+  - esp32s3
+  - esp32c3
+  - esp32c6
+  - esp32h2
+examples:
+  - path: example
