@@ -8,9 +8,9 @@ WS2812 is a generic LED driver IC used in addressable RGB LED strips (commonly k
 
 ## Finding Datasheets
 
-Datasheets for WS2812 and compatible LEDs can be found on manufacturer websites:
+Datasheets for WS2812 and compatible LEDs can be found from trusted sources:
 
-- **Worldsemi (WS2812)**: https://www.world-semi.com/
+- **WS2812 Datasheet (SparkFun)**: https://cdn.sparkfun.com/datasheets/Components/LED/WS2812.pdf
 - **Adafruit NeoPixel Guide**: https://learn.adafruit.com/adafruit-neopixel-uberguide
 
 ## Driver Compatibility
