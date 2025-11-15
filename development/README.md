@@ -1,7 +1,10 @@
 # HF-WS2812 Driver
 **ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips**
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://en.cppreference.com/w/cpp/17)
+[![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![CI](https://github.com/N3b3x/hf-ws2812-rmt-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main)](https://github.com/N3b3x/hf-ws2812-rmt-driver/actions/workflows/esp32-examples-build-ci.yml)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://n3b3x.github.io/hf-ws2812-rmt-driver/)
 
 ## 📚 Table of Contents
 1. [Overview](#-overview)
