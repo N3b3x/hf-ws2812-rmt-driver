@@ -2,7 +2,7 @@
 layout: default
 title: "💡 Examples"
 description: "Complete example walkthroughs for the WS2812 driver"
-nav_order: 6
+nav_order: 7
 parent: "📚 Documentation"
 permalink: /docs/examples/
 ---

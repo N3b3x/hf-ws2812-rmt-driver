@@ -158,5 +158,5 @@ WS2812Strip strip(GPIO_NUM_18, 0, 30, LedType::RGBW);
 ---
 
 **Navigation**
-⬅️ [Hardware Setup](hardware_setup.md) | [Next: API Reference ➡️](api_reference.md) | [Back to Index](index.md)
+⬅️ [Platform Integration](platform_integration.md) | [Next: API Reference ➡️](api_reference.md) | [Back to Index](index.md)
 

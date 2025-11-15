@@ -2,7 +2,7 @@
 layout: default
 title: "📖 API Reference"
 description: "Complete API reference for the WS2812 driver"
-nav_order: 5
+nav_order: 6
 parent: "📚 Documentation"
 permalink: /docs/api_reference/
 ---

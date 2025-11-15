@@ -2,7 +2,7 @@
 layout: default
 title: "🐛 Troubleshooting"
 description: "Common issues and solutions for the WS2812 driver"
-nav_order: 7
+nav_order: 8
 parent: "📚 Documentation"
 permalink: /docs/troubleshooting/
 ---

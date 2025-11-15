@@ -22,16 +22,17 @@ Welcome! This directory contains step-by-step guides for installing, configuring
 
 ### **Integration**
 
-4. **[⚙️ Configuration](configuration.md)** – Kconfig options and runtime configuration
+4. **[🔧 Platform Integration](platform_integration.md)** – ESP32 RMT integration and platform-specific details
+5. **[⚙️ Configuration](configuration.md)** – Kconfig options and runtime configuration
 
 ### **Reference**
 
-5. **[📖 API Reference](api_reference.md)** – Complete API documentation
-6. **[💡 Examples](examples.md)** – Detailed example walkthroughs
+6. **[📖 API Reference](api_reference.md)** – Complete API documentation
+7. **[💡 Examples](examples.md)** – Detailed example walkthroughs
 
 ### **Troubleshooting**
 
-7. **[🐛 Troubleshooting](troubleshooting.md)** – Common issues and solutions
+8. **[🐛 Troubleshooting](troubleshooting.md)** – Common issues and solutions
 
 ---
 

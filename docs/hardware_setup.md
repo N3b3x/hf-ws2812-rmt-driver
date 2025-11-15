@@ -129,5 +129,5 @@ ESP32 GND ──────┘
 ---
 
 **Navigation**
-⬅️ [Quick Start](quickstart.md) | [Next: Configuration ➡️](configuration.md) | [Back to Index](index.md)
+⬅️ [Quick Start](quickstart.md) | [Next: Platform Integration ➡️](platform_integration.md) | [Back to Index](index.md)
 

@@ -1,3 +1,11 @@
+---
+layout: default
+title: "HardFOC WS2812 Driver"
+description: "ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips"
+nav_order: 1
+permalink: /
+---
+
 # HF-WS2812 Driver
 **ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips**
 
