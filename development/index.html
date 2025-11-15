@@ -15,7 +15,7 @@
   
 
     
-    .site-nav > ul.nav-list:first-child > li:not(:nth-child(2)) > a,
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(1)) > a,
     .site-nav > ul.nav-list:first-child > li > ul > li a {
       background-image: none;
     }
@@ -25,12 +25,12 @@
       background-image: none;
     }
 
-    .site-nav > ul.nav-list:first-child > li:nth-child(2) > a {
+    .site-nav > ul.nav-list:first-child > li:nth-child(1) > a {
       font-weight: 600;
       text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg {
+    }.site-nav > ul.nav-list:first-child > li:nth-child(1) > button svg {
       transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list {
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list {
       display: block;
     }
   </style>
@@ -50,21 +50,21 @@
 
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HF-WS2812 Driver | HardFOC WS2812 Driver - development</title>
+<title>HardFOC WS2812 Driver | HardFOC WS2812 Driver - development</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="HF-WS2812 Driver" />
+<meta property="og:title" content="HardFOC WS2812 Driver" />
 <meta name="author" content="N3b3x" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="ESP32 RMT based WS2812/NeoPixel Driver with precise timing for WS2812-compatible LED strips" />
-<meta property="og:description" content="ESP32 RMT based WS2812/NeoPixel Driver with precise timing for WS2812-compatible LED strips" />
+<meta name="description" content="ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips" />
+<meta property="og:description" content="ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips" />
 <link rel="canonical" href="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/" />
 <meta property="og:url" content="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/" />
 <meta property="og:site_name" content="HardFOC WS2812 Driver - development" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HF-WS2812 Driver" />
+<meta property="twitter:title" content="HardFOC WS2812 Driver" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"ESP32 RMT based WS2812/NeoPixel Driver with precise timing for WS2812-compatible LED strips","headline":"HF-WS2812 Driver","name":"HardFOC WS2812 Driver","sameAs":["https://github.com/n3b3x/hf-ws2812-rmt-driver","https://github.com/n3b3x"],"url":"https://n3b3x.github.io/hf-ws2812-rmt-driver/development/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips","headline":"HardFOC WS2812 Driver","name":"HardFOC WS2812 Driver","sameAs":["https://github.com/n3b3x/hf-ws2812-rmt-driver","https://github.com/n3b3x"],"url":"https://n3b3x.github.io/hf-ws2812-rmt-driver/development/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -166,7 +166,11 @@
   <nav aria-label="Main" id="site-nav" class="site-nav">
   
   
-    <ul class="nav-list"><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/datasheet/" class="nav-list-link">Datasheet Directory</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/" class="nav-list-link">HF-WS2812 Driver</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/examples/esp32/" class="nav-list-link">PCAL9555 ESP32-C6 Comprehensive Test Suite</a></li></ul>
+    <ul class="nav-list"><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="toggle items in HardFOC WS2812 Driver category" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/hf-ws2812-rmt-driver/development/" class="nav-list-link">HardFOC WS2812 Driver</a><ul class="nav-list"><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="toggle items in 📚 Documentation category" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/hf-ws2812-rmt-driver/development/docs/" class="nav-list-link">📚 Documentation</a><ul class="nav-list"><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/docs/installation/" class="nav-list-link">🛠️ Installation</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/docs/quickstart/" class="nav-list-link">⚡ Quick Start</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/docs/hardware_setup/" class="nav-list-link">🔌 Hardware Setup</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/docs/configuration/" class="nav-list-link">⚙️ Configuration</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/docs/platform_integration/" class="nav-list-link">🔧 Platform Integration</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/docs/api_reference/" class="nav-list-link">📖 API Reference</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/docs/examples/" class="nav-list-link">💡 Examples</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/docs/troubleshooting/" class="nav-list-link">🐛 Troubleshooting</a></li></ul></li></ul></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/datasheet/" class="nav-list-link">Datasheet Directory</a></li><li class="nav-list-item"><a href="/hf-ws2812-rmt-driver/development/examples/esp32/" class="nav-list-link">PCAL9555 ESP32-C6 Comprehensive Test Suite</a></li></ul>
   
 </nav>
 
@@ -469,7 +473,16 @@ See the <a href="/hf-ws2812-rmt-driver/development/LICENSE">LICENSE</a> file for
           
 
           
-            
+            <hr>
+<h2 class="text-delta">Table of contents</h2>
+
+<ul>
+  
+  <li>
+    <a href="/hf-ws2812-rmt-driver/development/docs/">📚 Documentation</a>
+  </li>
+  
+</ul>
           
         </main>
         
