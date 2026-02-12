@@ -1,14 +1,14 @@
 <map id="src/ws2812_multi_animator.cpp" name="src/ws2812_multi_animator.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="1841,5,2069,31"/>
+<area shape="rect" id="Node000001" title="Multi&#45;strip animation coordinator implementation." alt="" coords="1841,5,2069,31"/>
 <area shape="rect" id="Node000002" href="$ws2812__multi__animator_8hpp.html" title=" " alt="" coords="1851,79,2058,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1957,31,1957,65,1952,65,1952,31"/>
-<area shape="rect" id="Node000003" href="$ws2812__effects_8hpp.html" title=" " alt="" coords="1823,152,1974,177"/>
+<area shape="rect" id="Node000003" href="$ws2812__effects_8hpp.html" title="LED animation effects for WS2812 strips." alt="" coords="1823,152,1974,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1948,106,1918,143,1914,140,1943,103"/>
 <area shape="rect" id="Node000027" title=" " alt="" coords="1986,299,2049,324"/>
 <area shape="poly" id="edge31_Node000002_Node000027" title=" " alt="" coords="1964,103,1988,151,2007,223,2017,285,2012,286,2002,224,1983,153,1959,105"/>
-<area shape="rect" id="Node000004" href="$ws2812__cpp_8hpp.html" title=" " alt="" coords="1828,225,1959,251"/>
+<area shape="rect" id="Node000004" href="$ws2812__cpp_8hpp.html" title="C++ wrapper for the HF&#45;WS2812 RMT LED driver." alt="" coords="1828,225,1959,251"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1900,178,1898,212,1893,212,1895,177"/>
-<area shape="rect" id="Node000005" href="$rmt__wrapper_8hpp.html" title="A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT driver." alt="" coords="709,299,841,324"/>
+<area shape="rect" id="Node000005" href="$rmt__wrapper_8hpp.html" title="A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT." alt="" coords="709,299,841,324"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1828,246,854,308,854,302,1828,241"/>
 <area shape="rect" id="Node000010" title=" " alt="" coords="5,372,72,397"/>
 <area shape="poly" id="edge29_Node000004_Node000010" title=" " alt="" coords="1828,244,1356,261,1029,278,696,301,392,328,258,345,86,375,85,369,257,340,391,323,696,296,1029,272,1356,255,1828,238"/>

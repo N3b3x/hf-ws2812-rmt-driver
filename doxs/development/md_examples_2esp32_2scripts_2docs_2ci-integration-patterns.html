@@ -97,16 +97,16 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2ci-integration-patt
   <div class="headertitle"><div class="title">CI/CD Integration Patterns</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md249"></a> This guide covers common patterns for integrating the HardFOC ESP-IDF Project Tools into your CI/CD workflows, including GitHub Actions, GitLab CI, and other automation platforms.</p>
-<h1><a class="anchor" id="autotoc_md250"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md256"></a> This guide covers common patterns for integrating the HardFOC ESP-IDF Project Tools into your CI/CD workflows, including GitHub Actions, GitLab CI, and other automation platforms.</p>
+<h1><a class="anchor" id="autotoc_md257"></a>
 📋 Directory Structure Concepts</h1>
-<h2><a class="anchor" id="autotoc_md251"></a>
+<h2><a class="anchor" id="autotoc_md258"></a>
 Project Directory (<code>project_dir</code>)</h2>
 <ul>
 <li><b>Purpose</b>: Points to your ESP-IDF project directory (contains <code>CMakeLists.txt</code>, <code>app_config.yml</code>)</li>
 <li><b>Examples</b>: <code>examples/esp32</code>, <code>firmware/esp32-project</code>, <code>src/esp32-app</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md252"></a>
+<h2><a class="anchor" id="autotoc_md259"></a>
 Tools Directory (<code>project_tools_dir</code>)</h2>
 <ul>
 <li><b>Purpose</b>: Points to directory containing the build scripts (<code>build_app.sh</code>, <code><a class="el" href="generate__matrix_8py.html">generate_matrix.py</a></code>, etc.)</li>
@@ -114,9 +114,9 @@ Tools Directory (<code>project_tools_dir</code>)</h2>
 <li><b>Multi-Project Support</b>: Can be shared across multiple projects since all scripts accept <code>--project-path</code> argument</li>
 <li><b>Examples</b>: <code>examples/esp32/scripts</code>, <code>examples/esp32/hf-espidf-project-tools</code>, <code>tools/esp32-build-scripts</code>, <code>shared-tools</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md253"></a>
+<h1><a class="anchor" id="autotoc_md260"></a>
 🏗️ Common Integration Patterns</h1>
-<h2><a class="anchor" id="autotoc_md254"></a>
+<h2><a class="anchor" id="autotoc_md261"></a>
 Pattern 1: Submodule Setup (Recommended)</h2>
 <p><b>Repository structure:</b> </p><div class="fragment"><div class="line">your-repo/</div>
 <div class="line">├── .github/workflows/          # CI workflows (at repo root)</div>
@@ -138,7 +138,7 @@ Pattern 1: Submodule Setup (Recommended)</h2>
 <div class="line"> </div>
 <div class="line">jobs:</div>
 <div class="line">  build:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@v1</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: examples/esp32</div>
 <div class="line">      project_tools_dir: examples/esp32/hf-espidf-project-tools  # Points to submodule</div>
@@ -148,7 +148,7 @@ Pattern 1: Submodule Setup (Recommended)</h2>
 <li>No auto-cloning occurs when explicit path is provided</li>
 <li>Submodule detection and validation happens automatically</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md255"></a>
+<h2><a class="anchor" id="autotoc_md262"></a>
 Pattern 2: Direct Clone Setup</h2>
 <p><b>Repository structure:</b> </p><div class="fragment"><div class="line">your-repo/</div>
 <div class="line">├── .github/workflows/</div>
@@ -170,11 +170,11 @@ Pattern 2: Direct Clone Setup</h2>
 <div class="line"> </div>
 <div class="line">jobs:</div>
 <div class="line">  build:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@v1</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: examples/esp32</div>
 <div class="line">      # project_tools_dir not needed - auto-detects hf-espidf-project-tools</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md256"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md263"></a>
 Pattern 3: Custom Tools Location</h2>
 <p><b>Repository structure:</b> </p><div class="fragment"><div class="line">your-repo/</div>
 <div class="line">├── .github/workflows/</div>
@@ -195,11 +195,11 @@ Pattern 3: Custom Tools Location</h2>
 <div class="line"> </div>
 <div class="line">jobs:</div>
 <div class="line">  build:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@v1</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: firmware/esp32</div>
 <div class="line">      project_tools_dir: build-tools</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md257"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md264"></a>
 Pattern 4: Shared Tools for Multiple Projects</h2>
 <p><b>Repository structure:</b> </p><div class="fragment"><div class="line">your-repo/</div>
 <div class="line">├── .github/workflows/</div>
@@ -224,32 +224,32 @@ Pattern 4: Shared Tools for Multiple Projects</h2>
 <div class="line"> </div>
 <div class="line">jobs:</div>
 <div class="line">  build-project-a:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@v1</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: projects/project-a</div>
 <div class="line">      project_tools_dir: shared-tools  # Shared across all projects</div>
 <div class="line">      </div>
 <div class="line">  build-project-b:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@v1</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: projects/project-b</div>
 <div class="line">      project_tools_dir: shared-tools  # Same shared tools directory</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md258"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md265"></a>
 🔧 Advanced Configuration</h1>
-<h2><a class="anchor" id="autotoc_md259"></a>
+<h2><a class="anchor" id="autotoc_md266"></a>
 Environment Variables</h2>
 <div class="fragment"><div class="line">env:</div>
 <div class="line">  ESP32_PROJECT_PATH: &quot;examples/esp32&quot;</div>
 <div class="line">  CONFIG_DEFAULT_APP: &quot;main_app&quot;</div>
 <div class="line">  CONFIG_DEFAULT_BUILD_TYPE: &quot;Release&quot;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md260"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md267"></a>
 Matrix Builds</h2>
 <div class="fragment"><div class="line">strategy:</div>
 <div class="line">  matrix:</div>
 <div class="line">    app: [&quot;main_app&quot;, &quot;test_app&quot;, &quot;demo_app&quot;]</div>
 <div class="line">    build_type: [&quot;Debug&quot;, &quot;Release&quot;]</div>
 <div class="line">    idf_version: [&quot;release/v5.5&quot;, &quot;release/v5.4&quot;]</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md261"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md268"></a>
 Custom Build Steps</h2>
 <div class="fragment"><div class="line">- name: Setup ESP-IDF</div>
 <div class="line">  uses: espressif/esp-idf-ci-action@v1</div>
@@ -262,37 +262,37 @@ Custom Build Steps</h2>
 <div class="line">  run: |</div>
 <div class="line">    cd ${{ matrix.project_dir }}</div>
 <div class="line">    ./scripts/build_app.sh ${{ matrix.app }} ${{ matrix.build_type }}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md262"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md269"></a>
 🚀 Best Practices</h1>
-<h2><a class="anchor" id="autotoc_md263"></a>
+<h2><a class="anchor" id="autotoc_md270"></a>
 1. Directory Structure</h2>
 <ul>
 <li>Keep ESP-IDF projects in dedicated directories (<code>examples/</code>, <code>firmware/</code>, <code>projects/</code>)</li>
 <li>Use consistent naming conventions for tools directories</li>
 <li>Document your project structure in README files</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md264"></a>
+<h2><a class="anchor" id="autotoc_md271"></a>
 2. Version Control</h2>
 <ul>
 <li>Use submodules for production projects</li>
 <li>Pin specific versions of the tools repository</li>
 <li>Keep tools and project code in separate commits</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md265"></a>
+<h2><a class="anchor" id="autotoc_md272"></a>
 3. CI/CD Optimization</h2>
 <ul>
 <li>Use matrix builds for multiple configurations</li>
 <li>Cache build artifacts and dependencies</li>
 <li>Run tests in parallel when possible</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md266"></a>
+<h2><a class="anchor" id="autotoc_md273"></a>
 4. Error Handling</h2>
 <ul>
 <li>Validate project structure before building</li>
 <li>Use proper error codes and exit conditions</li>
 <li>Provide clear error messages for debugging</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md267"></a>
+<h1><a class="anchor" id="autotoc_md274"></a>
 🔗 Related Documentation</h1>
 <ul>
 <li><b><a href="/docs/ci-pipeline/">CI Pipeline</a></b> - Detailed CI pipeline documentation</li>
