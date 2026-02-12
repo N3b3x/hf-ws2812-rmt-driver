@@ -1,3 +1,9 @@
+/**
+ * @file ws2812_cpp.cpp
+ * @brief WS2812Strip C++ wrapper implementation
+ * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
+ */
+
 #include "ws2812_cpp.hpp"
 #include "driver/rmt_types.h"
 
@@ -16,21 +22,21 @@ WS2812Strip::WS2812Strip(gpio_num_t gpio, int channel, uint32_t numLeds,
       m_brightness(brightness), m_numLeds(numLeds) {
 }
 
-esp_err_t WS2812Strip::begin() {
+esp_err_t WS2812Strip::Begin() {
   return ESP_OK; // channel already active in constructor
 }
 
-void WS2812Strip::setPixel(uint32_t index, uint32_t rgbw) {
+void WS2812Strip::SetPixel(uint32_t index, uint32_t rgbw) {
   if (index < m_numLeds) {
     m_pixels[index] = rgbw;
   }
 }
 
-uint32_t WS2812Strip::length() const {
+uint32_t WS2812Strip::Length() const {
   return m_numLeds;
 }
 
-esp_err_t WS2812Strip::show() {
+esp_err_t WS2812Strip::Show() {
   uint32_t bitsPerLed = (m_type == LedType::RGBW) ? 32 : 24;
   for (uint32_t led = 0; led < m_numLeds; ++led) {
     uint32_t color = m_pixels[led];
@@ -66,21 +72,21 @@ esp_err_t WS2812Strip::show() {
     }
   }
 
-  return m_rmt.transmit(m_buffer.data(), m_numLeds * bitsPerLed);
+  return m_rmt.Transmit(m_buffer.data(), m_numLeds * bitsPerLed);
 }
 
-void WS2812Strip::setBrightness(uint8_t value) {
+void WS2812Strip::SetBrightness(uint8_t value) {
   m_brightness = value;
 }
 
-void WS2812Strip::setTimings(uint16_t t0h, uint16_t t1h, uint16_t t0l, uint16_t t1l) {
+void WS2812Strip::SetTimings(uint16_t t0h, uint16_t t1h, uint16_t t0l, uint16_t t1l) {
   m_t0h = t0h;
   m_t1h = t1h;
   m_t0l = t0l;
   m_t1l = t1l;
 }
 
-uint32_t WS2812Strip::colorWheel(uint8_t pos) {
+uint32_t WS2812Strip::ColorWheel(uint8_t pos) {
   pos = 255 - pos;
   if (pos < 85) {
     return ((255 - pos * 3) << 16) | (0 << 8) | (pos * 3);

@@ -1,16 +1,10 @@
-/*
- * ws2812_cpp.hpp
- *
- * Optional C++ wrapper for the HF-WS2812 driver.
- *
- * This header defines a WS2812Strip class which wraps the C API
- * provided in ws2812_control.h in a convenient C++ interface and
- * includes a helper for generating colour wheel values.
+/**
+ * @file ws2812_cpp.hpp
+ * @brief C++ wrapper for the HF-WS2812 RMT LED driver
+ * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
  */
 
-#ifndef WS2812_CPP_HPP
-#define WS2812_CPP_HPP
-
+#pragma once
 #include "rmt_wrapper.hpp"
 #include "ws2812_control.h"
 #include <cstdint>
@@ -52,7 +46,7 @@ public:
    *
    * @return ESP_OK on success.
    */
-  esp_err_t begin();
+  esp_err_t Begin();
 
   /**
    * @brief Set the colour of a single LED.
@@ -60,29 +54,29 @@ public:
    * @param index Index of the LED starting from 0.
    * @param rgbw Packed 24/32-bit colour value.
    */
-  void setPixel(uint32_t index, uint32_t rgbw);
+  void SetPixel(uint32_t index, uint32_t rgbw);
 
   /** Get the number of LEDs managed by this strip. */
-  uint32_t length() const;
+  uint32_t Length() const;
 
   /**
    * @brief Send the currently stored colours to the LED strip.
    */
-  esp_err_t show();
+  esp_err_t Show();
 
   /**
    * @brief Set global brightness for the strip.
    *
    * @param value Brightness 0-255.
    */
-  void setBrightness(uint8_t value);
+  void SetBrightness(uint8_t value);
 
   /**
    * @brief Update the bit timing parameters.
    *
    * Allows adjustment of the WS2812 protocol timings after construction.
    */
-  void setTimings(uint16_t t0h, uint16_t t1h, uint16_t t0l, uint16_t t1l);
+  void SetTimings(uint16_t t0h, uint16_t t1h, uint16_t t0l, uint16_t t1l);
 
   /**
    * @brief Generate a colour from a 0-255 position on a colour wheel.
@@ -90,7 +84,7 @@ public:
    * @param pos Position on the colour wheel.
    * @return Packed RGB colour.
    */
-  static uint32_t colorWheel(uint8_t pos);
+  static uint32_t ColorWheel(uint8_t pos);
 
 private:
   std::vector<uint32_t> m_pixels;
@@ -108,5 +102,3 @@ private:
 };
 
 #endif // __cplusplus
-
-#endif // WS2812_CPP_HPP

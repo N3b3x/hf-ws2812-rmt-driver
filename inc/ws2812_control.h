@@ -1,15 +1,9 @@
-#ifndef WS2812_CONTROL_H
-#define WS2812_CONTROL_H
+#pragma once
 /**
  * @file ws2812_control.h
- * @brief ESP-IDF RMT based driver for WS2812 / NeoPixel LED chains.
- *
- * This component provides a small API for driving a string of
- * addressable RGB(W) LEDs using the ESP32's RMT peripheral.
- * All configuration options are exposed via Kconfig and the
- * functions declared here form the public interface for the driver.
+ * @brief ESP-IDF RMT based driver for WS2812 / NeoPixel LED chains
+ * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
  */
-
 #include "driver/gpio.h"
 #include "driver/rmt_tx.h"
 #include "driver/rmt_types.h"
@@ -100,5 +94,3 @@ void ws2812SetBrightness(uint8_t brightness);
 #ifdef __cplusplus
 }
 #endif
-
-#endif // WS2812_CONTROL_H

@@ -4,38 +4,7 @@
 /**
  * @file rmt_wrapper.hpp
  * @brief A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT
- * driver.
- *
- * This façade hides the verbose C driver API behind a simple, type‑safe
- * interface that follows RAII, avoids memory leaks, and offers convenient
- * helpers for typical tasks such as WS2812/NeoPixel transmission or raw pulse
- * capture/analysis.  It is designed and tested for the ESP32‑C6 but should
- * compile on any ESP‑IDF ≥ v5.0 target that exposes the same driver layer.
- *
- * ## Features
- * * **Strong error handling** via esp_err_t return codes and ESP_LOGE on
- * failure.
- * * **Move‑only channel objects** to prevent accidental double‑free.
- * * **Built‑in bytes and WS2812 encoders** plus direct symbol streaming.
- * * **Idle‑timeout, glitch filter and queue‑based RX API** for robust waveform
- * capture.
- * * **Compile‑time checks** against wrong ESP‑IDF versions.
- *
- * ### Minimum snippet
- * ```cpp
- * #include "rmt_wrapper.hpp"
- * using namespace ws2812;
- *
- * extern "C" void app_main(void)
- * {
- *     static constexpr gpio_num_t LED_PIN = GPIO_NUM_8;  // verified GPIO for
- * ESP32‑C6 ws2812::RmtTx tx(LED_PIN, 40'000'000);             // 25 ns
- * resolution
- *
- *     uint8_t grb[3] = {0x00, 0xFF, 0x00};               // green pixel
- *     tx.transmit_ws2812(grb, sizeof(grb));
- * }
- * ```
+ * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
  */
 #pragma once
 
@@ -81,13 +50,13 @@ namespace detail {
 class RmtTx {
 public:
   /**
-   * @brief Create a transmit channel.
+   * @brief Create a Transmit channel.
    *
    * @param gpio           Output GPIO number.
    * @param resolution_hz  Clock resolution in Hz (max 40 MHz on ESP32‑C6).
    * @param mem_symbols    Symbol memory per channel (in 32”bit words).
    * @param with_dma       Enable DMA mode for huge transfers.
-   * @param queue_depth    Depth of internal transmit queue.
+   * @param queue_depth    Depth of internal Transmit queue.
    * @param clk_src        Clock source (default: RMT_CLK_SRC_DEFAULT).
    * @param channel_id     [Optional] fixed channel (0‑3). Pass -1 for auto.
    */
@@ -144,7 +113,7 @@ public:
   /**
    * @brief Transmit raw RMT symbols (blocking until done).
    */
-  esp_err_t transmit(const rmt_symbol_word_t* symbols, size_t count,
+  esp_err_t Transmit(const rmt_symbol_word_t* symbols, size_t count,
                      TickType_t timeout = portMAX_DELAY) const {
     rmt_transmit_config_t tx_cfg = {};
     tx_cfg.loop_count = 0;
@@ -162,7 +131,7 @@ public:
    * @param bit0  Symbol encoding logic‑0 (LSB first by default).
    * @param bit1  Symbol encoding logic‑1.
    */
-  esp_err_t transmit_bytes(const uint8_t* data, size_t length, const rmt_symbol_word_t& bit0,
+  esp_err_t TransmitBytes(const uint8_t* data, size_t length, const rmt_symbol_word_t& bit0,
                            const rmt_symbol_word_t& bit1, TickType_t timeout = portMAX_DELAY) {
     // Create a throw‑away bytes encoder (kept only for this call)
     rmt_bytes_encoder_config_t be_cfg = {};
@@ -186,7 +155,7 @@ public:
    * @brief Helper dedicated to WS2812/NeoPixel @ 800 kHz.
    * Uses 10 MHz or faster resolution to achieve accurate timings.
    */
-  esp_err_t transmit_ws2812(const uint8_t* grb, size_t length, TickType_t timeout = portMAX_DELAY) {
+  esp_err_t TransmitWs2812(const uint8_t* grb, size_t length, TickType_t timeout = portMAX_DELAY) {
     if (!_ws_encoder) {
       rmt_bytes_encoder_config_t ws_cfg = {};
       ws_cfg.bit0 = make_ws2812_bit0();

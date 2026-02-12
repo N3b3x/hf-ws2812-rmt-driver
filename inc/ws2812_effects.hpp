@@ -1,6 +1,9 @@
-#ifndef WS2812_EFFECTS_HPP
-#define WS2812_EFFECTS_HPP
-
+/**
+ * @file ws2812_effects.hpp
+ * @brief LED animation effects for WS2812 strips
+ * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
+ */
+#pragma once
 #include "ws2812_cpp.hpp"
 
 #ifdef __cplusplus
@@ -23,19 +26,19 @@ public:
    * @param effect Desired pattern.
    * @param color  Base colour used by some effects.
    */
-  void setEffect(Effect effect, uint32_t color = 0xFFFFFF);
+  void SetEffect(Effect effect, uint32_t color = 0xFFFFFF);
 
   /** Adjust the virtual length used for effects. */
-  void setVirtualLength(uint32_t length);
+  void SetVirtualLength(uint32_t length);
 
   /** Set the current step (used for external synchronization). */
-  void setStep(uint16_t step);
+  void SetStep(uint16_t step);
   uint16_t step() const;
 
   /**
    * @brief Advance the animation by one step.
    */
-  void tick();
+  void Tick();
 
 private:
   WS2812Strip& m_strip;
@@ -49,5 +52,3 @@ private:
 };
 
 #endif // __cplusplus
-
-#endif // WS2812_EFFECTS_HPP
