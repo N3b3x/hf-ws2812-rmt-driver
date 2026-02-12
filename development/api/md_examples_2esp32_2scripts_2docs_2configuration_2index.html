@@ -97,13 +97,13 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2configuration_2inde
   <div class="headertitle"><div class="title">ESP-IDF Configuration System Guide</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md289"></a> This document provides comprehensive documentation for the ESP-IDF configuration system, including YAML configuration management, validation, and integration with all scripts.</p>
-<h1><a class="anchor" id="autotoc_md290"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md296"></a> This document provides comprehensive documentation for the ESP-IDF configuration system, including YAML configuration management, validation, and integration with all scripts.</p>
+<h1><a class="anchor" id="autotoc_md297"></a>
 📋 <b>Table of Contents</b></h1>
-<h1><a class="anchor" id="autotoc_md291"></a>
+<h1><a class="anchor" id="autotoc_md298"></a>
 📋 <b>Overview</b></h1>
 <p>The ESP-IDF configuration system provides centralized, intelligent configuration management for all scripts in the HardFOC Interface Wrapper project. It features YAML-based configuration, automatic validation, intelligent fallbacks, and cross-platform compatibility.</p>
-<h2><a class="anchor" id="autotoc_md292"></a>
+<h2><a class="anchor" id="autotoc_md299"></a>
 <b>Core Features</b></h2>
 <ul>
 <li><b>Centralized Configuration</b>: Single YAML file manages all script behavior</li>
@@ -113,7 +113,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2configuration_2inde
 <li><b>Cross-Platform</b>: Consistent behavior across Linux and macOS</li>
 <li><b>Environment Integration</b>: Environment variable overrides and customization</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md293"></a>
+<h2><a class="anchor" id="autotoc_md300"></a>
 <b>Key Capabilities</b></h2>
 <ul>
 <li>YAML configuration parsing with <code>yq</code> and fallback methods</li>
@@ -125,15 +125,15 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2configuration_2inde
 <li>Configuration integrity validation</li>
 <li>Cross-script configuration sharing</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md294"></a>
+<h1><a class="anchor" id="autotoc_md301"></a>
 🏗️ <b>Architecture and Design</b></h1>
-<h2><a class="anchor" id="autotoc_md295"></a>
+<h2><a class="anchor" id="autotoc_md302"></a>
 <b>System Architecture</b></h2>
 <div class="fragment"><div class="line">app_config.yml → config_loader.sh → Script Functions → Environment Variables</div>
 <div class="line">     ↓              ↓                    ↓                    ↓</div>
 <div class="line">Configuration    Parsing &amp;        Validation &amp;      Script</div>
 <div class="line">Definitions      Validation       Fallbacks         Execution</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md296"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md303"></a>
 <b>Component Interaction</b></h2>
 <ul>
 <li>**<code>app_config.yml</code>**: Centralized configuration source</li>
@@ -141,7 +141,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2configuration_2inde
 <li><b>Script Functions</b>: Configuration access and validation functions</li>
 <li><b>Environment Variables</b>: Runtime configuration overrides</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md297"></a>
+<h2><a class="anchor" id="autotoc_md304"></a>
 <b>Design Principles</b></h2>
 <ul>
 <li><b>Single Source of Truth</b>: All configuration in one YAML file</li>
@@ -150,9 +150,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2configuration_2inde
 <li><b>Cross-Platform Consistency</b>: Uniform behavior across operating systems</li>
 <li><b>Performance Optimization</b>: Efficient parsing and caching mechanisms</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md298"></a>
+<h2><a class="anchor" id="autotoc_md305"></a>
 <b>Best Practices</b></h2>
-<h3><a class="anchor" id="autotoc_md299"></a>
+<h3><a class="anchor" id="autotoc_md306"></a>
 <b>1. Configuration Structure</b></h3>
 <ul>
 <li>Use consistent naming conventions</li>
@@ -160,7 +160,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2configuration_2inde
 <li>Provide clear descriptions for all items</li>
 <li>Use appropriate data types and constraints</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md300"></a>
+<h3><a class="anchor" id="autotoc_md307"></a>
 <b>2. Validation and Error Handling</b></h3>
 <ul>
 <li>Always validate configuration before use</li>
@@ -168,7 +168,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2configuration_2inde
 <li>Implement graceful fallbacks</li>
 <li>Test configuration with various scenarios</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md301"></a>
+<h3><a class="anchor" id="autotoc_md308"></a>
 <b>3. Documentation and Maintenance</b></h3>
 <ul>
 <li>Document all configuration options</li>
@@ -176,7 +176,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2configuration_2inde
 <li>Version control configuration changes</li>
 <li>Regular configuration validation</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md302"></a>
+<h3><a class="anchor" id="autotoc_md309"></a>
 <b>4. Performance and Optimization</b></h3>
 <ul>
 <li>Use efficient parsing methods</li>

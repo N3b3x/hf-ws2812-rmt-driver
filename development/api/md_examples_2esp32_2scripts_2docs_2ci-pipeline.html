@@ -97,16 +97,16 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2ci-pipeline.html','
   <div class="headertitle"><div class="title">⚡ CI Pipeline</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md268"></a> CI/CD integration and automated build pipelines for ESP-IDF projects using the HardFOC project tools.</p>
-<h1><a class="anchor" id="autotoc_md269"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md275"></a> CI/CD integration and automated build pipelines for ESP-IDF projects using the HardFOC project tools.</p>
+<h1><a class="anchor" id="autotoc_md276"></a>
 Available Resources</h1>
 <ul>
 <li><b><a href="/docs/ci-pipeline/">CI Pipeline Usage</a></b> - Using the ESP-IDF CI pipeline from the separate CI tools repository</li>
 <li><b><a href="/docs/ci-integration-patterns/">CI Integration Patterns</a></b> - Common patterns for integrating ESP-IDF project tools in CI/CD workflows</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md270"></a>
+<h1><a class="anchor" id="autotoc_md277"></a>
 Quick Start</h1>
-<h2><a class="anchor" id="autotoc_md271"></a>
+<h2><a class="anchor" id="autotoc_md278"></a>
 GitHub Actions Integration</h2>
 <div class="fragment"><div class="line">name: Build ESP-IDF Applications</div>
 <div class="line"> </div>
@@ -118,11 +118,11 @@ GitHub Actions Integration</h2>
 <div class="line"> </div>
 <div class="line">jobs:</div>
 <div class="line">  build:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@v1</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: examples/esp32</div>
 <div class="line">      project_tools_dir: examples/esp32/scripts</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md272"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md279"></a>
 Key Features</h2>
 <ul>
 <li><b>Automated Builds</b> - Multi-application builds in CI/CD</li>
@@ -131,7 +131,7 @@ Key Features</h2>
 <li><b>Log Management</b> - Comprehensive build and test logging</li>
 <li><b>Integration Patterns</b> - Multiple ways to integrate with existing projects</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md273"></a>
+<h1><a class="anchor" id="autotoc_md280"></a>
 Integration Methods</h1>
 <ol type="1">
 <li><b>Submodule Setup</b> - Version-controlled integration</li>
@@ -139,7 +139,7 @@ Integration Methods</h1>
 <li><b>Shared Tools</b> - Multiple projects using same tools</li>
 <li><b>Custom Location</b> - Flexible directory structures</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md274"></a>
+<h1><a class="anchor" id="autotoc_md281"></a>
 Related Documentation</h1>
 <ul>
 <li><b><a href="/docs/getting-started/">Getting Started</a></b> - Basic setup and integration</li>

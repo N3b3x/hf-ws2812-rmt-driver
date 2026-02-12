@@ -97,13 +97,13 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
   <div class="headertitle"><div class="title">ESP-IDF Port Detection Guide</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md68"></a> This document provides comprehensive documentation for the ESP-IDF port detection system, including cross-platform device identification, troubleshooting, and integration with the development workflow.</p>
-<h1><a class="anchor" id="autotoc_md69"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md66"></a> This document provides comprehensive documentation for the ESP-IDF port detection system, including cross-platform device identification, troubleshooting, and integration with the development workflow.</p>
+<h1><a class="anchor" id="autotoc_md67"></a>
 📋 <b>Table of Contents</b></h1>
-<h1><a class="anchor" id="autotoc_md70"></a>
+<h1><a class="anchor" id="autotoc_md68"></a>
 📋 <b>Overview</b></h1>
 <p>The ESP-IDF port detection system provides intelligent, cross-platform device identification and troubleshooting capabilities. It automatically detects ESP32 devices across different operating systems, validates port accessibility, and provides comprehensive troubleshooting guidance for common connectivity issues.</p>
-<h2><a class="anchor" id="autotoc_md71"></a>
+<h2><a class="anchor" id="autotoc_md69"></a>
 <b>Core Features</b></h2>
 <ul>
 <li><b>Cross-Platform Detection</b>: Automatic ESP32 device identification on Linux, macOS, and Windows (WSL2)</li>
@@ -112,7 +112,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <li><b>Integration Ready</b>: Seamless integration with build and flash systems</li>
 <li><b>Performance Optimized</b>: Fast detection with intelligent caching</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md72"></a>
+<h2><a class="anchor" id="autotoc_md70"></a>
 <b>Key Capabilities</b></h2>
 <ul>
 <li>Automatic ESP32 device enumeration across platforms</li>
@@ -121,15 +121,15 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <li>Connection stability testing and validation</li>
 <li>Comprehensive troubleshooting and diagnostic information</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md73"></a>
+<h1><a class="anchor" id="autotoc_md71"></a>
 🏗️ <b>Architecture and Design</b></h1>
-<h2><a class="anchor" id="autotoc_md74"></a>
+<h2><a class="anchor" id="autotoc_md72"></a>
 <b>System Architecture</b></h2>
 <div class="fragment"><div class="line">Port Detection → Platform Detection → Device Enumeration → Port Validation → Status Reporting</div>
 <div class="line">      ↓              ↓                    ↓                ↓                ↓</div>
 <div class="line">Cross-Platform   OS Adaptation      USB Device Scan    Connectivity    Troubleshooting</div>
 <div class="line">Detection        &amp; Optimization     &amp; Identification   Testing         &amp; Guidance</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md75"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md73"></a>
 <b>Component Interaction</b></h2>
 <ul>
 <li><b>Platform Detection</b>: Operating system identification and adaptation</li>
@@ -138,7 +138,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <li><b>Status Reporting</b>: Comprehensive device and port information</li>
 <li><b>Troubleshooting</b>: Problem detection and resolution guidance</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md76"></a>
+<h2><a class="anchor" id="autotoc_md74"></a>
 <b>Design Principles</b></h2>
 <ul>
 <li><b>Cross-Platform</b>: Consistent behavior across different operating systems</li>
@@ -147,11 +147,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <li><b>User Experience</b>: Clear feedback and actionable troubleshooting guidance</li>
 <li><b>Integration Ready</b>: Seamless integration with development workflows</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md77"></a>
+<h1><a class="anchor" id="autotoc_md75"></a>
 🔌 <b>Cross-Platform Detection</b></h1>
-<h2><a class="anchor" id="autotoc_md78"></a>
+<h2><a class="anchor" id="autotoc_md76"></a>
 <b>Linux Port Detection</b></h2>
-<h3><a class="anchor" id="autotoc_md79"></a>
+<h3><a class="anchor" id="autotoc_md77"></a>
 <b>Device Detection Patterns</b></h3>
 <p>The system automatically identifies ESP32 devices on Linux using multiple detection methods:</p>
 <div class="fragment"><div class="line">## USB serial device patterns</div>
@@ -165,7 +165,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line"> </div>
 <div class="line">## Automatic detection command</div>
 <div class="line">./detect_ports.sh --verbose</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md80"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md78"></a>
 <b>Linux-Specific Features</b></h3>
 <div class="fragment"><div class="line">## Kernel message monitoring</div>
 <div class="line">dmesg | grep -i usb</div>
@@ -178,7 +178,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## Device file system information</div>
 <div class="line">ls -la /sys/class/tty/</div>
 <div class="line">ls -la /sys/bus/usb/devices/</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md81"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md79"></a>
 <b>Permission Management</b></h3>
 <div class="fragment"><div class="line">## User group requirements</div>
 <div class="line">sudo usermod -a -G dialout $USER</div>
@@ -195,9 +195,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## Reload udev rules</div>
 <div class="line">sudo udevadm control --reload-rules</div>
 <div class="line">sudo udevadm trigger</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md82"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md80"></a>
 <b>macOS Port Detection</b></h2>
-<h3><a class="anchor" id="autotoc_md83"></a>
+<h3><a class="anchor" id="autotoc_md81"></a>
 <b>Device Detection Patterns</b></h3>
 <p>The system adapts to macOS-specific device patterns and system information:</p>
 <div class="fragment"><div class="line">## macOS device patterns</div>
@@ -212,7 +212,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line"> </div>
 <div class="line">## Device enumeration</div>
 <div class="line">ls /dev/cu.* | grep -E &quot;(usbserial|SLAB|usbmodem|wchusb|FTDI)&quot;</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md84"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md82"></a>
 <b>macOS-Specific Features</b></h3>
 <div class="fragment"><div class="line">## USB device information</div>
 <div class="line">ioreg -p IOUSB -l -w 0 | grep -i esp</div>
@@ -225,7 +225,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## Permission handling</div>
 <div class="line">## macOS typically doesn&#39;t require special permissions for USB devices</div>
 <div class="line">## Check System Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Full Disk Access</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md85"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md83"></a>
 <b>macOS Troubleshooting</b></h3>
 <div class="fragment"><div class="line">## Check USB device status</div>
 <div class="line">system_profiler SPUSBDataType</div>
@@ -239,9 +239,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## Check for driver issues</div>
 <div class="line">kextstat | grep -i usb</div>
 <div class="line">kextstat | grep -i serial</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md86"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md84"></a>
 <b>Windows (WSL2) Port Detection</b></h2>
-<h3><a class="anchor" id="autotoc_md87"></a>
+<h3><a class="anchor" id="autotoc_md85"></a>
 <b>WSL2 Compatibility</b></h3>
 <p>The system provides comprehensive WSL2 support for Windows users:</p>
 <div class="fragment"><div class="line">## WSL2 port mapping</div>
@@ -259,7 +259,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## COM1 → /dev/ttyS0</div>
 <div class="line">## COM2 → /dev/ttyS1</div>
 <div class="line">## USB devices → /dev/ttyUSB*</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md88"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md86"></a>
 <b>WSL2-Specific Features</b></h3>
 <div class="fragment"><div class="line">## Windows device detection</div>
 <div class="line">## Use Windows Device Manager to identify COM ports</div>
@@ -271,7 +271,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line"> </div>
 <div class="line">## Port validation</div>
 <div class="line">./detect_ports.sh --verbose --test-connection</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md89"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md87"></a>
 <b>WSL2 Troubleshooting</b></h3>
 <div class="fragment"><div class="line">## Check WSL2 USB support</div>
 <div class="line">lsusb</div>
@@ -285,11 +285,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line"> </div>
 <div class="line">## Check Windows device sharing</div>
 <div class="line">## Ensure USB devices are shared with WSL2</div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md90"></a>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md88"></a>
 🔍 <b>Port Validation and Testing</b></h1>
-<h2><a class="anchor" id="autotoc_md91"></a>
+<h2><a class="anchor" id="autotoc_md89"></a>
 <b>Connectivity Testing</b></h2>
-<h3><a class="anchor" id="autotoc_md92"></a>
+<h3><a class="anchor" id="autotoc_md90"></a>
 <b>Basic Port Testing</b></h3>
 <div class="fragment"><div class="line">## Test port connectivity</div>
 <div class="line">./detect_ports.sh --test-connection</div>
@@ -300,7 +300,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Basic serial communication capability</div>
 <div class="line">- Device responsiveness</div>
 <div class="line">- Connection stability</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md93"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md91"></a>
 <b>Advanced Port Testing</b></h3>
 <div class="fragment"><div class="line">## Comprehensive port analysis</div>
 <div class="line">./detect_ports.sh --verbose --test-connection</div>
@@ -311,7 +311,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Permission level validation</div>
 <div class="line">- Connection stability testing</div>
 <div class="line">- Error condition simulation</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md94"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md92"></a>
 <b>Test Output Examples</b></h3>
 <div class="fragment"><div class="line">## Successful port test</div>
 <div class="line">Port: /dev/ttyACM0</div>
@@ -329,9 +329,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">  Serial communication: ✗ Not testable</div>
 <div class="line">  Status: PERMISSION_ERROR</div>
 <div class="line">  Solution: Add user to dialout group</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md95"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md93"></a>
 <b>Permission Verification</b></h2>
-<h3><a class="anchor" id="autotoc_md96"></a>
+<h3><a class="anchor" id="autotoc_md94"></a>
 <b>Permission Level Analysis</b></h3>
 <div class="fragment"><div class="line">## Permission checking</div>
 <div class="line">ls -la /dev/ttyUSB*</div>
@@ -345,7 +345,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## User group verification</div>
 <div class="line">groups $USER</div>
 <div class="line">id $USER</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md97"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md95"></a>
 <b>Permission Resolution</b></h3>
 <div class="fragment"><div class="line">## Automatic permission fixing</div>
 <div class="line">./detect_ports.sh --fix-permissions</div>
@@ -357,9 +357,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## User group management</div>
 <div class="line">sudo usermod -a -G dialout,tty $USER</div>
 <div class="line">newgrp dialout</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md98"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md96"></a>
 <b>Device Identification</b></h2>
-<h3><a class="anchor" id="autotoc_md99"></a>
+<h3><a class="anchor" id="autotoc_md97"></a>
 <b>USB Device Information</b></h3>
 <div class="fragment"><div class="line">## Detailed USB device information</div>
 <div class="line">./detect_ports.sh --verbose</div>
@@ -370,7 +370,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Device descriptions</div>
 <div class="line">- Driver information</div>
 <div class="line">- Connection status</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md100"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md98"></a>
 <b>Device Type Recognition</b></h3>
 <div class="fragment"><div class="line">## ESP32 device patterns</div>
 <div class="line">- ESP32: Various USB-to-UART bridges</div>
@@ -383,11 +383,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- CH340: WCH (good compatibility)</div>
 <div class="line">- FTDI: FTDI (excellent compatibility)</div>
 <div class="line">- CDC ACM: Native USB (modern devices)</div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md101"></a>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md99"></a>
 ⚙️ <b>Configuration and Customization</b></h1>
-<h2><a class="anchor" id="autotoc_md102"></a>
+<h2><a class="anchor" id="autotoc_md100"></a>
 <b>Environment Variables</b></h2>
-<h3><a class="anchor" id="autotoc_md103"></a>
+<h3><a class="anchor" id="autotoc_md101"></a>
 <b>Detection Configuration</b></h3>
 <div class="fragment"><div class="line">## Port detection configuration</div>
 <div class="line">export PORT_DETECTION_VERBOSE=1        # Enable verbose output</div>
@@ -395,7 +395,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">export PORT_SCAN_TIMEOUT=3             # Set port scan timeout (seconds)</div>
 <div class="line">export PORT_MAX_RETRIES=3              # Set maximum retry attempts</div>
 <div class="line">export PORT_DEBUG=1                    # Enable debug mode</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md104"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md102"></a>
 <b>Platform-Specific Configuration</b></h3>
 <div class="fragment"><div class="line">## Linux configuration</div>
 <div class="line">export LINUX_DEVICE_PATTERNS=&quot;/dev/ttyUSB*,/dev/ttyACM*&quot;</div>
@@ -411,16 +411,16 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">export WSL2_PORT_MAPPING=&quot;/dev/ttyS*,/dev/ttyUSB*&quot;</div>
 <div class="line">export WSL2_USB_ACCESS=1</div>
 <div class="line">export WSL2_COM_MAPPING=1</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md105"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md103"></a>
 <b>Troubleshooting Configuration</b></h3>
 <div class="fragment"><div class="line">## Troubleshooting options</div>
 <div class="line">export PORT_AUTO_FIX=1                 # Enable automatic problem resolution</div>
 <div class="line">export PORT_VERBOSE_ERRORS=1           # Show detailed error information</div>
 <div class="line">export PORT_SUGGEST_SOLUTIONS=1        # Provide solution suggestions</div>
 <div class="line">export PORT_LOG_LEVEL=&quot;INFO&quot;           # Set logging level (DEBUG, INFO, WARN, ERROR)</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md106"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md104"></a>
 <b>Custom Detection Patterns</b></h2>
-<h3><a class="anchor" id="autotoc_md107"></a>
+<h3><a class="anchor" id="autotoc_md105"></a>
 <b>User-Defined Device Patterns</b></h3>
 <div class="fragment"><div class="line">## Custom device patterns</div>
 <div class="line">export CUSTOM_DEVICE_PATTERNS=&quot;/dev/ttyCustom*,/dev/ttyESP*&quot;</div>
@@ -431,7 +431,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Device files: /dev/tty*</div>
 <div class="line">- Vendor IDs: xxxx:yyyy (hex format)</div>
 <div class="line">- Product names: String patterns (case-insensitive)</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md108"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md106"></a>
 <b>Custom Validation Rules</b></h3>
 <div class="fragment"><div class="line">## Custom validation configuration</div>
 <div class="line">export CUSTOM_VALIDATION_RULES=&quot;strict,permissive,auto&quot;</div>
@@ -442,9 +442,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- strict: Maximum validation, slower detection</div>
 <div class="line">- permissive: Basic validation, faster detection</div>
 <div class="line">- auto: Automatic level selection based on platform</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md109"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md107"></a>
 <b>Integration Configuration</b></h2>
-<h3><a class="anchor" id="autotoc_md110"></a>
+<h3><a class="anchor" id="autotoc_md108"></a>
 <b>Build System Integration</b></h3>
 <div class="fragment"><div class="line">## CMake integration</div>
 <div class="line">set(PORT_DETECTION_SCRIPT &quot;${CMAKE_SOURCE_DIR}/scripts/detect_ports.sh&quot;)</div>
@@ -456,7 +456,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">    COMMENT &quot;Detecting ESP32 ports&quot;</div>
 <div class="line">    DEPENDS ${CMAKE_SOURCE_DIR}/scripts/detect_ports.sh</div>
 <div class="line">)</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md111"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md109"></a>
 <b>CI/CD Integration</b></h3>
 <div class="fragment"><div class="line">## GitHub Actions integration</div>
 <div class="line">- name: Detect ESP32 Ports</div>
@@ -472,11 +472,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">  artifacts:</div>
 <div class="line">    reports:</div>
 <div class="line">      junit: port_detection_report.xml</div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md112"></a>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md110"></a>
 🚀 <b>Usage Examples and Patterns</b></h1>
-<h2><a class="anchor" id="autotoc_md113"></a>
+<h2><a class="anchor" id="autotoc_md111"></a>
 <b>Basic Port Detection Workflows</b></h2>
-<h3><a class="anchor" id="autotoc_md114"></a>
+<h3><a class="anchor" id="autotoc_md112"></a>
 <b>1. Quick Port Check</b></h3>
 <div class="fragment"><div class="line">## Basic port detection</div>
 <div class="line">./detect_ports.sh</div>
@@ -486,7 +486,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Port accessibility status</div>
 <div class="line">- Basic device information</div>
 <div class="line">- Quick status summary</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md115"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md113"></a>
 <b>2. Detailed Port Analysis</b></h3>
 <div class="fragment"><div class="line">## Comprehensive port analysis</div>
 <div class="line">./detect_ports.sh --verbose</div>
@@ -497,7 +497,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Driver status</div>
 <div class="line">- Permission information</div>
 <div class="line">- Troubleshooting guidance</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md116"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md114"></a>
 <b>3. Port Connectivity Testing</b></h3>
 <div class="fragment"><div class="line">## Test port connectivity</div>
 <div class="line">./detect_ports.sh --test-connection</div>
@@ -507,9 +507,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Connection stability testing</div>
 <div class="line">- Error detection and reporting</div>
 <div class="line">- Solution suggestions</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md117"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md115"></a>
 <b>Advanced Port Detection Workflows</b></h2>
-<h3><a class="anchor" id="autotoc_md118"></a>
+<h3><a class="anchor" id="autotoc_md116"></a>
 <b>1. Troubleshooting Workflow</b></h3>
 <div class="fragment"><div class="line">## Complete troubleshooting process</div>
 <div class="line">./detect_ports.sh --verbose --test-connection --fix-permissions</div>
@@ -520,7 +520,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">3. Permission verification and fixing</div>
 <div class="line">4. Connectivity testing</div>
 <div class="line">5. Problem resolution and reporting</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md119"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md117"></a>
 <b>2. Development Environment Setup</b></h3>
 <div class="fragment"><div class="line">## Port detection for development setup</div>
 <div class="line">./detect_ports.sh --verbose --test-connection</div>
@@ -529,7 +529,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">./setup_repo.sh</div>
 <div class="line">./detect_ports.sh --verify</div>
 <div class="line">./flash_app.sh gpio_test Release flash_monitor</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md120"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md118"></a>
 <b>3. CI/CD Port Validation</b></h3>
 <div class="fragment"><div class="line">## Automated port validation</div>
 <div class="line">./detect_ports.sh --verbose --test-connection --ci-mode</div>
@@ -539,9 +539,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Post-deployment verification</div>
 <div class="line">- Automated troubleshooting</div>
 <div class="line">- Status reporting</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md121"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md119"></a>
 <b>Integration Workflows</b></h2>
-<h3><a class="anchor" id="autotoc_md122"></a>
+<h3><a class="anchor" id="autotoc_md120"></a>
 <b>1. Build System Integration</b></h3>
 <div class="fragment"><div class="line">## CMake integration example</div>
 <div class="line">cmake_minimum_required(VERSION 3.16)</div>
@@ -557,7 +557,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR}</div>
 <div class="line">    DEPENDS check_ports</div>
 <div class="line">)</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md123"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md121"></a>
 <b>2. Flash System Integration</b></h3>
 <div class="fragment"><div class="line">## Port detection before flashing</div>
 <div class="line">./detect_ports.sh --verbose --test-connection</div>
@@ -570,7 +570,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">2. Port selection and confirmation</div>
 <div class="line">3. Flash operation execution</div>
 <div class="line">4. Post-flash verification</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md124"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md122"></a>
 <b>3. Development Workflow Integration</b></h3>
 <div class="fragment"><div class="line">## Complete development workflow</div>
 <div class="line">cd /examples/esp32</div>
@@ -585,11 +585,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">./build_app.sh gpio_test Release</div>
 <div class="line">./flash_app.sh gpio_test Release flash_monitor</div>
 <div class="line">./manage_logs.sh search &quot;ERROR&quot;</div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md125"></a>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md123"></a>
 🔧 <b>Troubleshooting and Debugging</b></h1>
-<h2><a class="anchor" id="autotoc_md126"></a>
+<h2><a class="anchor" id="autotoc_md124"></a>
 <b>Common Port Issues</b></h2>
-<h3><a class="anchor" id="autotoc_md127"></a>
+<h3><a class="anchor" id="autotoc_md125"></a>
 <b>1. No ESP32 Devices Detected</b></h3>
 <p><b>Problem</b>: No ESP32 devices found during detection <b>Symptoms</b>: "No ports detected" or "No devices found" messages <b>Solutions</b>: </p><div class="fragment"><div class="line">## Check device connections</div>
 <div class="line">./detect_ports.sh --verbose</div>
@@ -606,7 +606,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## Try different USB ports</div>
 <div class="line">## Check USB cable integrity</div>
 <div class="line">## Verify device power status</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md128"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md126"></a>
 <b>2. Port Permission Issues</b></h3>
 <p><b>Problem</b>: Port access denied due to insufficient permissions <b>Symptoms</b>: "Permission denied" or "Access denied" errors <b>Solutions</b>: </p><div class="fragment"><div class="line">## Check user permissions</div>
 <div class="line">ls -la /dev/ttyUSB*</div>
@@ -625,7 +625,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line"> </div>
 <div class="line">## Verify permission changes</div>
 <div class="line">ls -la /dev/ttyUSB*</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md129"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md127"></a>
 <b>3. Port Connectivity Issues</b></h3>
 <p><b>Problem</b>: Port not accessible or unstable connection <b>Symptoms</b>: "Port not accessible" or connection failures <b>Solutions</b>: </p><div class="fragment"><div class="line">## Test port connectivity</div>
 <div class="line">./detect_ports.sh --test-connection</div>
@@ -641,9 +641,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## Check for driver issues</div>
 <div class="line">lsmod | grep -i usb</div>
 <div class="line">kextstat | grep -i usb</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md130"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md128"></a>
 <b>Platform-Specific Issues</b></h2>
-<h3><a class="anchor" id="autotoc_md131"></a>
+<h3><a class="anchor" id="autotoc_md129"></a>
 <b>Linux Issues</b></h3>
 <div class="fragment"><div class="line">## Driver problems</div>
 <div class="line">sudo modprobe cp210x</div>
@@ -657,7 +657,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## udev rule problems</div>
 <div class="line">sudo udevadm info -a -n /dev/ttyUSB0</div>
 <div class="line">sudo udevadm test /sys/class/tty/ttyUSB0</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md132"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md130"></a>
 <b>macOS Issues</b></h3>
 <div class="fragment"><div class="line">## System Preferences issues</div>
 <div class="line">## Check System Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Full Disk Access</div>
@@ -670,7 +670,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">## Driver compatibility</div>
 <div class="line">kextstat | grep -i usb</div>
 <div class="line">kextstat | grep -i serial</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md133"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md131"></a>
 <b>WSL2 Issues</b></h3>
 <div class="fragment"><div class="line">## USB device access</div>
 <div class="line">## Ensure USB devices are shared with WSL2</div>
@@ -682,9 +682,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line"> </div>
 <div class="line">## Windows device sharing</div>
 <div class="line">## Enable USB device sharing in WSL2 settings</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md134"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md132"></a>
 <b>Debug and Verbose Mode</b></h2>
-<h3><a class="anchor" id="autotoc_md135"></a>
+<h3><a class="anchor" id="autotoc_md133"></a>
 <b>Enabling Debug Output</b></h3>
 <div class="fragment"><div class="line">## Enable debug mode</div>
 <div class="line">export DEBUG=1</div>
@@ -700,7 +700,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Permission checking details</div>
 <div class="line">- USB device information</div>
 <div class="line">- Error context and resolution</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md136"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md134"></a>
 <b>Debug Information Available</b></h3>
 <div class="fragment"><div class="line">## Debug output includes</div>
 <div class="line">- Platform detection details</div>
@@ -709,11 +709,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Permission verification</div>
 <div class="line">- Connection testing details</div>
 <div class="line">- Error resolution attempts</div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md137"></a>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md135"></a>
 📚 <b>Reference and Examples</b></h1>
-<h2><a class="anchor" id="autotoc_md138"></a>
+<h2><a class="anchor" id="autotoc_md136"></a>
 <b>Command Reference</b></h2>
-<h3><a class="anchor" id="autotoc_md139"></a>
+<h3><a class="anchor" id="autotoc_md137"></a>
 <b>Port Detection Commands</b></h3>
 <div class="fragment"><div class="line">./detect_ports.sh [options]</div>
 <div class="line"> </div>
@@ -728,7 +728,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">##   --ci-mode            - Optimize for CI/CD environments</div>
 <div class="line">##   --timeout &lt;seconds&gt;  - Set operation timeout</div>
 <div class="line">##   --retries &lt;count&gt;    - Set retry attempts</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md140"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md138"></a>
 <b>Environment Variables</b></h3>
 <div class="fragment"><div class="line">## Port detection configuration</div>
 <div class="line">export PORT_DETECTION_VERBOSE=1        # Enable verbose output</div>
@@ -737,9 +737,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">export PORT_MAX_RETRIES=3              # Set maximum retry attempts</div>
 <div class="line">export PORT_DEBUG=1                    # Enable debug mode</div>
 <div class="line">export PORT_AUTO_FIX=1                 # Enable automatic problem resolution</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md141"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md139"></a>
 <b>Configuration Examples</b></h2>
-<h3><a class="anchor" id="autotoc_md142"></a>
+<h3><a class="anchor" id="autotoc_md140"></a>
 <b>Minimal Port Detection Configuration</b></h3>
 <div class="fragment"><div class="line">## Basic port detection</div>
 <div class="line">./detect_ports.sh</div>
@@ -749,7 +749,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Basic port information display</div>
 <div class="line">- Error reporting for issues</div>
 <div class="line">- Quick status summary</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md143"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md141"></a>
 <b>Advanced Port Detection Configuration</b></h3>
 <div class="fragment"><div class="line">## Comprehensive port analysis</div>
 <div class="line">./detect_ports.sh --verbose --test-connection --fix-permissions</div>
@@ -760,7 +760,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- Permission verification and fixing</div>
 <div class="line">- Troubleshooting guidance</div>
 <div class="line">- Solution suggestions</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md144"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md142"></a>
 <b>CI/CD Port Detection Configuration</b></h3>
 <div class="fragment"><div class="line">## CI-optimized port detection</div>
 <div class="line">export CI_MODE=1</div>
@@ -771,9 +771,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">- CI-optimized output format</div>
 <div class="line">- Error reporting for CI systems</div>
 <div class="line">- Status code for automation</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md145"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md143"></a>
 <b>Integration Examples</b></h2>
-<h3><a class="anchor" id="autotoc_md146"></a>
+<h3><a class="anchor" id="autotoc_md144"></a>
 <b>CMake Integration</b></h3>
 <div class="fragment"><div class="line">## CMakeLists.txt port detection integration</div>
 <div class="line">cmake_minimum_required(VERSION 3.16)</div>
@@ -790,7 +790,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR}</div>
 <div class="line">    DEPENDS detect_ports</div>
 <div class="line">)</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md147"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md145"></a>
 <b>CI/CD Integration</b></h3>
 <div class="fragment"><div class="line">## GitHub Actions port detection integration</div>
 <div class="line">- name: Detect ESP32 Ports</div>
@@ -802,7 +802,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">  run: |</div>
 <div class="line">    cd /examples/esp32</div>
 <div class="line">    ./scripts/detect_ports.sh --ci-mode --verbose</div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md148"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md146"></a>
 <b>Automation Scripts</b></h3>
 <div class="fragment"><div class="line">#!/bin/bash</div>
 <div class="line">## Automated port detection and validation</div>
@@ -826,9 +826,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <div class="line">./detect_ports.sh --verbose --test-connection</div>
 <div class="line"> </div>
 <div class="line">echo &quot;Port detection complete!&quot;</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md149"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md147"></a>
 <b>Best Practices</b></h2>
-<h3><a class="anchor" id="autotoc_md150"></a>
+<h3><a class="anchor" id="autotoc_md148"></a>
 <b>1. Port Detection</b></h3>
 <ul>
 <li>Always use verbose mode for troubleshooting</li>
@@ -837,7 +837,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <li>Use automatic detection when possible</li>
 <li>Regular port health checks</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md151"></a>
+<h3><a class="anchor" id="autotoc_md149"></a>
 <b>2. Troubleshooting</b></h3>
 <ul>
 <li>Enable debug mode for detailed information</li>
@@ -846,7 +846,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <li>Regular system health checks</li>
 <li>Monitor for recurring issues</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md152"></a>
+<h3><a class="anchor" id="autotoc_md150"></a>
 <b>3. Integration</b></h3>
 <ul>
 <li>Integrate port detection into build workflows</li>
@@ -855,7 +855,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2port-dete
 <li>Regular port status reporting</li>
 <li>Error handling and recovery</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md153"></a>
+<h3><a class="anchor" id="autotoc_md151"></a>
 <b>4. Performance</b></h3>
 <ul>
 <li>Use appropriate detection timeouts</li>

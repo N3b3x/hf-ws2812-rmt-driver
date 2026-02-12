@@ -97,14 +97,14 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2getting-started_2in
   <div class="headertitle"><div class="title">Getting Started with HardFOC ESP-IDF Project Tools</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md477"></a> Welcome to the HardFOC ESP-IDF Project Tools! This guide will help you <b>integrate these development scripts into your existing ESP-IDF project</b> for enhanced multi-application build management and development workflows.</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md494"></a> Welcome to the HardFOC ESP-IDF Project Tools! This guide will help you <b>integrate these development scripts into your existing ESP-IDF project</b> for enhanced multi-application build management and development workflows.</p>
 <blockquote class="doxtable">
 <p>&zwj;<b>📋 Important</b>: These tools are designed to be <b>integrated into your ESP-IDF project</b>, not used as standalone applications. </p>
 </blockquote>
-<h1><a class="anchor" id="autotoc_md478"></a>
+<h1><a class="anchor" id="autotoc_md495"></a>
 🚀 Integration Methods</h1>
 <p>Choose the best method to integrate these tools into your ESP-IDF project:</p>
-<h2><a class="anchor" id="autotoc_md479"></a>
+<h2><a class="anchor" id="autotoc_md496"></a>
 Method 1: Submodule Integration (Recommended)</h2>
 <p><b>Best for</b>: Version-controlled projects with team collaboration</p>
 <div class="fragment"><div class="line"># Navigate to your ESP-IDF project</div>
@@ -124,7 +124,7 @@ Method 1: Submodule Integration (Recommended)</h2>
 <div class="line"> </div>
 <div class="line"># Start building</div>
 <div class="line">./scripts/build_app.sh your_app Release</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md480"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md497"></a>
 Method 2: Direct Clone Integration</h2>
 <p><b>Best for</b>: Quick setup and experimentation</p>
 <div class="fragment"><div class="line"># Navigate to your ESP-IDF project</div>
@@ -135,7 +135,7 @@ Method 2: Direct Clone Integration</h2>
 <div class="line"> </div>
 <div class="line"># Start building</div>
 <div class="line">./scripts/build_app.sh your_app Release</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md481"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md498"></a>
 Method 3: Shared Tools Directory</h2>
 <p><b>Best for</b>: Multiple projects using the same tools</p>
 <div class="fragment"><div class="line"># Create shared tools directory</div>
@@ -146,7 +146,7 @@ Method 3: Shared Tools Directory</h2>
 <div class="line"># In each ESP-IDF project, use --project-path</div>
 <div class="line">cd your-esp-idf-project</div>
 <div class="line">~/shared-esp32-tools/build_app.sh --project-path . your_app Release</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md482"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md499"></a>
 Method 4: Automated Project Setup</h2>
 <p><b>Best for</b>: Creating new ESP-IDF projects with tools pre-integrated</p>
 <div class="fragment"><div class="line"># Clone the tools repository</div>
@@ -170,7 +170,7 @@ Method 4: Automated Project Setup</h2>
 <li>✅ Basic <code>main.cpp</code> template</li>
 <li>✅ All development scripts ready to use</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md483"></a>
+<h2><a class="anchor" id="autotoc_md500"></a>
 Option 2: Add to Existing Project</h2>
 <p>If you already have an ESP-IDF project:</p>
 <div class="fragment"><div class="line"># Navigate to your ESP-IDF project</div>
@@ -182,7 +182,7 @@ Option 2: Add to Existing Project</h2>
 <div class="line"># Create app_config.yml (see Configuration guide)</div>
 <div class="line"># Set up CMakeLists.txt files</div>
 <div class="line"># Start building!</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md484"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md501"></a>
 📋 Prerequisites</h1>
 <p>Before you begin, ensure you have:</p>
 <ul>
@@ -191,9 +191,9 @@ Option 2: Add to Existing Project</h2>
 <li><b>Write permissions</b> in your working directory</li>
 <li><b>Basic understanding</b> of ESP-IDF development (for existing projects)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md485"></a>
+<h1><a class="anchor" id="autotoc_md502"></a>
 🛠️ What You Get</h1>
-<h2><a class="anchor" id="autotoc_md486"></a>
+<h2><a class="anchor" id="autotoc_md503"></a>
 Complete Project Structure</h2>
 <div class="fragment"><div class="line">my-esp-idf-project/</div>
 <div class="line">├── main/</div>
@@ -206,15 +206,17 @@ Complete Project Structure</h2>
 <div class="line">├── app_config.yml           # App configuration</div>
 <div class="line">├── CMakeLists.txt           # Project configuration</div>
 <div class="line">└── README.md                # Project documentation</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md487"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md504"></a>
 Ready-to-Use Commands</h2>
 <ul>
 <li><b>Build apps:</b> <code>./scripts/build_app.sh &lt;app_type&gt; &lt;build_type&gt;</code></li>
 <li><b>Flash to ESP32:</b> <code>./scripts/flash_app.sh flash &lt;app_type&gt; &lt;build_type&gt;</code></li>
 <li><b>Monitor output:</b> <code>./scripts/flash_app.sh monitor</code></li>
 <li><b>List apps:</b> <code>./scripts/build_app.sh list</code></li>
+<li><b>List ESP32 devices:</b> <code>./scripts/flash_app.sh ports</code></li>
+<li><b>Flash to specific device:</b> <code>./scripts/flash_app.sh --port /dev/ttyACM1 flash &lt;app_type&gt; &lt;build_type&gt;</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md488"></a>
+<h1><a class="anchor" id="autotoc_md505"></a>
 🎯 Next Steps</h1>
 <p>Once you have a project set up:</p>
 <ol type="1">
@@ -224,14 +226,14 @@ Ready-to-Use Commands</h2>
 <li><b><a href="ci-pipeline/">CI Pipeline</a></b> - Set up automated builds</li>
 <li><b><a href="advanced/multi-version-idf/">Advanced Topics</a></b> - Explore advanced features</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md489"></a>
+<h1><a class="anchor" id="autotoc_md506"></a>
 🆘 Need Help?</h1>
 <ul>
 <li><b><a href="troubleshooting/">Troubleshooting</a></b> - Common issues and solutions</li>
 <li><b><a href="examples/">Examples</a></b> - Real-world usage examples</li>
 <li><b><a href="https://github.com/n3b3x/hf-espidf-project-tools/issues">GitHub Issues</a></b> - Report bugs or request features</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md490"></a>
+<h1><a class="anchor" id="autotoc_md507"></a>
 🎯 What's Next?</h1>
 <ul>
 <li><b>Customize workflows</b> for your specific needs</li>

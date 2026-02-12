@@ -97,13 +97,13 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
   <div class="headertitle"><div class="title">ESP32 Utility Scripts Guide</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md154"></a> This document provides comprehensive documentation for the ESP32 utility scripts, including port detection, setup automation, and helper tools for development workflow management.</p>
-<h1><a class="anchor" id="autotoc_md155"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md152"></a> This document provides comprehensive documentation for the ESP32 utility scripts, including port detection, setup automation, and helper tools for development workflow management.</p>
+<h1><a class="anchor" id="autotoc_md153"></a>
 📋 <b>Table of Contents</b></h1>
-<h1><a class="anchor" id="autotoc_md156"></a>
+<h1><a class="anchor" id="autotoc_md154"></a>
 📋 <b>Overview</b></h1>
 <p>The ESP-IDF utility scripts provide essential tools for development environment setup, port detection, troubleshooting, and workflow automation. These scripts ensure consistent development environments across different platforms and provide intelligent automation for common development tasks.</p>
-<h2><a class="anchor" id="autotoc_md157"></a>
+<h2><a class="anchor" id="autotoc_md155"></a>
 <b>Core Features</b></h2>
 <ul>
 <li><b>Cross-Platform Port Detection</b>: Automatic ESP32 device identification</li>
@@ -112,7 +112,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <li><b>Configuration Management</b>: Centralized configuration and information access</li>
 <li><b>CI/CD Integration</b>: Optimized for automated environments with minimal dependencies</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md158"></a>
+<h2><a class="anchor" id="autotoc_md156"></a>
 <b>Key Capabilities</b></h2>
 <ul>
 <li>Automatic ESP32 device detection across platforms</li>
@@ -122,15 +122,15 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <li>Automated troubleshooting and problem resolution</li>
 <li><b>CI-Specific Optimizations</b>: Cache management and build directory preparation</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md159"></a>
+<h1><a class="anchor" id="autotoc_md157"></a>
 🏗️ <b>Architecture and Design</b></h1>
-<h2><a class="anchor" id="autotoc_md160"></a>
+<h2><a class="anchor" id="autotoc_md158"></a>
 <b>New System Architecture</b></h2>
 <div class="fragment"><div class="line">Utility Scripts → Environment Detection → Setup Selection → Tool Installation → Validation</div>
 <div class="line">      ↓              ↓                    ↓                ↓                ↓</div>
 <div class="line">Port Detection   Local vs CI        setup_repo.sh      Dependency Mgmt   Environment</div>
 <div class="line">&amp; Troubleshooting  Environment       vs ESP-IDF CI      &amp; Installation    Verification</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md161"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md159"></a>
 <b>Environment Setup Architecture</b></h2>
 <div class="fragment"><div class="line">┌─────────────────────────────────────────────────────────────────────────────┐</div>
 <div class="line">│                           SETUP COMMON FUNCTIONS                            │</div>
@@ -166,7 +166,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">│  • CI workflows use ESP-IDF CI action directly                              │</div>
 <div class="line">│  • Local development uses setup_repo.sh <span class="keywordflow">for</span> environment                     │</div>
 <div class="line">└─────────────────────────────────────────────────────────────────────────────┘</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md162"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md160"></a>
 <b>Component Interaction</b></h2>
 <ul>
 <li><b>Port Detection</b>: Cross-platform ESP32 device identification</li>
@@ -175,7 +175,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <li><b>Troubleshooting</b>: Automated problem detection and resolution</li>
 <li><b>Platform Adaptation</b>: Cross-platform compatibility and optimization</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md163"></a>
+<h2><a class="anchor" id="autotoc_md161"></a>
 <b>Design Principles</b></h2>
 <ul>
 <li><b>Cross-Platform</b>: Consistent behavior across Linux, macOS, and Windows (WSL2)</li>
@@ -185,11 +185,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <li><b>User Experience</b>: Clear feedback and error handling</li>
 <li><b>Environment Separation</b>: Clear distinction between local development and CI needs</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md164"></a>
+<h1><a class="anchor" id="autotoc_md162"></a>
 🔌 <b>Port Detection and Troubleshooting</b></h1>
-<h2><a class="anchor" id="autotoc_md165"></a>
+<h2><a class="anchor" id="autotoc_md163"></a>
 <b>Cross-Platform Port Detection</b></h2>
-<h3><a class="anchor" id="autotoc_md166"></a>
+<h3><a class="anchor" id="autotoc_md164"></a>
 <b>Linux Port Detection</b></h3>
 <p>The system automatically detects ESP32 devices on Linux:</p>
 <div class="fragment"><div class="line">## USB serial device patterns</div>
@@ -203,7 +203,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line"> </div>
 <div class="line">## Automatic detection</div>
 <div class="line">./detect_ports.sh --verbose</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md167"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md165"></a>
 <b>macOS Port Detection</b></h3>
 <p>The system adapts to macOS-specific device patterns:</p>
 <div class="fragment"><div class="line">## macOS device patterns</div>
@@ -215,7 +215,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line"> </div>
 <div class="line">## Automatic detection</div>
 <div class="line">./detect_ports.sh --verbose</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md168"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md166"></a>
 <b>Windows (WSL2) Port Detection</b></h3>
 <p>The system provides WSL2 compatibility:</p>
 <div class="fragment"><div class="line">## WSL2 port mapping</div>
@@ -226,9 +226,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line"> </div>
 <div class="line">## Port accessibility testing</div>
 <div class="line">./detect_ports.sh --test-connection</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md169"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md167"></a>
 <b>Port Validation and Testing</b></h2>
-<h3><a class="anchor" id="autotoc_md170"></a>
+<h3><a class="anchor" id="autotoc_md168"></a>
 <b>Connectivity Testing</b></h3>
 <div class="fragment"><div class="line">## Test port connectivity</div>
 <div class="line">./detect_ports.sh --test-connection</div>
@@ -238,7 +238,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line"> </div>
 <div class="line">## Check port permissions and status</div>
 <div class="line">./detect_ports.sh --verbose --test-connection</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md171"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md169"></a>
 <b>Permission Management</b></h3>
 <p>The system handles common permission issues:</p>
 <div class="fragment"><div class="line">## Linux udev rules for ESP32 devices</div>
@@ -252,28 +252,28 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">## Permission verification</div>
 <div class="line">ls -la /dev/ttyUSB*</div>
 <div class="line">groups $USER</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md172"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md170"></a>
 <b>Troubleshooting Capabilities</b></h2>
-<h3><a class="anchor" id="autotoc_md173"></a>
+<h3><a class="anchor" id="autotoc_md171"></a>
 <b>Automatic Problem Detection</b></h3>
 <div class="fragment"><div class="line">## Common issue detection</div>
 <div class="line">- USB driver availability</div>
 <div class="line">- Port permission problems</div>
 <div class="line">- Device enumeration issues</div>
 <div class="line">- Connection stability problems</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md174"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md172"></a>
 <b>Problem Resolution</b></h3>
 <div class="fragment"><div class="line">## Automatic resolution attempts</div>
 <div class="line">- Permission fixing</div>
 <div class="line">- Driver installation guidance</div>
 <div class="line">- Port configuration</div>
 <div class="line">- Connection testing</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md175"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md173"></a>
 ⚙️ <b>Environment Setup and Automation</b></h1>
-<h2><a class="anchor" id="autotoc_md176"></a>
+<h2><a class="anchor" id="autotoc_md174"></a>
 <b>Dual Environment Setup System</b></h2>
 <p>The system now provides two distinct setup approaches optimized for different use cases:</p>
-<h3><a class="anchor" id="autotoc_md177"></a>
+<h3><a class="anchor" id="autotoc_md175"></a>
 <b>Local Development Setup (setup_repo.sh)</b></h3>
 <div class="fragment"><div class="line">## Complete development environment setup</div>
 <div class="line">./setup_repo.sh</div>
@@ -286,7 +286,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- yq (YAML processor)</div>
 <div class="line">- Development aliases and environment variables</div>
 <div class="line">- Complete development toolchain</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md178"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md176"></a>
 <b>Direct ESP-IDF CI Action - Simplified CI/CD</b></h3>
 <div class="fragment"><div class="line">## CI builds use ESP-IDF CI action directly</div>
 <div class="line">## ESP-IDF CI action handles everything</div>
@@ -300,9 +300,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line"> </div>
 <div class="line">## NEW: Required environment variables</div>
 <div class="line">- ESP32_PROJECT_PATH: Path to ESP32 project directory (e.g., &#39;/examples/esp32&#39;)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md179"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md177"></a>
 <b>Environment-Specific Features</b></h2>
-<h3><a class="anchor" id="autotoc_md180"></a>
+<h3><a class="anchor" id="autotoc_md178"></a>
 <b>Local Development Features</b></h3>
 <div class="fragment"><div class="line">## Interactive setup process</div>
 <div class="line">- OS detection and adaptation</div>
@@ -311,7 +311,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Progress feedback</div>
 <div class="line">- Completion verification</div>
 <div class="line">- User guidance and troubleshooting</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md181"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md179"></a>
 <b>CI/CD Environment Features</b></h3>
 <div class="fragment"><div class="line">## CI optimizations</div>
 <div class="line">- Cache-aware installation</div>
@@ -321,7 +321,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Build directory preparation</div>
 <div class="line">- ESP-IDF integration with CI actions</div>
 <div class="line">- Reliable tool installation (no caching issues)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md182"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md180"></a>
 <b>Setup Script Selection Guide</b></h2>
 <p>| Use Case | Setup Script | Key Benefits |</p>
 <p>|-------&mdash;|-----------&mdash;|-----------&mdash;|</p>
@@ -329,9 +329,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <p>| <b>CI/CD Pipelines</b> | ESP-IDF CI action | Direct building, no setup needed, official action |</p>
 <p>| <b>New Developer Setup</b> | <code>setup_repo.sh</code> | Full environment, user guidance, complete toolchain |</p>
 <p>| <b>Automated Builds</b> | ESP-IDF CI action | Direct building, no setup needed, official action |</p>
-<h2><a class="anchor" id="autotoc_md183"></a>
+<h2><a class="anchor" id="autotoc_md181"></a>
 <b>Cross-Platform Compatibility</b></h2>
-<h3><a class="anchor" id="autotoc_md184"></a>
+<h3><a class="anchor" id="autotoc_md182"></a>
 <b>Operating System Support</b></h3>
 <div class="fragment"><div class="line">## Supported platforms</div>
 <div class="line">- Linux (Ubuntu 20.04+, Fedora, CentOS)</div>
@@ -343,7 +343,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Tool installation methods</div>
 <div class="line">- Path handling</div>
 <div class="line">- Permission management</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md185"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md183"></a>
 <b>Dependency Management</b></h3>
 <div class="fragment"><div class="line">## Automatic dependency detection</div>
 <div class="line">- Required tools identification</div>
@@ -351,11 +351,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Installation method selection</div>
 <div class="line">- Fallback mechanisms</div>
 <div class="line">- Environment-specific optimization</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md186"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md184"></a>
 🔧 <b>Configuration and Information Tools</b></h1>
-<h2><a class="anchor" id="autotoc_md187"></a>
+<h2><a class="anchor" id="autotoc_md185"></a>
 <b>Configuration Management</b></h2>
-<h3><a class="anchor" id="autotoc_md188"></a>
+<h3><a class="anchor" id="autotoc_md186"></a>
 <b>Centralized Configuration Access</b></h3>
 <div class="fragment"><div class="line">## Configuration information</div>
 <div class="line">./get_app_info.py list                    # List all applications</div>
@@ -366,7 +366,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Application existence verification</div>
 <div class="line">- Source file path validation</div>
 <div class="line">- Configuration integrity checking</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md189"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md187"></a>
 <b>Configuration Integration</b></h3>
 <div class="fragment"><div class="line">## CMake integration</div>
 <div class="line">execute_process(</div>
@@ -379,9 +379,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Source file resolution</div>
 <div class="line">- Configuration validation</div>
 <div class="line">- Build parameter extraction</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md190"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md188"></a>
 <b>Information Extraction</b></h2>
-<h3><a class="anchor" id="autotoc_md191"></a>
+<h3><a class="anchor" id="autotoc_md189"></a>
 <b>Application Information</b></h3>
 <div class="fragment"><div class="line">## Available information</div>
 <div class="line">- Application descriptions</div>
@@ -390,7 +390,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- ESP-IDF version compatibility</div>
 <div class="line">- CI/CD configuration</div>
 <div class="line">- Featured status</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md192"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md190"></a>
 <b>System Information</b></h3>
 <div class="fragment"><div class="line">## System details</div>
 <div class="line">- Operating system detection</div>
@@ -398,11 +398,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Version information</div>
 <div class="line">- Path configurations</div>
 <div class="line">- Environment variables</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md193"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md191"></a>
 🚀 <b>Usage Examples and Patterns</b></h1>
-<h2><a class="anchor" id="autotoc_md194"></a>
+<h2><a class="anchor" id="autotoc_md192"></a>
 <b>Environment Setup Workflows</b></h2>
-<h3><a class="anchor" id="autotoc_md195"></a>
+<h3><a class="anchor" id="autotoc_md193"></a>
 <b>1. Local Development Setup</b></h3>
 <div class="fragment"><div class="line">## Complete local setup</div>
 <div class="line">./setup_repo.sh</div>
@@ -414,7 +414,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">4. Environment configuration</div>
 <div class="line">5. Verification and testing</div>
 <div class="line">6. User guidance and troubleshooting</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md196"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md194"></a>
 <b>2. CI/CD Environment Setup</b></h3>
 <div class="fragment"><div class="line">## CI builds use ESP-IDF CI action directly</div>
 <div class="line"> </div>
@@ -425,7 +425,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">4. Cache statistics</div>
 <div class="line">5. Build directory preparation</div>
 <div class="line">6. ESP-IDF CI action integration</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md197"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md195"></a>
 <b>3. Environment Verification</b></h3>
 <div class="fragment"><div class="line">## Verify setup</div>
 <div class="line">./setup_repo.sh --verify</div>
@@ -436,9 +436,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Path configuration</div>
 <div class="line">- Environment variables</div>
 <div class="line">- Functionality testing</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md198"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md196"></a>
 <b>Port Detection Workflows</b></h2>
-<h3><a class="anchor" id="autotoc_md199"></a>
+<h3><a class="anchor" id="autotoc_md197"></a>
 <b>1. Basic Port Detection</b></h3>
 <div class="fragment"><div class="line">## Quick port detection</div>
 <div class="line">./detect_ports.sh</div>
@@ -447,7 +447,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Available ESP32 devices</div>
 <div class="line">- Port accessibility status</div>
 <div class="line">- Basic device information</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md200"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md198"></a>
 <b>2. Detailed Port Analysis</b></h3>
 <div class="fragment"><div class="line">## Comprehensive port analysis</div>
 <div class="line">./detect_ports.sh --verbose</div>
@@ -457,7 +457,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- USB device details</div>
 <div class="line">- Permission status</div>
 <div class="line">- Driver information</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md201"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md199"></a>
 <b>3. Port Connectivity Testing</b></h3>
 <div class="fragment"><div class="line">## Test port connectivity</div>
 <div class="line">./detect_ports.sh --test-connection</div>
@@ -466,9 +466,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Port accessibility verification</div>
 <div class="line">- Connection stability testing</div>
 <div class="line">- Error detection and reporting</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md202"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md200"></a>
 <b>Configuration Management Workflows</b></h2>
-<h3><a class="anchor" id="autotoc_md203"></a>
+<h3><a class="anchor" id="autotoc_md201"></a>
 <b>1. Application Information Access</b></h3>
 <div class="fragment"><div class="line">## Get application information</div>
 <div class="line">./get_app_info.py list</div>
@@ -480,7 +480,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Configuration validation</div>
 <div class="line">- Documentation generation</div>
 <div class="line">- CI/CD pipeline configuration</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md204"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md202"></a>
 <b>2. Configuration Validation</b></h3>
 <div class="fragment"><div class="line">## Validate configuration</div>
 <div class="line">./get_app_info.py validate gpio_test</div>
@@ -491,9 +491,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Source file verification</div>
 <div class="line">- Configuration integrity</div>
 <div class="line">- Dependency validation</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md205"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md203"></a>
 <b>Troubleshooting Workflows</b></h2>
-<h3><a class="anchor" id="autotoc_md206"></a>
+<h3><a class="anchor" id="autotoc_md204"></a>
 <b>1. Port Problem Resolution</b></h3>
 <div class="fragment"><div class="line">## Port troubleshooting</div>
 <div class="line">./detect_ports.sh --verbose --test-connection</div>
@@ -503,7 +503,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">2. Automatic resolution attempts</div>
 <div class="line">3. Manual resolution guidance</div>
 <div class="line">4. Verification testing</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md207"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md205"></a>
 <b>2. Environment Problem Resolution</b></h3>
 <div class="fragment"><div class="line">## Environment troubleshooting</div>
 <div class="line">./setup_repo.sh --troubleshoot</div>
@@ -514,18 +514,18 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">3. Tool reinstallation</div>
 <div class="line">4. Configuration repair</div>
 <div class="line">5. Verification testing</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md208"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md206"></a>
 <b>3. Environment-Specific Troubleshooting</b></h3>
 <div class="fragment"><div class="line">## Local development issues</div>
 <div class="line">./setup_repo.sh --debug</div>
 <div class="line"> </div>
 <div class="line">## Environment verification</div>
 <div class="line">./setup_repo.sh --verify  # Local</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md209"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md207"></a>
 🔍 <b>Troubleshooting and Debugging</b></h1>
-<h2><a class="anchor" id="autotoc_md210"></a>
+<h2><a class="anchor" id="autotoc_md208"></a>
 <b>Common Port Issues</b></h2>
-<h3><a class="anchor" id="autotoc_md211"></a>
+<h3><a class="anchor" id="autotoc_md209"></a>
 <b>1. No ESP32 Devices Detected</b></h3>
 <p><b>Problem</b>: No ESP32 devices found <b>Symptoms</b>: "No ports detected" or "No devices found" messages <b>Solutions</b>: </p><div class="fragment"><div class="line">## Check device connections</div>
 <div class="line">./detect_ports.sh --verbose</div>
@@ -536,7 +536,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line"> </div>
 <div class="line">## Check device enumeration</div>
 <div class="line">dmesg | grep -i usb</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md212"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md210"></a>
 <b>2. Port Permission Issues</b></h3>
 <p><b>Problem</b>: Port access denied <b>Symptoms</b>: "Permission denied" or "Access denied" errors <b>Solutions</b>: </p><div class="fragment"><div class="line">## Check user permissions</div>
 <div class="line">ls -la /dev/ttyUSB*</div>
@@ -547,7 +547,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line"> </div>
 <div class="line">## Create udev rules</div>
 <div class="line">sudo nano /etc/udev/rules.d/99-esp32.rules</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md213"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md211"></a>
 <b>3. Port Connectivity Issues</b></h3>
 <p><b>Problem</b>: Port not accessible or unstable <b>Symptoms</b>: "Port not accessible" or connection failures <b>Solutions</b>: </p><div class="fragment"><div class="line">## Test port connectivity</div>
 <div class="line">./detect_ports.sh --test-connection</div>
@@ -558,9 +558,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">## Verify device mode</div>
 <div class="line">## Check for bootloader mode</div>
 <div class="line">## Reset device if necessary</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md214"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md212"></a>
 <b>Environment Setup Issues</b></h2>
-<h3><a class="anchor" id="autotoc_md215"></a>
+<h3><a class="anchor" id="autotoc_md213"></a>
 <b>1. Setup Script Selection Issues</b></h3>
 <p><b>Problem</b>: Wrong setup script for environment <b>Symptoms</b>: Setup errors or missing functionality <b>Solutions</b>: </p><div class="fragment"><div class="line">## For local development (complete environment)</div>
 <div class="line">./setup_repo.sh</div>
@@ -569,7 +569,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line"> </div>
 <div class="line">## Check script help for details</div>
 <div class="line">./setup_repo.sh --help</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md216"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md214"></a>
 <b>2. Dependency Installation Failures</b></h3>
 <p><b>Problem</b>: Required tools not installed <b>Symptoms</b>: "Command not found" or installation errors <b>Solutions</b>: </p><div class="fragment"><div class="line">## Check tool availability</div>
 <div class="line">which git cmake ninja ccache</div>
@@ -579,7 +579,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line"> </div>
 <div class="line">## Verify installation</div>
 <div class="line">./setup_repo.sh --verify  # Local</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md217"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md215"></a>
 <b>3. ESP-IDF Installation Issues</b></h3>
 <p><b>Problem</b>: ESP-IDF not properly installed <b>Symptoms</b>: "ESP-IDF not found" or environment errors <b>Solutions</b>: </p><div class="fragment"><div class="line">## Local development</div>
 <div class="line">./setup_repo.sh --reinstall-esp-idf</div>
@@ -590,7 +590,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">## Verify environment</div>
 <div class="line">source ~/esp/esp-idf/export.sh</div>
 <div class="line">idf.py --version</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md218"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md216"></a>
 <b>4. Permission and Path Issues</b></h3>
 <p><b>Problem</b>: Insufficient permissions or incorrect paths <b>Symptoms</b>: "Permission denied" or "Path not found" errors <b>Solutions</b>: </p><div class="fragment"><div class="line">## Check permissions</div>
 <div class="line">ls -la ~/esp/</div>
@@ -603,9 +603,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">## Verify paths</div>
 <div class="line">echo $IDF_PATH</div>
 <div class="line">echo $PATH</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md219"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md217"></a>
 <b>Debug and Verbose Mode</b></h2>
-<h3><a class="anchor" id="autotoc_md220"></a>
+<h3><a class="anchor" id="autotoc_md218"></a>
 <b>Enabling Debug Output</b></h3>
 <div class="fragment"><div class="line">## Enable debug mode</div>
 <div class="line">export DEBUG=1</div>
@@ -615,7 +615,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">./detect_ports.sh --verbose</div>
 <div class="line">./setup_repo.sh --debug</div>
 <div class="line">./get_app_info.py --verbose</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md221"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md219"></a>
 <b>Debug Information Available</b></h3>
 <div class="fragment"><div class="line">## Debug information</div>
 <div class="line">- Port detection process details</div>
@@ -626,11 +626,11 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Error con and resolution</div>
 <div class="line">- Environment setup process details</div>
 <div class="line">- CI vs local environment differences</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md222"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md220"></a>
 📚 <b>Reference and Examples</b></h1>
-<h2><a class="anchor" id="autotoc_md223"></a>
+<h2><a class="anchor" id="autotoc_md221"></a>
 <b>Command Reference</b></h2>
-<h3><a class="anchor" id="autotoc_md224"></a>
+<h3><a class="anchor" id="autotoc_md222"></a>
 <b>Port Detection Commands</b></h3>
 <div class="fragment"><div class="line">./detect_ports.sh [options]</div>
 <div class="line"> </div>
@@ -638,7 +638,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">##   --verbose              - Show detailed device information</div>
 <div class="line">##   --test-connection     - Test port connectivity</div>
 <div class="line">##   --help, -h           - Show usage information</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md225"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md223"></a>
 <b>Setup Commands</b></h3>
 <div class="fragment"><div class="line">./setup_repo.sh [options]     # Local development setup (complete environment)</div>
 <div class="line"> </div>
@@ -652,7 +652,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">## setup_repo.sh:</div>
 <div class="line">##   --interactive        - Interactive setup mode</div>
 <div class="line">##   --non-interactive   - Non-interactive setup mode</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md226"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md224"></a>
 <b>Configuration Commands</b></h3>
 <div class="fragment"><div class="line">./get_app_info.py &lt;command&gt; [args...]</div>
 <div class="line"> </div>
@@ -661,15 +661,15 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">##   source_file &lt;app_type&gt;  - Get source file path for application</div>
 <div class="line">##   validate &lt;app_type&gt;     - Validate application configuration</div>
 <div class="line">##   --help, -h             - Show usage information</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md227"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md225"></a>
 <b>Environment Variables</b></h2>
-<h3><a class="anchor" id="autotoc_md228"></a>
+<h3><a class="anchor" id="autotoc_md226"></a>
 <b>Port Detection Variables</b></h3>
 <div class="fragment"><div class="line">## Port detection configuration</div>
 <div class="line">export PORT_DETECTION_VERBOSE=1    # Enable verbose output</div>
 <div class="line">export PORT_TEST_TIMEOUT=5         # Set connection test timeout</div>
 <div class="line">export PORT_SCAN_TIMEOUT=3         # Set port scan timeout</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md229"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md227"></a>
 <b>Setup Configuration Variables</b></h3>
 <div class="fragment"><div class="line">## Setup configuration</div>
 <div class="line">export SETUP_MODE=&quot;local&quot;          # Set setup mode (local/ci)</div>
@@ -682,16 +682,16 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">export IDF_TARGET=&quot;esp32c6&quot;        # Target MCU</div>
 <div class="line">export BUILD_TYPE=&quot;Release&quot;        # Build type</div>
 <div class="line">export APP_TYPE=&quot;gpio_test&quot;        # Application type</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md230"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md228"></a>
 <b>Debug Configuration Variables</b></h3>
 <div class="fragment"><div class="line">## Debug configuration</div>
 <div class="line">export DEBUG=1                     # Enable debug mode</div>
 <div class="line">export VERBOSE=1                   # Enable verbose output</div>
 <div class="line">export SETUP_DEBUG=1               # Enable setup debug mode</div>
 <div class="line">export PORT_DEBUG=1                # Enable port debug mode</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md231"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md229"></a>
 <b>Configuration Examples</b></h2>
-<h3><a class="anchor" id="autotoc_md232"></a>
+<h3><a class="anchor" id="autotoc_md230"></a>
 <b>Minimal Port Detection Configuration</b></h3>
 <div class="fragment"><div class="line">## Basic port detection</div>
 <div class="line">./detect_ports.sh</div>
@@ -700,7 +700,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Automatic ESP32 device detection</div>
 <div class="line">- Basic port information display</div>
 <div class="line">- Error reporting for issues</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md233"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md231"></a>
 <b>Advanced Port Detection Configuration</b></h3>
 <div class="fragment"><div class="line">## Comprehensive port analysis</div>
 <div class="line">./detect_ports.sh --verbose --test-connection</div>
@@ -710,9 +710,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Port connectivity testing</div>
 <div class="line">- Permission verification</div>
 <div class="line">- Troubleshooting guidance</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md234"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md232"></a>
 <b>Environment Setup Configuration</b></h3>
-<h3><a class="anchor" id="autotoc_md235"></a>
+<h3><a class="anchor" id="autotoc_md233"></a>
 <b>Local Development Setup</b></h3>
 <div class="fragment"><div class="line">## Complete environment setup</div>
 <div class="line">./setup_repo.sh</div>
@@ -723,7 +723,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Tool configuration</div>
 <div class="line">- Environment verification</div>
 <div class="line">- Interactive user guidance</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md236"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md234"></a>
 <b>CI/CD Environment Setup</b></h3>
 <div class="fragment"><div class="line">## CI builds use ESP-IDF CI action directly</div>
 <div class="line">## No setup needed</div>
@@ -734,9 +734,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">- Build directory preparation</div>
 <div class="line">- Non-interactive operation</div>
 <div class="line">- CI-specific optimizations</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md237"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md235"></a>
 <b>Integration Examples</b></h2>
-<h3><a class="anchor" id="autotoc_md238"></a>
+<h3><a class="anchor" id="autotoc_md236"></a>
 <b>CMake Integration</b></h3>
 <div class="fragment"><div class="line">## CMakeLists.txt utility integration</div>
 <div class="line">cmake_minimum_required(VERSION 3.16)</div>
@@ -752,9 +752,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">    COMMAND python3 ${CMAKE_SOURCE_DIR}/scripts/get_app_info.py validate ${APP_TYPE}</div>
 <div class="line">    COMMENT &quot;Validating application configuration&quot;</div>
 <div class="line">)</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md239"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md237"></a>
 <b>CI/CD Integration</b></h3>
-<h3><a class="anchor" id="autotoc_md240"></a>
+<h3><a class="anchor" id="autotoc_md238"></a>
 <b>GitHub Actions Integration</b></h3>
 <div class="fragment"><div class="line">## GitHub Actions utility integration</div>
 <div class="line">- name: Setup ESP32 Environment</div>
@@ -771,7 +771,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">  run: |</div>
 <div class="line">    cd /examples/esp32</div>
 <div class="line">    python3 ./scripts/get_app_info.py validate gpio_test</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md241"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md239"></a>
 <b>GitLab CI Integration</b></h3>
 <div class="fragment"><div class="line">## GitLab CI utility integration</div>
 <div class="line">setup_environment:</div>
@@ -781,7 +781,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">  artifacts:</div>
 <div class="line">    paths:</div>
 <div class="line">      - /examples/esp32/build*/</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md242"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md240"></a>
 <b>Jenkins Pipeline Integration</b></h3>
 <div class="fragment"><div class="line">// Jenkins Pipeline utility integration</div>
 <div class="line">pipeline {</div>
@@ -803,7 +803,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md243"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md241"></a>
 <b>Automation Scripts</b></h3>
 <div class="fragment"><div class="line">#!/bin/bash</div>
 <div class="line">## Automated development environment setup</div>
@@ -835,9 +835,9 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <div class="line">python3 ./get_app_info.py validate gpio_test</div>
 <div class="line"> </div>
 <div class="line">echo &quot;Setup complete!&quot;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md244"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md242"></a>
 <b>Best Practices</b></h2>
-<h3><a class="anchor" id="autotoc_md245"></a>
+<h3><a class="anchor" id="autotoc_md243"></a>
 <b>1. Port Detection</b></h3>
 <ul>
 <li>Always use verbose mode for troubleshooting</li>
@@ -845,7 +845,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <li>Verify permissions and user group membership</li>
 <li>Use automatic detection when possible</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md246"></a>
+<h3><a class="anchor" id="autotoc_md244"></a>
 <b>2. Environment Setup</b></h3>
 <ul>
 <li><b>Local Development</b>: Use <code>setup_repo.sh</code> for complete development environment</li>
@@ -854,7 +854,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <li>Monitor cache usage and optimization</li>
 <li>Regular environment verification</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md247"></a>
+<h3><a class="anchor" id="autotoc_md245"></a>
 <b>3. Configuration Management</b></h3>
 <ul>
 <li>Validate configuration before use</li>
@@ -862,7 +862,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2advanced_2utility-s
 <li>Monitor configuration changes</li>
 <li>Regular configuration verification</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md248"></a>
+<h3><a class="anchor" id="autotoc_md246"></a>
 <b>4. Troubleshooting</b></h3>
 <ul>
 <li>Enable debug mode for detailed information</li>

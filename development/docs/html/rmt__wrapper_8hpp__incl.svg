@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT driver.">
+<g id="a_Node000001"><a xlink:title="A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT.">
 <polygon fill="#999999" stroke="#666666" points="592,-74 476,-74 476,-55 592,-55 592,-74"/>
 <text text-anchor="middle" x="534" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">inc/rmt_wrapper.hpp</text>
 </a>

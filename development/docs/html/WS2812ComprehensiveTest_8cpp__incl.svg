@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="ws2812__cpp_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="ws2812__cpp_8hpp.html" target="_top" xlink:title="C++ wrapper for the HF&#45;WS2812 RMT LED driver.">
 <polygon fill="white" stroke="#666666" points="823.54,-184 725.54,-184 725.54,-165 823.54,-165 823.54,-184"/>
 <text text-anchor="middle" x="774.54" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">ws2812_cpp.hpp</text>
 </a>
@@ -129,7 +129,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="rmt__wrapper_8hpp.html" target="_top" xlink:title="A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT driver.">
+<g id="a_Node000003"><a xlink:href="rmt__wrapper_8hpp.html" target="_top" xlink:title="A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT.">
 <polygon fill="white" stroke="#666666" points="965.04,-129 866.04,-129 866.04,-110 965.04,-110 965.04,-129"/>
 <text text-anchor="middle" x="915.54" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">rmt_wrapper.hpp</text>
 </a>

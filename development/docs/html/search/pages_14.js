@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🔬_20advanced_20topics_0',['🔬 Advanced Topics',['../md_examples_2esp32_2scripts_2docs_2advanced-topics.html',1,'']]]
+  ['🔧_20core_20systems_0',['🔧 Core Systems',['../md_examples_2esp32_2scripts_2docs_2core-systems.html',1,'']]]
 ];

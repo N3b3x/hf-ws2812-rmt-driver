@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['reset_5fcode_0',['reset_code',['../structrmt__led__strip__encoder__t.html#ac7be06cc3488fbfc1bc0c1e58f51d8dd',1,'rmt_led_strip_encoder_t']]],
-  ['resolution_1',['resolution',['../structled__strip__encoder__config__t.html#a9ab68c581424c5fbd050fa68d679f063',1,'led_strip_encoder_config_t']]],
-  ['results_2',['results',['../structTestTaskContext.html#a1c97680bd267a35637278ea10a3fae0e',1,'TestTaskContext']]]
+  ['idle_5fcurrent_5fma_0',['IDLE_CURRENT_MA',['../structWS2812__TestConfig_1_1PowerSpecs.html#a85a0094ed468ad3ad9448fc60c9ae382',1,'WS2812_TestConfig::PowerSpecs']]],
+  ['is_5frgbw_1',['IS_RGBW',['../structWS2812__TestConfig_1_1StripSpecs.html#aa9488966bfd99b60589ede45ad2c7a48',1,'WS2812_TestConfig::StripSpecs']]]
 ];

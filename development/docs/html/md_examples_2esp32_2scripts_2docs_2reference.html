@@ -97,8 +97,8 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2reference.html','')
   <div class="headertitle"><div class="title">📚 Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md643"></a> Reference materials, examples, and troubleshooting guides for the HardFOC ESP-IDF Project Tools.</p>
-<h1><a class="anchor" id="autotoc_md644"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md660"></a> Reference materials, examples, and troubleshooting guides for the HardFOC ESP-IDF Project Tools.</p>
+<h1><a class="anchor" id="autotoc_md661"></a>
 Available Resources</h1>
 <ul>
 <li><b><a href="/docs/features/">Features</a></b> - Complete feature overview and capabilities</li>
@@ -106,9 +106,9 @@ Available Resources</h1>
 <li><b><a href="/docs/troubleshooting/">Troubleshooting</a></b> - Common issues and solutions</li>
 <li><b><a href="/docs/contributing/">Contributing</a></b> - How to contribute to the project</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md645"></a>
+<h1><a class="anchor" id="autotoc_md662"></a>
 Quick Reference</h1>
-<h2><a class="anchor" id="autotoc_md646"></a>
+<h2><a class="anchor" id="autotoc_md663"></a>
 Common Commands</h2>
 <div class="fragment"><div class="line"># Build an application</div>
 <div class="line">./scripts/build_app.sh &lt;app_type&gt; &lt;build_type&gt;</div>
@@ -118,21 +118,28 @@ Common Commands</h2>
 <div class="line"> </div>
 <div class="line"># Monitor output</div>
 <div class="line">./scripts/flash_app.sh monitor</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md647"></a>
+<div class="line"> </div>
+<div class="line"># List available ESP32 devices</div>
+<div class="line">./scripts/flash_app.sh ports</div>
+<div class="line"> </div>
+<div class="line"># Flash to specific device (when multiple connected)</div>
+<div class="line">./scripts/flash_app.sh --port /dev/ttyACM1 flash &lt;app_type&gt; &lt;build_type&gt;</div>
+<div class="line">./scripts/flash_app.sh -p /dev/ttyUSB0 monitor</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md664"></a>
 Configuration</h2>
 <ul>
 <li><b>Main config</b>: <code>app_config.yml</code></li>
 <li><b>Build config</b>: <code>build_config</code> section</li>
 <li><b>Flash config</b>: <code>flash_config</code> section</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md648"></a>
+<h1><a class="anchor" id="autotoc_md665"></a>
 Getting Help</h1>
 <ul>
 <li><b>Issues</b>: <a href="https://github.com/n3b3x/hf-espidf-project-tools/issues">GitHub Issues</a></li>
 <li><b>Discussions</b>: <a href="https://github.com/n3b3x/hf-espidf-project-tools/issues">GitHub Issues</a> (Discussions not enabled)</li>
 <li><b>Documentation</b>: This reference section</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md649"></a>
+<h1><a class="anchor" id="autotoc_md666"></a>
 Examples by Use Case</h1>
 <ul>
 <li><b>Basic ESP32 Project</b>: See <a href="/docs/examples/">Examples</a> for simple setups</li>

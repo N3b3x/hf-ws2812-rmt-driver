@@ -98,7 +98,7 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_examples_2esp32_2README"></a> This directory contains comprehensive test suites for the PCAL9555 16-bit I/O expander driver using the ESP32-C6 DevKit-M-1.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md1"></a>
 📋 Table of Contents</h1>
 <ul>
 <li>Hardware Overview</li>
@@ -109,9 +109,9 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 <li>Test Suites</li>
 <li>Troubleshooting</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 📌 Pin Connections</h1>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 I2C Bus Connections</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -127,7 +127,7 @@ I2C Bus Connections</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">INT   </td><td class="markdownTableBodyNone">GPIO15 (optional)   </td><td class="markdownTableBodyNone">Interrupt Output   </td><td class="markdownTableBodyNone">Open-drain, requires pull-up   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Test Indicator</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -135,7 +135,7 @@ Test Indicator</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Test Progress   </td><td class="markdownTableBodyNone">GPIO14   </td><td class="markdownTableBodyNone">Visual test progression indicator   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 I2C Address Configuration</h2>
 <p>The PCAL9555 I2C address is determined by the A0, A1, and A2 address pins:</p>
 <table class="markdownTable">
@@ -159,9 +159,9 @@ I2C Address Configuration</h2>
 <td class="markdownTableBodyNone">VDD   </td><td class="markdownTableBodyNone">VDD   </td><td class="markdownTableBodyNone">VDD   </td><td class="markdownTableBodyNone">0x27   </td><td class="markdownTableBodyNone">0x4E   </td></tr>
 </table>
 <p><b>Default</b>: All address pins to GND = <b>0x20</b> (used in examples)</p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 🚀 Building the Tests</h1>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Prerequisites</h2>
 <ol type="1">
 <li><p class="startli"><b>Install ESP-IDF</b> (if not already installed):</p>
@@ -188,7 +188,7 @@ Prerequisites</h2>
 <div class="line">./scripts/setup_repo.sh</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Available Test Applications</h2>
 <p>The test suites use a centralized build system with scripts. Available applications:</p>
 <table class="markdownTable">
@@ -197,24 +197,24 @@ Available Test Applications</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>pcal9555_comprehensive_test</code>   </td><td class="markdownTableBodyNone">Comprehensive PCAL9555 GPIO expander testing with all features   </td><td class="markdownTableBodyNone">PCAL9555 board   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 List Available Applications</h2>
 <div class="fragment"><div class="line"># List all available applications</div>
 <div class="line">./scripts/build_app.sh list</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
 Build an Application</h2>
 <div class="fragment"><div class="line"># Build comprehensive test (Debug build)</div>
 <div class="line">./scripts/build_app.sh pcal9555_comprehensive_test Debug</div>
 <div class="line"> </div>
 <div class="line"># Build comprehensive test (Release build)</div>
 <div class="line">./scripts/build_app.sh pcal9555_comprehensive_test Release</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md13"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md11"></a>
 🧪 Test Suites</h1>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Comprehensive Test Suite</h2>
 <p><b>Application</b>: <code>pcal9555_comprehensive_test</code></p>
 <p>This comprehensive test suite validates all PCAL9555 functionality:</p>
-<h3><a class="anchor" id="autotoc_md15"></a>
+<h3><a class="anchor" id="autotoc_md13"></a>
 Test Sections</h3>
 <ol type="1">
 <li><b>Initialization Tests</b><ul>
@@ -291,14 +291,14 @@ Test Sections</h3>
 </ul>
 </li>
 </ol>
-<h3><a class="anchor" id="autotoc_md16"></a>
+<h3><a class="anchor" id="autotoc_md14"></a>
 Test Configuration</h3>
 <p>You can enable/disable specific test sections by editing the test file:</p>
 <div class="fragment"><div class="line"><span class="comment">// In PCAL9555ComprehensiveTest.cpp</span></div>
 <div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> ENABLE_INITIALIZATION_TESTS = <span class="keyword">true</span>;</div>
 <div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> ENABLE_GPIO_DIRECTION_TESTS = <span class="keyword">true</span>;</div>
 <div class="line"><span class="comment">// ... etc</span></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md15"></a>
 Test Results</h3>
 <p>The test framework provides:</p><ul>
 <li>Automatic pass/fail tracking</li>
@@ -307,9 +307,9 @@ Test Results</h3>
 <li>Comprehensive test summary</li>
 <li>Success percentage calculation</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 🐛 Troubleshooting</h1>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 I2C Communication Failures</h2>
 <p><b>Symptoms</b>: Tests fail with I2C errors</p>
 <p><b>Solutions</b>:</p><ol type="1">
@@ -336,7 +336,7 @@ I2C Communication Failures</h2>
 </ul>
 </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Build Errors</h2>
 <p><b>Symptoms</b>: CMake or compilation errors</p>
 <p><b>Solutions</b>:</p><ol type="1">
@@ -352,7 +352,7 @@ Build Errors</h2>
 </ul>
 </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Test Failures</h2>
 <p><b>Symptoms</b>: Specific tests fail</p>
 <p><b>Solutions</b>:</p><ol type="1">
@@ -372,9 +372,9 @@ Test Failures</h2>
 </ul>
 </li>
 </ol>
-<h1><a class="anchor" id="autotoc_md22"></a>
+<h1><a class="anchor" id="autotoc_md20"></a>
 🎯 Quick Reference</h1>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Build Commands</h2>
 <div class="fragment"><div class="line"># List available apps</div>
 <div class="line">./scripts/build_app.sh list</div>
@@ -384,14 +384,14 @@ Build Commands</h2>
 <div class="line"> </div>
 <div class="line"># Flash and monitor</div>
 <div class="line">./scripts/flash_app.sh pcal9555_comprehensive_test Debug</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md22"></a>
 Test Execution</h2>
 <p>The comprehensive test suite runs automatically on boot and provides:</p><ul>
 <li>Real-time test progress via GPIO14 indicator</li>
 <li>Serial output with detailed test results</li>
 <li>Automatic test summary at completion</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 GPIO14 Test Indicator</h2>
 <p>GPIO14 toggles between HIGH/LOW for each completed test, providing visual feedback:</p><ul>
 <li>Use oscilloscope or logic analyzer to monitor</li>

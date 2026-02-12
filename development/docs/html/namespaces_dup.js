@@ -17,5 +17,6 @@ var namespaces_dup =
       [ "show_help", "namespaceget__app__info.html#a5d141025b7e34cd1c55bcdb883b3e08f", null ],
       [ "validate_app", "namespaceget__app__info.html#a9738304094f2be5262c3a02074bbfc3c", null ]
     ] ],
-    [ "ws2812", "namespacews2812.html", "namespacews2812" ]
+    [ "ws2812", "namespacews2812.html", "namespacews2812" ],
+    [ "WS2812_TestConfig", "namespaceWS2812__TestConfig.html", "namespaceWS2812__TestConfig" ]
 ];

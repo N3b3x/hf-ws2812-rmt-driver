@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['state_0',['state',['../structrmt__led__strip__encoder__t.html#a0471ba99f129e342cbdd1859d12b38f3',1,'rmt_led_strip_encoder_t']]]
+  ['leds_0',['leds',['../structled__state.html#ae91e8e5a2d4d33ac911107afd67e9dec',1,'led_state']]]
 ];

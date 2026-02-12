@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="C++ wrapper for the HF&#45;WS2812 RMT LED driver.">
 <polygon fill="#999999" stroke="#666666" points="317.5,-195 202.5,-195 202.5,-176 317.5,-176 317.5,-195"/>
 <text text-anchor="middle" x="260" y="-183" font-family="Helvetica,sans-Serif" font-size="10.00">inc/ws2812_cpp.hpp</text>
 </a>
@@ -39,7 +39,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="ws2812__effects_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="ws2812__effects_8hpp.html" target="_top" xlink:title="LED animation effects for WS2812 strips.">
 <polygon fill="white" stroke="#666666" points="325.5,-134.5 194.5,-134.5 194.5,-115.5 325.5,-115.5 325.5,-134.5"/>
 <text text-anchor="middle" x="260" y="-122.5" font-family="Helvetica,sans-Serif" font-size="10.00">inc/ws2812_effects.hpp</text>
 </a>
@@ -57,7 +57,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="ws2812__cpp_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="ws2812__cpp_8cpp.html" target="_top" xlink:title="WS2812Strip C++ wrapper implementation.">
 <polygon fill="white" stroke="#666666" points="458,-134.5 344,-134.5 344,-115.5 458,-115.5 458,-134.5"/>
 <text text-anchor="middle" x="401" y="-122.5" font-family="Helvetica,sans-Serif" font-size="10.00">src/ws2812_cpp.cpp</text>
 </a>
@@ -93,7 +93,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="ws2812__effects_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="ws2812__effects_8cpp.html" target="_top" xlink:title="LED animation effects implementation.">
 <polygon fill="white" stroke="#666666" points="409,-74 279,-74 279,-55 409,-55 409,-74"/>
 <text text-anchor="middle" x="344" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">src/ws2812_effects.cpp</text>
 </a>
@@ -111,7 +111,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="ws2812__multi__animator_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="ws2812__multi__animator_8cpp.html" target="_top" xlink:title="Multi&#45;strip animation coordinator implementation.">
 <polygon fill="white" stroke="#666666" points="260.5,-19 89.5,-19 89.5,0 260.5,0 260.5,-19"/>
 <text text-anchor="middle" x="175" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">src/ws2812_multi_animator.cpp</text>
 </a>

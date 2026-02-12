@@ -97,14 +97,14 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2ci-pipeline_2index.
   <div class="headertitle"><div class="title">ESP-IDF CI Pipeline Usage</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md275"></a> This document explains how to use the ESP-IDF CI pipeline from the separate CI tools repository for automated building and testing of your multi-application ESP-IDF projects.</p>
-<h1><a class="anchor" id="autotoc_md276"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md282"></a> This document explains how to use the ESP-IDF CI pipeline from the separate CI tools repository for automated building and testing of your multi-application ESP-IDF projects.</p>
+<h1><a class="anchor" id="autotoc_md283"></a>
 📋 <b>Overview</b></h1>
 <p>The CI pipeline has been moved to a separate repository: <b><a href="https://github.com/N3b3x/hf-espidf-ci-tools">N3b3x/hf-espidf-ci-tools</a></b></p>
 <p>This repository contains the development scripts, while the CI pipeline is maintained separately for better organization and reusability.</p>
-<h1><a class="anchor" id="autotoc_md277"></a>
+<h1><a class="anchor" id="autotoc_md284"></a>
 🚀 <b>Quick Setup</b></h1>
-<h2><a class="anchor" id="autotoc_md278"></a>
+<h2><a class="anchor" id="autotoc_md285"></a>
 1. Add CI Workflow to Your Project</h2>
 <p>Create <code>.github/workflows/build.yml</code> in your repository root:</p>
 <div class="fragment"><div class="line">name: Build ESP-IDF Applications</div>
@@ -117,14 +117,14 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2ci-pipeline_2index.
 <div class="line"> </div>
 <div class="line">jobs:</div>
 <div class="line">  build:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@main</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@main</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: &quot;your-esp-idf-project&quot;  # Path to your ESP-IDF project directory</div>
 <div class="line">      project_tools_dir: &quot;scripts&quot;  # Path to your scripts directory, maybe [your-esp-idf-project/scripts] or...</div>
 <div class="line">      clean_build: false</div>
 <div class="line">      auto_clone_tools: true</div>
 <div class="line">      max_dec_total: &quot;0&quot;  # Set size budget (0 to disable)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md279"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md286"></a>
 2. Ensure Project Structure</h2>
 <p>Your repository should have: </p><div class="fragment"><div class="line">your-repository/</div>
 <div class="line">├── .github/workflows/      # CI workflows (at repo root)</div>
@@ -139,7 +139,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2ci-pipeline_2index.
 <div class="line">    ├── flash_app.sh</div>
 <div class="line">    ├── generate_matrix.py</div>
 <div class="line">    └── ...</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md280"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md287"></a>
 3. Configure Applications</h2>
 <p>Update your <code>your-esp-idf-project/app_config.yml</code> to define your applications:</p>
 <div class="fragment"><div class="line">metadata:</div>
@@ -159,7 +159,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2ci-pipeline_2index.
 <div class="line">    source_file: &quot;test_main.cpp&quot;</div>
 <div class="line">    build_types: [&quot;Debug&quot;]</div>
 <div class="line">    target: &quot;esp32c6&quot;</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md281"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md288"></a>
 🔧 <b>CI Pipeline Features</b></h1>
 <p>The CI pipeline provides:</p>
 <ul>
@@ -169,7 +169,7 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2ci-pipeline_2index.
 <li><b>Size Budgets</b>: Optional enforcement of firmware size limits</li>
 <li><b>Artifact Management</b>: Automatic upload of build artifacts</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md282"></a>
+<h1><a class="anchor" id="autotoc_md289"></a>
 📊 <b>Size Reporting</b></h1>
 <p>The CI pipeline automatically generates size reports for pull requests:</p>
 <table class="markdownTable">
@@ -180,37 +180,37 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2ci-pipeline_2index.
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">test_app   </td><td class="markdownTableBodyNone">v5.5   </td><td class="markdownTableBodyNone">esp32c6   </td><td class="markdownTableBodyNone">Debug   </td><td class="markdownTableBodyNone"><code>text: 9876 data: 543 bss: 45</code>   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md283"></a>
+<h1><a class="anchor" id="autotoc_md290"></a>
 🛠️ <b>Advanced Configuration</b></h1>
-<h2><a class="anchor" id="autotoc_md284"></a>
+<h2><a class="anchor" id="autotoc_md291"></a>
 Size Budget Enforcement</h2>
 <p>Set a maximum firmware size to fail builds that exceed limits:</p>
 <div class="fragment"><div class="line">jobs:</div>
 <div class="line">build:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@main</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@main</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: &quot;.&quot;</div>
 <div class="line">      project_tools_dir: &quot;scripts&quot;</div>
 <div class="line">      max_dec_total: &quot;1048576&quot;  # 1MB limit</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md285"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md292"></a>
 Custom Project Structure</h2>
 <p>If your project has a different structure:</p>
 <div class="fragment"><div class="line">jobs:</div>
 <div class="line">  build:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@main</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@main</div>
 <div class="line">      with:</div>
 <div class="line">      project_dir: &quot;firmware&quot;  # ESP-IDF project in subdirectory</div>
 <div class="line">      project_tools_dir: &quot;tools/scripts&quot;  # Scripts in different location</div>
 <div class="line">      auto_clone_tools: false  # Don&#39;t auto-clone if tools are already present</div>
 </div><!-- fragment --><p><b>Important:</b> The <code>.github</code> directory must always be at the repository root, not inside the ESP-IDF project directory.</p>
-<h1><a class="anchor" id="autotoc_md286"></a>
+<h1><a class="anchor" id="autotoc_md293"></a>
 🔗 <b>Related Documentation</b></h1>
 <ul>
 <li><b><a href="/docs/build-system/">Build System</a></b> - Understanding the multi-application build system</li>
 <li><b><a href="/docs/configuration/">Configuration</a></b> - Configuring your <code>app_config.yml</code></li>
 <li><b><a href="/docs/getting-started/">Getting Started</a></b> - Setting up your development environment</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md287"></a>
+<h1><a class="anchor" id="autotoc_md294"></a>
 🤝 <b>Support</b></h1>
 <p>For CI pipeline issues or feature requests, please visit the <a href="https://github.com/N3b3x/hf-espidf-ci-tools/issues">CI Tools Repository</a>.</p>
 <p>For development script issues, please use this repository's <a href="https://github.com/n3b3x/hf-espidf-project-tools/issues">Issues</a>. </p>

@@ -7,7 +7,7 @@ var classws2812_1_1RmtTx =
     [ "handle", "classws2812_1_1RmtTx.html#a16eea6b476b52c1b1d6313d9304b2780", null ],
     [ "operator=", "classws2812_1_1RmtTx.html#a4af10398c82674b29f1ed524bed5d14d", null ],
     [ "operator=", "classws2812_1_1RmtTx.html#a68ab14938258d1e7896926bdee01b3a2", null ],
-    [ "transmit", "classws2812_1_1RmtTx.html#afd341b270f10a26383617a342edc30aa", null ],
-    [ "transmit_bytes", "classws2812_1_1RmtTx.html#a76ae5861eb8cc19f541662d3b31dd851", null ],
-    [ "transmit_ws2812", "classws2812_1_1RmtTx.html#a9c08c579ad80d277dcc06393fe743cae", null ]
+    [ "Transmit", "classws2812_1_1RmtTx.html#abd8f774b8ea9712303945be48378080a", null ],
+    [ "TransmitBytes", "classws2812_1_1RmtTx.html#a58b690903825d57f4bebd6baa178f9f9", null ],
+    [ "TransmitWs2812", "classws2812_1_1RmtTx.html#aafb332b9ff5df6849cff805d27e4cdcd", null ]
 ];

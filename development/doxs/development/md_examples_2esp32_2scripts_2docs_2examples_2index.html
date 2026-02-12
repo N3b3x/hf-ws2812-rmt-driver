@@ -97,10 +97,10 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2examples_2index.htm
   <div class="headertitle"><div class="title">Examples</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md345"></a> This section provides real-world examples and usage patterns for the HardFOC ESP-IDF CI Tools.</p>
-<h1><a class="anchor" id="autotoc_md346"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md352"></a> This section provides real-world examples and usage patterns for the HardFOC ESP-IDF CI Tools.</p>
+<h1><a class="anchor" id="autotoc_md353"></a>
 🚀 Quick Examples</h1>
-<h2><a class="anchor" id="autotoc_md347"></a>
+<h2><a class="anchor" id="autotoc_md354"></a>
 Basic ESP-IDF Project</h2>
 <p>A simple ESP-IDF project with GPIO testing:</p>
 <div class="fragment"><div class="line"># examples/esp32/app_config.yml</div>
@@ -119,7 +119,7 @@ Basic ESP-IDF Project</h2>
 <div class="line">    idf_versions: [&quot;release/v5.5&quot;]</div>
 <div class="line">    ci_enabled: true</div>
 <div class="line">    featured: true</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md348"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md355"></a>
 Multi-Version Testing</h2>
 <p>Testing across multiple ESP-IDF versions:</p>
 <div class="fragment"><div class="line">metadata:</div>
@@ -133,9 +133,9 @@ Multi-Version Testing</h2>
 <div class="line">  legacy_app:</div>
 <div class="line">    idf_versions: [&quot;release/v5.4&quot;]</div>
 <div class="line">    build_types: [&quot;Debug&quot;]</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md349"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md356"></a>
 🔧 Workflow Examples</h1>
-<h2><a class="anchor" id="autotoc_md350"></a>
+<h2><a class="anchor" id="autotoc_md357"></a>
 Basic Build Workflow</h2>
 <div class="fragment"><div class="line">name: Build ESP32 Applications</div>
 <div class="line"> </div>
@@ -166,7 +166,7 @@ Basic Build Workflow</h2>
 <div class="line">        esp_idf_version: ${{ matrix.idf_version }}</div>
 <div class="line">        target: esp32c6</div>
 <div class="line">        path: examples/esp32</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md351"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md358"></a>
 Security Workflow</h2>
 <div class="fragment"><div class="line">name: Security Audit</div>
 <div class="line"> </div>
@@ -193,9 +193,9 @@ Security Workflow</h2>
 <div class="line">        extra_components: |</div>
 <div class="line">          - name: security_audit</div>
 <div class="line">            path: .github/security</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md352"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md359"></a>
 📊 Advanced Examples</h1>
-<h2><a class="anchor" id="autotoc_md353"></a>
+<h2><a class="anchor" id="autotoc_md360"></a>
 Custom Build Types</h2>
 <div class="fragment"><div class="line">build_config:</div>
 <div class="line">  build_types:</div>
@@ -219,7 +219,7 @@ Custom Build Types</h2>
 <div class="line">      optimization: &quot;-O1&quot;</div>
 <div class="line">      debug_level: &quot;-g2&quot;</div>
 <div class="line">      defines: [&quot;TESTING&quot;, &quot;MOCK_HARDWARE&quot;]</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md354"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md361"></a>
 Environment-Specific Configuration</h2>
 <div class="fragment"><div class="line"># Development environment</div>
 <div class="line">metadata:</div>
@@ -233,7 +233,7 @@ Environment-Specific Configuration</h2>
 <div class="line">  debug_enabled: false</div>
 <div class="line">  verbose_logging: false</div>
 <div class="line">  security_audit: true</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md355"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md362"></a>
 CI/CD Pipeline with Artifacts</h2>
 <div class="fragment"><div class="line">- name: Build and Upload Artifacts</div>
 <div class="line">  uses: espressif/esp-idf-ci-action@v1</div>
@@ -253,9 +253,9 @@ CI/CD Pipeline with Artifacts</h2>
 <div class="line">  with:</div>
 <div class="line">    name: logs-${{ matrix.app }}-${{ matrix.build_type }}</div>
 <div class="line">    path: examples/esp32/build/log/</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md356"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md363"></a>
 🎯 Use Case Examples</h1>
-<h2><a class="anchor" id="autotoc_md357"></a>
+<h2><a class="anchor" id="autotoc_md364"></a>
 IoT Sensor Node</h2>
 <div class="fragment"><div class="line">apps:</div>
 <div class="line">  sensor_node:</div>
@@ -266,7 +266,7 @@ IoT Sensor Node</h2>
 <div class="line">    idf_versions: [&quot;release/v5.5&quot;]</div>
 <div class="line">    features: [&quot;wifi&quot;, &quot;mqtt&quot;, &quot;sensors&quot;]</div>
 <div class="line">    ci_enabled: true</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md358"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md365"></a>
 Industrial Controller</h2>
 <div class="fragment"><div class="line">apps:</div>
 <div class="line">  industrial_controller:</div>
@@ -278,7 +278,7 @@ Industrial Controller</h2>
 <div class="line">    features: [&quot;modbus&quot;, &quot;ethernet&quot;, &quot;safety&quot;]</div>
 <div class="line">    ci_enabled: true</div>
 <div class="line">    security_audit: true</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md359"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md366"></a>
 Educational Project</h2>
 <div class="fragment"><div class="line">apps:</div>
 <div class="line">  learning_project:</div>
@@ -289,16 +289,67 @@ Educational Project</h2>
 <div class="line">    idf_versions: [&quot;release/v5.5&quot;]</div>
 <div class="line">    features: [&quot;tutorial&quot;, &quot;examples&quot;, &quot;documentation&quot;]</div>
 <div class="line">    ci_enabled: true</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md360"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md367"></a>
+🔌 Multi-Device Examples</h1>
+<h2><a class="anchor" id="autotoc_md368"></a>
+Listing Available Devices</h2>
+<div class="fragment"><div class="line"># List all connected ESP32 devices with details</div>
+<div class="line">./scripts/flash_app.sh ports</div>
+<div class="line"> </div>
+<div class="line"># Example output:</div>
+<div class="line">=== Available ESP32 Serial Ports ===</div>
+<div class="line"> </div>
+<div class="line">Found 2 device(s):</div>
+<div class="line"> </div>
+<div class="line">  [1] /dev/ttyACM0</div>
+<div class="line">      Device: Espressif USB_JTAG_serial_debug_unit (S/N: FC:01:2C:FF:E4:DC)</div>
+<div class="line">      Status: ✓ accessible</div>
+<div class="line"> </div>
+<div class="line">  [2] /dev/ttyUSB0</div>
+<div class="line">      Device: CP2102N USB_to_UART_Bridge_Controller</div>
+<div class="line">      Status: ✓ accessible</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md369"></a>
+Flashing to Specific Device</h2>
+<div class="fragment"><div class="line"># Flash to specific device using --port flag</div>
+<div class="line">./scripts/flash_app.sh --port /dev/ttyACM1 flash gpio_test Release</div>
+<div class="line"> </div>
+<div class="line"># Use short form -p</div>
+<div class="line">./scripts/flash_app.sh -p /dev/ttyUSB0 flash_monitor sensor_app Debug</div>
+<div class="line"> </div>
+<div class="line"># Monitor specific device</div>
+<div class="line">./scripts/flash_app.sh -p /dev/ttyACM0 monitor --log debug_session</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md370"></a>
+Multi-Device Deployment Script</h2>
+<div class="fragment"><div class="line">#!/bin/bash</div>
+<div class="line"># deploy_all.sh - Flash firmware to all connected devices</div>
+<div class="line"> </div>
+<div class="line"># List and verify devices first</div>
+<div class="line">./scripts/flash_app.sh ports</div>
+<div class="line"> </div>
+<div class="line"># Flash to each device</div>
+<div class="line">for port in /dev/ttyACM0 /dev/ttyACM1; do</div>
+<div class="line">    echo &quot;Flashing to $port...&quot;</div>
+<div class="line">    ./scripts/flash_app.sh --port &quot;$port&quot; flash gpio_test Release --log &quot;deploy_${port##*/}&quot;</div>
+<div class="line">done</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md371"></a>
+CI/CD with Explicit Port</h2>
+<div class="fragment"><div class="line"># For CI environments - always specify port to avoid interactive prompts</div>
+<div class="line">- name: Flash Firmware</div>
+<div class="line">  run: |</div>
+<div class="line">    cd examples/esp32</div>
+<div class="line">    # Use first available device</div>
+<div class="line">    PORT=$(ls /dev/ttyACM* 2&gt;/dev/null | head -1)</div>
+<div class="line">    ./scripts/flash_app.sh --port $PORT flash gpio_test Release</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md372"></a>
 🔍 Testing Examples</h1>
-<h2><a class="anchor" id="autotoc_md361"></a>
+<h2><a class="anchor" id="autotoc_md373"></a>
 Unit Testing</h2>
 <div class="fragment"><div class="line">- name: Run Unit Tests</div>
 <div class="line">  run: |</div>
 <div class="line">    cd examples/esp32</div>
 <div class="line">    ./scripts/build_app.sh test_app Test</div>
 <div class="line">    ./scripts/run_tests.sh</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md362"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md374"></a>
 Integration Testing</h2>
 <div class="fragment"><div class="line">- name: Integration Tests</div>
 <div class="line">  run: |</div>
@@ -306,22 +357,22 @@ Integration Testing</h2>
 <div class="line">    ./scripts/build_app.sh integration_test Release</div>
 <div class="line">    ./scripts/flash_app.sh integration_test</div>
 <div class="line">    ./scripts/monitor_app.sh integration_test</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md363"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md375"></a>
 Performance Testing</h2>
 <div class="fragment"><div class="line">- name: Performance Tests</div>
 <div class="line">  run: |</div>
 <div class="line">    cd examples/esp32</div>
 <div class="line">    ./scripts/build_app.sh performance_test Profile</div>
 <div class="line">    ./scripts/benchmark.sh performance_test</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md364"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md376"></a>
 📚 More Examples</h1>
-<h2><a class="anchor" id="autotoc_md365"></a>
+<h2><a class="anchor" id="autotoc_md377"></a>
 Project Templates</h2>
 <p><em>Note: Example project templates will be added in future releases. For now, use the configuration examples above to set up your own projects.</em></p>
-<h2><a class="anchor" id="autotoc_md366"></a>
+<h2><a class="anchor" id="autotoc_md378"></a>
 Workflow Templates</h2>
 <p><em>Note: Example workflow templates will be added in future releases. Use the workflow examples in the code blocks above as starting points.</em></p>
-<h1><a class="anchor" id="autotoc_md367"></a>
+<h1><a class="anchor" id="autotoc_md379"></a>
 🆘 Need Help?</h1>
 <ul>
 <li><b><a href="/docs/getting-started/">Getting Started</a></b> - Basic setup guide</li>

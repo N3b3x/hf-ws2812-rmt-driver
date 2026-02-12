@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Multi&#45;strip animation coordinator implementation.">
 <polygon fill="#999999" stroke="#666666" points="1547.5,-349 1376.5,-349 1376.5,-330 1547.5,-330 1547.5,-349"/>
 <text text-anchor="middle" x="1462" y="-337" font-family="Helvetica,sans-Serif" font-size="10.00">src/ws2812_multi_animator.cpp</text>
 </a>
@@ -38,7 +38,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="ws2812__effects_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="ws2812__effects_8hpp.html" target="_top" xlink:title="LED animation effects for WS2812 strips.">
 <polygon fill="white" stroke="#666666" points="1476.5,-239 1363.5,-239 1363.5,-220 1476.5,-220 1476.5,-239"/>
 <text text-anchor="middle" x="1420" y="-227" font-family="Helvetica,sans-Serif" font-size="10.00">ws2812_effects.hpp</text>
 </a>
@@ -74,7 +74,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="ws2812__cpp_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="ws2812__cpp_8hpp.html" target="_top" xlink:title="C++ wrapper for the HF&#45;WS2812 RMT LED driver.">
 <polygon fill="white" stroke="#666666" points="1465,-184 1367,-184 1367,-165 1465,-165 1465,-184"/>
 <text text-anchor="middle" x="1416" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">ws2812_cpp.hpp</text>
 </a>
@@ -92,7 +92,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="rmt__wrapper_8hpp.html" target="_top" xlink:title="A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT driver.">
+<g id="a_Node000005"><a xlink:href="rmt__wrapper_8hpp.html" target="_top" xlink:title="A modern C++17 header‑only wrapper around the ESP‑IDF v5.3 “new” RMT.">
 <polygon fill="white" stroke="#666666" points="626.5,-129 527.5,-129 527.5,-110 626.5,-110 626.5,-129"/>
 <text text-anchor="middle" x="577" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">rmt_wrapper.hpp</text>
 </a>

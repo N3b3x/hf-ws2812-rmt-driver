@@ -97,14 +97,14 @@ $(function(){initNavTree('md_examples_2esp32_2scripts_2docs_2index.html',''); in
   <div class="headertitle"><div class="title">HardFOC ESP-IDF Project Tools</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md541"></a> Welcome to the <b>HardFOC ESP-IDF Project Tools</b> - a comprehensive suite of development scripts designed to be <b>integrated into your existing ESP-IDF projects</b>. These tools enhance your ESP-IDF development workflow with multi-application build management, intelligent configuration, and automated development processes.</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md558"></a> Welcome to the <b>HardFOC ESP-IDF Project Tools</b> - a comprehensive suite of development scripts designed to be <b>integrated into your existing ESP-IDF projects</b>. These tools enhance your ESP-IDF development workflow with multi-application build management, intelligent configuration, and automated development processes.</p>
 <blockquote class="doxtable">
 <p>&zwj;<b>📋 Important</b>: These tools are meant to be <b>integrated into your ESP-IDF project</b>, not used as standalone applications. They work alongside your existing ESP-IDF project structure. </p>
 </blockquote>
-<h1><a class="anchor" id="autotoc_md542"></a>
+<h1><a class="anchor" id="autotoc_md559"></a>
 🚀 Integration Methods</h1>
 <p>Choose the best integration method for your ESP-IDF project:</p>
-<h2><a class="anchor" id="autotoc_md543"></a>
+<h2><a class="anchor" id="autotoc_md560"></a>
 Method 1: Submodule Integration (Recommended)</h2>
 <div class="fragment"><div class="line"># Navigate to your ESP-IDF project</div>
 <div class="line">cd your-esp-idf-project</div>
@@ -123,7 +123,7 @@ Method 1: Submodule Integration (Recommended)</h2>
 <div class="line"> </div>
 <div class="line"># Start building</div>
 <div class="line">./scripts/build_app.sh your_app Release</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md544"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md561"></a>
 Method 2: Direct Clone Integration</h2>
 <div class="fragment"><div class="line"># Navigate to your ESP-IDF project</div>
 <div class="line">cd your-esp-idf-project</div>
@@ -142,7 +142,7 @@ Method 2: Direct Clone Integration</h2>
 <div class="line"> </div>
 <div class="line"># Start building</div>
 <div class="line">./scripts/build_app.sh your_app Release</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md545"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md562"></a>
 Method 3: Shared Tools Directory</h2>
 <div class="fragment"><div class="line"># For multiple projects, use shared tools</div>
 <div class="line">mkdir -p ~/shared-esp32-tools</div>
@@ -152,18 +152,19 @@ Method 3: Shared Tools Directory</h2>
 <div class="line"># In each ESP-IDF project, use --project-path</div>
 <div class="line">cd your-esp-idf-project</div>
 <div class="line">~/shared-esp32-tools/build_app.sh --project-path . your_app Release</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md546"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md563"></a>
 ✨ Key Features</h1>
 <ul>
 <li><b>🔧 Multi-Application Build System</b> - Build multiple applications from a single ESP-IDF project</li>
 <li><b>📋 Intelligent Configuration</b> - YAML-based configuration management with <code>app_config.yml</code></li>
 <li><b>📱 ESP32 Flash System</b> - Automated port detection and firmware flashing</li>
+<li><b>🔌 Multi-Device Support</b> - Intelligent handling of multiple ESP32 devices with interactive selection</li>
 <li><b>📊 Comprehensive Logging</b> - Detailed build and development logs</li>
-<li><b>🔍 Port Detection</b> - Cross-platform ESP32 device identification</li>
+<li><b>🔍 Port Detection</b> - Cross-platform ESP32 device identification with device info display</li>
 <li><b>📚 Multi-Version ESP-IDF</b> - Support for multiple ESP-IDF versions</li>
 <li><b>🛠️ Development Scripts</b> - Build, flash, and utility management tools</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md547"></a>
+<h1><a class="anchor" id="autotoc_md564"></a>
 📖 Documentation</h1>
 <p>Explore our comprehensive documentation:</p>
 <ul>
@@ -175,9 +176,9 @@ Method 3: Shared Tools Directory</h2>
 <li><b><a href="/docs/ci-integration-patterns/">CI Integration Patterns</a></b> - CI/CD integration patterns</li>
 <li><b><a href="/docs/advanced/multi-version-idf/">Advanced Topics</a></b> - Advanced features and utilities</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md548"></a>
+<h1><a class="anchor" id="autotoc_md565"></a>
 📁 Project Structure</h1>
-<h2><a class="anchor" id="autotoc_md549"></a>
+<h2><a class="anchor" id="autotoc_md566"></a>
 Typical ESP-IDF Project with Tools</h2>
 <div class="fragment"><div class="line">your-esp-idf-project/</div>
 <div class="line">├── CMakeLists.txt              # ESP-IDF project root</div>
@@ -192,27 +193,27 @@ Typical ESP-IDF Project with Tools</h2>
 <div class="line">    ├── flash_app.sh</div>
 <div class="line">    ├── generate_matrix.py</div>
 <div class="line">    └── config_loader.sh</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md550"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md567"></a>
 CI/CD Integration Patterns</h2>
-<h3><a class="anchor" id="autotoc_md551"></a>
+<h3><a class="anchor" id="autotoc_md568"></a>
 Pattern 1: Submodule Setup (Recommended)</h3>
 <div class="fragment"><div class="line"># .github/workflows/build.yml</div>
 <div class="line">jobs:</div>
 <div class="line">  build:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@v1</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: examples/esp32</div>
 <div class="line">      project_tools_dir: examples/esp32/scripts  # Submodule path</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md552"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md569"></a>
 Pattern 2: Shared Tools</h3>
 <div class="fragment"><div class="line"># .github/workflows/build.yml</div>
 <div class="line">jobs:</div>
 <div class="line">  build:</div>
-<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/build.yml@v1</div>
+<div class="line">    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1</div>
 <div class="line">    with:</div>
 <div class="line">      project_dir: firmware/esp32</div>
 <div class="line">      project_tools_dir: build-tools  # Shared tools directory</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md553"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md570"></a>
 🎯 Perfect For</h1>
 <ul>
 <li><b>Multi-Application ESP-IDF Projects</b> - Build multiple test applications from a single project</li>
@@ -221,10 +222,10 @@ Pattern 2: Shared Tools</h3>
 <li><b>Team Development</b> - Consistent development environments across teams</li>
 <li><b>CI/CD Integration</b> - Automated builds and testing in GitHub Actions</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md554"></a>
+<h1><a class="anchor" id="autotoc_md571"></a>
 🤝 Contributing</h1>
 <p>We welcome contributions! See our <a href="/docs/contributing/">Contributing Guide</a> for details.</p>
-<h1><a class="anchor" id="autotoc_md555"></a>
+<h1><a class="anchor" id="autotoc_md572"></a>
 📄 License</h1>
 <p>This project is licensed under the MIT License - see the <a href="https://github.com/n3b3x/hf-espidf-project-tools/blob/main/LICENSE">LICENSE</a> file for details. </p>
 </div></div><!-- contents -->
