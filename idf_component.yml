@@ -1,7 +1,16 @@
-version: "0.1.0"
-description: "ESP32 RMT based WS2812/NeoPixel driver"
+---
+name: hf-ws2812-rmt-driver
+version: "1.0.0"
+description: "ESP32 RMT-based WS2812/NeoPixel LED driver"
+
+maintainers:
+  - "HardFOC"
+license: "MIT"
+
 url: https://github.com/N3b3x/hf-ws2812-rmt-driver
-license: GPL-3.0-or-later
+repository: https://github.com/N3b3x/hf-ws2812-rmt-driver
+issues: https://github.com/N3b3x/hf-ws2812-rmt-driver/issues
+
 targets:
   - esp32
   - esp32s2
@@ -9,5 +18,13 @@ targets:
   - esp32c3
   - esp32c6
   - esp32h2
-examples:
-  - path: example
+
+dependencies:
+  idf: ">=5.0.0"
+
+tags:
+  - "ws2812"
+  - "led"
+  - "neopixel"
+  - "driver"
+  - "rmt"

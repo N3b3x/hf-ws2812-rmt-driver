@@ -7,6 +7,10 @@ maintainers:
   - "HardFOC"
 license: "MIT"
 
+url: https://github.com/N3b3x/hf-ws2812-rmt-driver
+repository: https://github.com/N3b3x/hf-ws2812-rmt-driver
+issues: https://github.com/N3b3x/hf-ws2812-rmt-driver/issues
+
 targets:
   - esp32
   - esp32c6
