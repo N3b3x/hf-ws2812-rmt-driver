@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['diagnostics_0',['Diagnostics',['../structWS2812__TestConfig_1_1Diagnostics.html',1,'WS2812_TestConfig']]]
+  ['diagnostics_0',['Diagnostics',['../structws2812__test__config_1_1Diagnostics.html',1,'ws2812_test_config']]]
 ];
