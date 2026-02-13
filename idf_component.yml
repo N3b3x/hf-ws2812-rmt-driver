@@ -5,7 +5,7 @@ description: "ESP32 RMT-based WS2812/NeoPixel LED driver"
 
 maintainers:
   - "HardFOC"
-license: "MIT"
+license: "GPL-3.0"
 
 url: https://github.com/N3b3x/hf-ws2812-rmt-driver
 repository: https://github.com/N3b3x/hf-ws2812-rmt-driver
