@@ -19,9 +19,13 @@ message(STATUS "Source Root: ${SRC_ROOT}")
 # =============================================================================
 # Source File Discovery and Validation
 # =============================================================================
-# List all potential driver source files
+# List all driver source files
 set(DRIVER_SRCS
     "${SRC_ROOT}/ws2812_control.c"
+    "${SRC_ROOT}/ws2812_cpp.cpp"
+    "${SRC_ROOT}/ws2812_effects.cpp"
+    "${SRC_ROOT}/ws2812_multi_animator.cpp"
+    "${SRC_ROOT}/led_strip_encoder.c"
 )
 
 # Check which source files actually exist and add them
@@ -49,6 +53,7 @@ set(DRIVER_INCLUDE_DIRS
 # Define required ESP-IDF components for the driver
 set(DRIVER_REQUIRES
     driver              # ESP-IDF driver framework
+    freertos            # FreeRTOS support
     esp_driver_rmt      # ESP-IDF RMT driver (ESP-IDF v5.5)
 )
 
