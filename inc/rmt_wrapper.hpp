@@ -78,13 +78,13 @@ public:
     cfg.flags.invert_out = false;
     cfg.flags.with_dma = with_dma;
 
-    ESP_ERROR_CHECK(detail::log_if_error(rmt_new_tx_channel(&cfg, &_handle), TAG,
+    ESP_ERROR_CHECK(detail::log_if_error(rmt_new_tx_channel(&cfg, &handle_), TAG,
                                          "failed to create TX channel"));
-    ESP_ERROR_CHECK(detail::log_if_error(rmt_enable(_handle), TAG, "enable TX"));
+    ESP_ERROR_CHECK(detail::log_if_error(rmt_enable(handle_), TAG, "enable TX"));
 
     // Prepare a generic copy encoder (raw symbol streaming)
     rmt_copy_encoder_config_t copy_cfg = {};
-    ESP_ERROR_CHECK(rmt_new_copy_encoder(&copy_cfg, &_copy_encoder));
+    ESP_ERROR_CHECK(rmt_new_copy_encoder(&copy_cfg, &copy_encoder_));
   }
 
   RmtTx(const RmtTx&) = delete;
@@ -94,19 +94,19 @@ public:
     *this = std::move(other);
   }
   RmtTx& operator=(RmtTx&& other) noexcept {
-    std::swap(_handle, other._handle);
-    std::swap(_copy_encoder, other._copy_encoder);
-    std::swap(_ws_encoder, other._ws_encoder);
+    std::swap(handle_, other.handle_);
+    std::swap(copy_encoder_, other.copy_encoder_);
+    std::swap(ws_encoder_, other.ws_encoder_);
     return *this;
   }
 
   ~RmtTx() {
-    if (_ws_encoder)
-      rmt_del_encoder(_ws_encoder);
-    if (_copy_encoder)
-      rmt_del_encoder(_copy_encoder);
-    if (_handle)
-      rmt_disable(_handle), rmt_del_channel(_handle);
+    if (ws_encoder_)
+      rmt_del_encoder(ws_encoder_);
+    if (copy_encoder_)
+      rmt_del_encoder(copy_encoder_);
+    if (handle_)
+      rmt_disable(handle_), rmt_del_channel(handle_);
   }
 
   //-------------------------------------------------------------------------
@@ -118,10 +118,10 @@ public:
     rmt_transmit_config_t tx_cfg = {};
     tx_cfg.loop_count = 0;
     esp_err_t err =
-        rmt_transmit(_handle, _copy_encoder, symbols, count * sizeof(rmt_symbol_word_t), &tx_cfg);
+        rmt_transmit(handle_, copy_encoder_, symbols, count * sizeof(rmt_symbol_word_t), &tx_cfg);
     if (err != ESP_OK)
       return err;
-    return rmt_tx_wait_all_done(_handle, timeout);
+    return rmt_tx_wait_all_done(handle_, timeout);
   }
 
   //-------------------------------------------------------------------------
@@ -143,9 +143,9 @@ public:
 
     rmt_transmit_config_t tx_cfg = {};
     tx_cfg.loop_count = 0;
-    esp_err_t err = rmt_transmit(_handle, bytes_enc, data, length, &tx_cfg);
+    esp_err_t err = rmt_transmit(handle_, bytes_enc, data, length, &tx_cfg);
     if (err == ESP_OK)
-      err = rmt_tx_wait_all_done(_handle, timeout);
+      err = rmt_tx_wait_all_done(handle_, timeout);
     rmt_del_encoder(bytes_enc);
     return err;
   }
@@ -156,27 +156,27 @@ public:
    * Uses 10 MHz or faster resolution to achieve accurate timings.
    */
   esp_err_t TransmitWs2812(const uint8_t* grb, size_t length, TickType_t timeout = portMAX_DELAY) {
-    if (!_ws_encoder) {
+    if (!ws_encoder_) {
       rmt_bytes_encoder_config_t ws_cfg = {};
-      ws_cfg.bit0 = make_ws2812_bit0();
-      ws_cfg.bit1 = make_ws2812_bit1();
+      ws_cfg.bit0 = makeWs2812Bit0();
+      ws_cfg.bit1 = makeWs2812Bit1();
       ws_cfg.flags.msb_first = true;
-      ESP_RETURN_ON_ERROR(rmt_new_bytes_encoder(&ws_cfg, &_ws_encoder), "RmtTx", "new ws2812 enc");
+      ESP_RETURN_ON_ERROR(rmt_new_bytes_encoder(&ws_cfg, &ws_encoder_), "RmtTx", "new ws2812 enc");
     }
     rmt_transmit_config_t tx_cfg = {};
     tx_cfg.loop_count = 0;
-    esp_err_t err = rmt_transmit(_handle, _ws_encoder, grb, length, &tx_cfg);
+    esp_err_t err = rmt_transmit(handle_, ws_encoder_, grb, length, &tx_cfg);
     if (err == ESP_OK)
-      err = rmt_tx_wait_all_done(_handle, timeout);
+      err = rmt_tx_wait_all_done(handle_, timeout);
     return err;
   }
 
-  rmt_channel_handle_t handle() const {
-    return _handle;
+  rmt_channel_handle_t Handle() const {
+    return handle_;
   }
 
 private:
-  static constexpr rmt_symbol_word_t make_ws2812_bit0(uint32_t resolution_hz = 10'000'000) {
+  static constexpr rmt_symbol_word_t makeWs2812Bit0(uint32_t resolution_hz = 10'000'000) {
     // T0H=0.4 μs, T0L≈0.85 μs
     uint32_t ticks_h = (400'000'000ULL / resolution_hz + 9) / 10; // round‑nearest
     uint32_t ticks_l = (850'000'000ULL / resolution_hz + 9) / 10;
@@ -184,7 +184,7 @@ private:
         .duration0 = (uint16_t)ticks_h, .level0 = 1, .duration1 = (uint16_t)ticks_l, .level1 = 0};
   }
 
-  static constexpr rmt_symbol_word_t make_ws2812_bit1(uint32_t resolution_hz = 10'000'000) {
+  static constexpr rmt_symbol_word_t makeWs2812Bit1(uint32_t resolution_hz = 10'000'000) {
     // T1H=0.8 μs, T1L≈0.45 μs
     uint32_t ticks_h = (800'000'000ULL / resolution_hz + 9) / 10;
     uint32_t ticks_l = (450'000'000ULL / resolution_hz + 9) / 10;
@@ -192,9 +192,9 @@ private:
         .duration0 = (uint16_t)ticks_h, .level0 = 1, .duration1 = (uint16_t)ticks_l, .level1 = 0};
   }
 
-  rmt_channel_handle_t _handle = nullptr;
-  rmt_encoder_handle_t _copy_encoder = nullptr;
-  rmt_encoder_handle_t _ws_encoder = nullptr;
+  rmt_channel_handle_t handle_ = nullptr;
+  rmt_encoder_handle_t copy_encoder_ = nullptr;
+  rmt_encoder_handle_t ws_encoder_ = nullptr;
 };
 
 //=============================================================================

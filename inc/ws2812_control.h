@@ -68,7 +68,7 @@ struct led_state {
  * @param channel  RMT channel to use.
  * @return ESP_OK on success or an error code from the ESP-IDF drivers.
  */
-esp_err_t ws2812ControlInit(gpio_num_t gpio_num, int channel);
+esp_err_t ws2812_control_init(gpio_num_t gpio_num, int channel);
 
 /**
  * @brief Send LED colour data.
@@ -79,7 +79,7 @@ esp_err_t ws2812ControlInit(gpio_num_t gpio_num, int channel);
  * @param new_state Desired LED colours.
  * @return ESP_OK on success or an ESP-IDF error code.
  */
-esp_err_t ws2812WriteLeds(struct led_state new_state);
+esp_err_t ws2812_write_leds(struct led_state new_state);
 
 /**
  * @brief Set global brightness for subsequent transmissions.
@@ -89,7 +89,7 @@ esp_err_t ws2812WriteLeds(struct led_state new_state);
  *
  * @param brightness Brightness level 0-255.
  */
-void ws2812SetBrightness(uint8_t brightness);
+void ws2812_set_brightness(uint8_t brightness);
 
 #ifdef __cplusplus
 }

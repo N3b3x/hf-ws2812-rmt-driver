@@ -18,7 +18,7 @@ class WS2812Animator {
 public:
   enum class Effect { Off, SolidColor, Rainbow, Chase, Blink, Breath, Larson };
 
-  explicit WS2812Animator(WS2812Strip& strip, uint32_t virtualLength = 0);
+  explicit WS2812Animator(WS2812Strip& strip, uint32_t virtual_length = 0);
 
   /**
    * @brief Select the active effect.
@@ -33,7 +33,7 @@ public:
 
   /** Set the current step (used for external synchronization). */
   void SetStep(uint16_t step);
-  uint16_t step() const;
+  uint16_t Step() const;
 
   /**
    * @brief Advance the animation by one step.
@@ -41,14 +41,14 @@ public:
   void Tick();
 
 private:
-  WS2812Strip& m_strip;
-  bool m_initialized = false;
-  uint32_t m_virtualLength = 0;
-  Effect m_effect = Effect::Off;
-  uint32_t m_color = 0xFFFFFF;
-  uint16_t m_step = 0;
-  int m_dir = 1;
-  uint8_t m_brightness = 0;
+  WS2812Strip& strip_;
+  bool initialized_ = false;
+  uint32_t virtual_length_ = 0;
+  Effect effect_ = Effect::Off;
+  uint32_t color_ = 0xFFFFFF;
+  uint16_t step_ = 0;
+  int dir_ = 1;
+  uint8_t brightness_ = 0;
 };
 
 #endif // __cplusplus

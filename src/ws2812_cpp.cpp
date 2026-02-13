@@ -9,17 +9,17 @@
 
 #ifdef __cplusplus
 
-WS2812Strip::WS2812Strip(gpio_num_t gpio, int channel, uint32_t numLeds,
+WS2812Strip::WS2812Strip(gpio_num_t gpio, int channel, uint32_t num_leds,
 #if CONFIG_WS2812_LED_TYPE_RGBW
                          LedType type,
 #else
                          LedType type,
 #endif
                          uint16_t t0h, uint16_t t1h, uint16_t t0l, uint16_t t1l, uint8_t brightness)
-    : m_pixels(numLeds, 0), m_buffer(numLeds * (type == LedType::RGBW ? 32 : 24)),
-      m_rmt(gpio, 10'000'000, 64, false, 4, RMT_CLK_SRC_DEFAULT, channel), m_gpio(gpio),
-      m_channel(channel), m_type(type), m_t0h(t0h), m_t1h(t1h), m_t0l(t0l), m_t1l(t1l),
-      m_brightness(brightness), m_numLeds(numLeds) {
+    : pixels_(num_leds, 0), buffer_(num_leds * (type == LedType::RGBW ? 32 : 24)),
+      rmt_(gpio, 10'000'000, 64, false, 4, RMT_CLK_SRC_DEFAULT, channel), gpio_(gpio),
+      channel_(channel), type_(type), t0h_(t0h), t1h_(t1h), t0l_(t0l), t1l_(t1l),
+      brightness_(brightness), num_leds_(num_leds) {
 }
 
 esp_err_t WS2812Strip::Begin() {
@@ -27,63 +27,63 @@ esp_err_t WS2812Strip::Begin() {
 }
 
 void WS2812Strip::SetPixel(uint32_t index, uint32_t rgbw) {
-  if (index < m_numLeds) {
-    m_pixels[index] = rgbw;
+  if (index < num_leds_) {
+    pixels_[index] = rgbw;
   }
 }
 
 uint32_t WS2812Strip::Length() const {
-  return m_numLeds;
+  return num_leds_;
 }
 
 esp_err_t WS2812Strip::Show() {
-  uint32_t bitsPerLed = (m_type == LedType::RGBW) ? 32 : 24;
-  for (uint32_t led = 0; led < m_numLeds; ++led) {
-    uint32_t color = m_pixels[led];
+  uint32_t bits_per_led = (type_ == LedType::RGBW) ? 32 : 24;
+  for (uint32_t led = 0; led < num_leds_; ++led) {
+    uint32_t color = pixels_[led];
     uint8_t r = (color >> 16) & 0xFF;
     uint8_t g = (color >> 8) & 0xFF;
     uint8_t b = color & 0xFF;
     uint32_t bits = 0;
 
-    r = (r * m_brightness) / 255;
-    g = (g * m_brightness) / 255;
-    b = (b * m_brightness) / 255;
+    r = (r * brightness_) / 255;
+    g = (g * brightness_) / 255;
+    b = (b * brightness_) / 255;
 
-    if (m_type == LedType::RGBW) {
+    if (type_ == LedType::RGBW) {
       uint8_t w = (color >> 24) & 0xFF;
-      w = (w * m_brightness) / 255;
+      w = (w * brightness_) / 255;
       bits = (w << 24) | (r << 16) | (g << 8) | b;
     } else {
       bits = (r << 16) | (g << 8) | b;
     }
 
-    uint32_t mask = 1U << (bitsPerLed - 1);
-    for (uint32_t bit = 0; bit < bitsPerLed; ++bit) {
+    uint32_t mask = 1U << (bits_per_led - 1);
+    for (uint32_t bit = 0; bit < bits_per_led; ++bit) {
       bool set = bits & mask;
-      m_buffer[led * bitsPerLed + bit] = set ? (rmt_symbol_word_t){.duration0 = (uint16_t)m_t1h,
+      buffer_[led * bits_per_led + bit] = set ? (rmt_symbol_word_t){.duration0 = (uint16_t)t1h_,
                                                                    .level0 = 1,
-                                                                   .duration1 = (uint16_t)m_t1l,
+                                                                   .duration1 = (uint16_t)t1l_,
                                                                    .level1 = 0}
-                                             : (rmt_symbol_word_t){.duration0 = (uint16_t)m_t0h,
+                                             : (rmt_symbol_word_t){.duration0 = (uint16_t)t0h_,
                                                                    .level0 = 1,
-                                                                   .duration1 = (uint16_t)m_t0l,
+                                                                   .duration1 = (uint16_t)t0l_,
                                                                    .level1 = 0};
       mask >>= 1;
     }
   }
 
-  return m_rmt.Transmit(m_buffer.data(), m_numLeds * bitsPerLed);
+  return rmt_.Transmit(buffer_.data(), num_leds_ * bits_per_led);
 }
 
 void WS2812Strip::SetBrightness(uint8_t value) {
-  m_brightness = value;
+  brightness_ = value;
 }
 
 void WS2812Strip::SetTimings(uint16_t t0h, uint16_t t1h, uint16_t t0l, uint16_t t1l) {
-  m_t0h = t0h;
-  m_t1h = t1h;
-  m_t0l = t0l;
-  m_t1l = t1l;
+  t0h_ = t0h;
+  t1h_ = t1h;
+  t0l_ = t0l;
+  t1l_ = t1l;
 }
 
 uint32_t WS2812Strip::ColorWheel(uint8_t pos) {

@@ -23,16 +23,16 @@ public:
   /**
    * @brief Apply an effect to all managed strips.
    */
-  void SetEffect(WS2812Animator::Effect eff, uint32_t color = 0xFFFFFF);
+  void SetEffect(WS2812Animator::Effect effect, uint32_t color = 0xFFFFFF);
 
   /**
    * @brief Apply an effect to a single strip.
    *
-   * @param idx   Index of the strip.
-   * @param eff   Desired animation effect.
+   * @param index   Index of the strip.
+   * @param effect   Desired animation effect.
    * @param color Base colour for the effect.
    */
-  void SetEffect(size_t idx, WS2812Animator::Effect eff, uint32_t color = 0xFFFFFF);
+  void SetEffect(size_t index, WS2812Animator::Effect effect, uint32_t color = 0xFFFFFF);
 
   /**
    * @brief Advance all animations by one step.
@@ -41,10 +41,10 @@ public:
 
 private:
   /** Animators for each strip. */
-  std::vector<WS2812Animator> m_animators;
+  std::vector<WS2812Animator> animators_;
   /** Synchronise step counters across strips. */
-  bool m_sync = true;
+  bool sync_ = true;
   /** Current animation step used for synchronisation. */
-  uint16_t m_step = 0;
+  uint16_t step_ = 0;
 };
 #endif // __cplusplus
