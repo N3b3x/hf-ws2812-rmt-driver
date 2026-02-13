@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['appconfig_0',['AppConfig',['../structWS2812__TestConfig_1_1AppConfig.html',1,'WS2812_TestConfig']]]
+  ['appconfig_0',['AppConfig',['../structws2812__test__config_1_1AppConfig.html',1,'ws2812_test_config']]]
 ];

@@ -38,15 +38,15 @@
 #define ESP32_WS2812_ENABLE_DETAILED_LOGGING 0
 #endif
 
-namespace WS2812_TestConfig {
+namespace ws2812_test_config {
 
 /**
  * @brief LED Strip Pin Configuration for ESP32-C6
  *
  * GPIO pin connected to the WS2812 data input.
  */
-struct LEDPins {
-    static constexpr uint8_t DATA = 8;           ///< GPIO8 - WS2812 data pin
+struct LedPins {
+    static constexpr uint8_t DATA_ = 8;           ///< GPIO8 - WS2812 data pin
 };
 
 /**

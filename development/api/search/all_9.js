@@ -1,12 +1,12 @@
 var searchData=
 [
   ['educational_20project_0',['Educational Project',['../md_examples_2esp32_2scripts_2docs_2examples_2index.html#autotoc_md366',1,'']]],
-  ['effect_5fstep_5fms_1',['EFFECT_STEP_MS',['../structWS2812__TestConfig_1_1Timing.html#a0b47cbbd1ba92a25980baaeb22a6ba0c',1,'WS2812_TestConfig::Timing']]],
+  ['effect_5fstep_5fms_1',['EFFECT_STEP_MS',['../structws2812__test__config_1_1Timing.html#ab1302dcb2df4b511354b51429dff978e',1,'ws2812_test_config::Timing']]],
   ['enable_20debug_20mode_2',['Enable Debug Mode',['../md_examples_2esp32_2scripts_2docs_2troubleshooting_2index.html#autotoc_md682',1,'']]],
-  ['enable_5fauto_5frecovery_3',['ENABLE_AUTO_RECOVERY',['../structWS2812__TestConfig_1_1AppConfig.html#a1ef87660a831a6fec8e947b0191919a3',1,'WS2812_TestConfig::AppConfig']]],
-  ['enable_5fdebug_5flogging_4',['ENABLE_DEBUG_LOGGING',['../structWS2812__TestConfig_1_1AppConfig.html#a560b1f8cda0833329f06e234517ccf28',1,'WS2812_TestConfig::AppConfig']]],
-  ['enable_5fperformance_5fmonitoring_5',['ENABLE_PERFORMANCE_MONITORING',['../structWS2812__TestConfig_1_1AppConfig.html#aceca0a70cb8d87998323c4ed83eadef8',1,'WS2812_TestConfig::AppConfig']]],
-  ['enable_5frmt_5flogging_6',['ENABLE_RMT_LOGGING',['../structWS2812__TestConfig_1_1AppConfig.html#a756da88ecf28ed206594a83ad7360889',1,'WS2812_TestConfig::AppConfig']]],
+  ['enable_5fauto_5frecovery_3',['ENABLE_AUTO_RECOVERY',['../structws2812__test__config_1_1AppConfig.html#ad47836f1c548a8566f47a5df25f4cbe5',1,'ws2812_test_config::AppConfig']]],
+  ['enable_5fdebug_5flogging_4',['ENABLE_DEBUG_LOGGING',['../structws2812__test__config_1_1AppConfig.html#a26983b3ec1d8a163b27886b87a2a0257',1,'ws2812_test_config::AppConfig']]],
+  ['enable_5fperformance_5fmonitoring_5',['ENABLE_PERFORMANCE_MONITORING',['../structws2812__test__config_1_1AppConfig.html#abf454a3b4bde3adab0177486658a0960',1,'ws2812_test_config::AppConfig']]],
+  ['enable_5frmt_5flogging_6',['ENABLE_RMT_LOGGING',['../structws2812__test__config_1_1AppConfig.html#a1a3e8ead09ba0694d28045711de2cb54',1,'ws2812_test_config::AppConfig']]],
   ['enabling_20debug_20output_20strong_7',['Enabling Debug Output strong',['../md_examples_2esp32_2scripts_2docs_2advanced_2port-detection_2index.html#autotoc_md133',1,'&lt;strong&gt;Enabling Debug Output&lt;/strong&gt;'],['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html#autotoc_md218',1,'&lt;strong&gt;Enabling Debug Output&lt;/strong&gt;'],['../md_examples_2esp32_2scripts_2docs_2flash-system_2index.html#autotoc_md453',1,'&lt;strong&gt;Enabling Debug Output&lt;/strong&gt;']]],
   ['enabling_20log_20debug_20output_20strong_8',['&lt;strong&gt;Enabling Log Debug Output&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2logging-system_2index.html#autotoc_md638',1,'']]],
   ['enforcement_9',['Size Budget Enforcement',['../md_examples_2esp32_2scripts_2docs_2ci-pipeline_2index.html#autotoc_md291',1,'']]],

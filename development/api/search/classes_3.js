@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['powerspecs_0',['PowerSpecs',['../structWS2812__TestConfig_1_1PowerSpecs.html',1,'WS2812_TestConfig']]]
+  ['powerspecs_0',['PowerSpecs',['../structws2812__test__config_1_1PowerSpecs.html',1,'ws2812_test_config']]]
 ];

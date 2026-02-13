@@ -17,5 +17,5 @@ var searchData=
   ['not_20supported_14',['Build Type Not Supported',['../md_examples_2esp32_2scripts_2docs_2troubleshooting_2index.html#autotoc_md672',1,'']]],
   ['not_20triggering_15',['Workflow Not Triggering',['../md_examples_2esp32_2scripts_2docs_2troubleshooting_2index.html#autotoc_md674',1,'']]],
   ['notifications_16',['Alerts and Notifications',['../md_examples_2esp32_2scripts_2docs_2features_2index.html#autotoc_md383',1,'']]],
-  ['num_5fleds_17',['NUM_LEDS',['../structWS2812__TestConfig_1_1StripSpecs.html#a787a902cf76e8761574cf16123d14ace',1,'WS2812_TestConfig::StripSpecs::NUM_LEDS'],['../ws2812__control_8h.html#a4c4ae9a4146ce8d6a5debc90300d9abd',1,'NUM_LEDS:&#160;ws2812_control.h']]]
+  ['num_5fleds_17',['NUM_LEDS',['../structws2812__test__config_1_1StripSpecs.html#a53d8f9119a0235026c36f2ab4992ce9f',1,'ws2812_test_config::StripSpecs::NUM_LEDS'],['../ws2812__control_8h.html#a4c4ae9a4146ce8d6a5debc90300d9abd',1,'NUM_LEDS:&#160;ws2812_control.h']]]
 ];

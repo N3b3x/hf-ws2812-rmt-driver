@@ -132,15 +132,15 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3b4db9e88dbfed4b9b754cc0fbcd1e73" id="r_a3b4db9e88dbfed4b9b754cc0fbcd1e73"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b4db9e88dbfed4b9b754cc0fbcd1e73">ws2812ControlInit</a> (gpio_num_t gpio_num, int channel)</td></tr>
-<tr class="memdesc:a3b4db9e88dbfed4b9b754cc0fbcd1e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise the RMT driver for WS2812 output.  <br /></td></tr>
-<tr class="separator:a3b4db9e88dbfed4b9b754cc0fbcd1e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebafa1559682ad49972019da1154ccf8" id="r_aebafa1559682ad49972019da1154ccf8"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebafa1559682ad49972019da1154ccf8">ws2812WriteLeds</a> (struct <a class="el" href="structled__state.html">led_state</a> new_state)</td></tr>
-<tr class="memdesc:aebafa1559682ad49972019da1154ccf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit colour values to the LED chain.  <br /></td></tr>
-<tr class="separator:aebafa1559682ad49972019da1154ccf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328694d3d0c8b9f8a5febf1b0800a1a3" id="r_a328694d3d0c8b9f8a5febf1b0800a1a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a328694d3d0c8b9f8a5febf1b0800a1a3">ws2812SetBrightness</a> (uint8_t brightness)</td></tr>
-<tr class="memdesc:a328694d3d0c8b9f8a5febf1b0800a1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set global brightness for subsequent transmissions.  <br /></td></tr>
-<tr class="separator:a328694d3d0c8b9f8a5febf1b0800a1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee15015f3f78b1e541f4b4c7fdc8e7d2" id="r_aee15015f3f78b1e541f4b4c7fdc8e7d2"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee15015f3f78b1e541f4b4c7fdc8e7d2">ws2812_control_init</a> (gpio_num_t gpio_num, int channel)</td></tr>
+<tr class="memdesc:aee15015f3f78b1e541f4b4c7fdc8e7d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise the RMT driver for WS2812 output.  <br /></td></tr>
+<tr class="separator:aee15015f3f78b1e541f4b4c7fdc8e7d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fb28591dd25eb45a0d1341d6dabf512" id="r_a5fb28591dd25eb45a0d1341d6dabf512"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fb28591dd25eb45a0d1341d6dabf512">ws2812_write_leds</a> (struct <a class="el" href="structled__state.html">led_state</a> new_state)</td></tr>
+<tr class="memdesc:a5fb28591dd25eb45a0d1341d6dabf512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit colour values to the LED chain.  <br /></td></tr>
+<tr class="separator:a5fb28591dd25eb45a0d1341d6dabf512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad29cefe70b3d27b150b8fdc2a4f09593" id="r_ad29cefe70b3d27b150b8fdc2a4f09593"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad29cefe70b3d27b150b8fdc2a4f09593">ws2812_set_brightness</a> (uint8_t brightness)</td></tr>
+<tr class="memdesc:ad29cefe70b3d27b150b8fdc2a4f09593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set global brightness for subsequent transmissions.  <br /></td></tr>
+<tr class="separator:ad29cefe70b3d27b150b8fdc2a4f09593"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ac82a7633b08389ed3f963dad7a20a607" name="ac82a7633b08389ed3f963dad7a20a607"></a>
@@ -242,14 +242,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a3b4db9e88dbfed4b9b754cc0fbcd1e73" name="a3b4db9e88dbfed4b9b754cc0fbcd1e73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b4db9e88dbfed4b9b754cc0fbcd1e73">&#9670;&#160;</a></span>ws2812ControlInit()</h2>
+<a id="aee15015f3f78b1e541f4b4c7fdc8e7d2" name="aee15015f3f78b1e541f4b4c7fdc8e7d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee15015f3f78b1e541f4b4c7fdc8e7d2">&#9670;&#160;</a></span>ws2812_control_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">esp_err_t ws2812ControlInit </td>
+          <td class="memname">esp_err_t ws2812_control_init </td>
           <td>(</td>
           <td class="paramtype">gpio_num_t</td>          <td class="paramname"><span class="paramname"><em>gpio_num</em>, </span></td>
         </tr>
@@ -275,14 +275,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a328694d3d0c8b9f8a5febf1b0800a1a3" name="a328694d3d0c8b9f8a5febf1b0800a1a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a328694d3d0c8b9f8a5febf1b0800a1a3">&#9670;&#160;</a></span>ws2812SetBrightness()</h2>
+<a id="ad29cefe70b3d27b150b8fdc2a4f09593" name="ad29cefe70b3d27b150b8fdc2a4f09593"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad29cefe70b3d27b150b8fdc2a4f09593">&#9670;&#160;</a></span>ws2812_set_brightness()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ws2812SetBrightness </td>
+          <td class="memname">void ws2812_set_brightness </td>
           <td>(</td>
           <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>brightness</em></span></td><td>)</td>
           <td></td>
@@ -301,14 +301,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aebafa1559682ad49972019da1154ccf8" name="aebafa1559682ad49972019da1154ccf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebafa1559682ad49972019da1154ccf8">&#9670;&#160;</a></span>ws2812WriteLeds()</h2>
+<a id="a5fb28591dd25eb45a0d1341d6dabf512" name="a5fb28591dd25eb45a0d1341d6dabf512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb28591dd25eb45a0d1341d6dabf512">&#9670;&#160;</a></span>ws2812_write_leds()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">esp_err_t ws2812WriteLeds </td>
+          <td class="memname">esp_err_t ws2812_write_leds </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structled__state.html">led_state</a></td>          <td class="paramname"><span class="paramname"><em>new_state</em></span></td><td>)</td>
           <td></td>

@@ -8,7 +8,7 @@ var ws2812__control_8h =
     [ "WS2812_T0L", "ws2812__control_8h.html#a3a3a3b90f78d5e4a8193bac0391a7bba", null ],
     [ "WS2812_T1H", "ws2812__control_8h.html#ac58f329d53dd603d10ae0d79c80f87dc", null ],
     [ "WS2812_T1L", "ws2812__control_8h.html#a182fb5396bc46fc0a48c21be2649293d", null ],
-    [ "ws2812ControlInit", "ws2812__control_8h.html#a3b4db9e88dbfed4b9b754cc0fbcd1e73", null ],
-    [ "ws2812SetBrightness", "ws2812__control_8h.html#a328694d3d0c8b9f8a5febf1b0800a1a3", null ],
-    [ "ws2812WriteLeds", "ws2812__control_8h.html#aebafa1559682ad49972019da1154ccf8", null ]
+    [ "ws2812_control_init", "ws2812__control_8h.html#aee15015f3f78b1e541f4b4c7fdc8e7d2", null ],
+    [ "ws2812_set_brightness", "ws2812__control_8h.html#ad29cefe70b3d27b150b8fdc2a4f09593", null ],
+    [ "ws2812_write_leds", "ws2812__control_8h.html#a5fb28591dd25eb45a0d1341d6dabf512", null ]
 ];

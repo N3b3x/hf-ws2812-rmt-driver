@@ -8,7 +8,7 @@ var searchData=
   ['led_5fstrip_5fencoder_2ec_5',['led_strip_encoder.c',['../led__strip__encoder_8c.html',1,'']]],
   ['led_5fstrip_5fencoder_2eh_6',['led_strip_encoder.h',['../led__strip__encoder_8h.html',1,'']]],
   ['led_5fstrip_5fencoder_5fconfig_5ft_7',['led_strip_encoder_config_t',['../structled__strip__encoder__config__t.html',1,'']]],
-  ['ledpins_8',['LEDPins',['../structWS2812__TestConfig_1_1LEDPins.html',1,'WS2812_TestConfig']]],
+  ['ledpins_8',['LedPins',['../structws2812__test__config_1_1LedPins.html',1,'ws2812_test_config']]],
   ['leds_9',['leds',['../structled__state.html#ae91e8e5a2d4d33ac911107afd67e9dec',1,'led_state']]],
   ['level_20analysis_20strong_10',['&lt;strong&gt;Permission Level Analysis&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2advanced_2port-detection_2index.html#autotoc_md94',1,'']]],
   ['license_11',['License',['../md_examples_2esp32_2scripts_2docs_2contributing_2index.html#autotoc_md346',1,'📄 License'],['../md_examples_2esp32_2scripts_2docs_2index.html#autotoc_md572',1,'📄 License'],['..//home/runner/work/hf-ws2812-rmt-driver/hf-ws2812-rmt-driver/README.md#autotoc_md716',1,'📄 License']]],

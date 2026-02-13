@@ -70,7 +70,7 @@ var searchData=
   ['app_5fconfig_20yml_67',['app_config.yml',['../md_examples_2esp32_2scripts_2docs_2getting-started_2project-setup_2index.html#autotoc_md540',1,'']]],
   ['app_5fconfig_20yml_20structure_68',['app_config.yml Structure',['../md_examples_2esp32_2scripts_2docs_2advanced_2multi-version-idf_2index.html#autotoc_md35',1,'']]],
   ['app_5fmain_69',['app_main',['../WS2812ComprehensiveTest_8cpp.html#abce06be17fc37d675118a678a8100a36',1,'WS2812ComprehensiveTest.cpp']]],
-  ['appconfig_70',['AppConfig',['../structWS2812__TestConfig_1_1AppConfig.html',1,'WS2812_TestConfig']]],
+  ['appconfig_70',['AppConfig',['../structws2812__test__config_1_1AppConfig.html',1,'ws2812_test_config']]],
   ['application_71',['Build an Application',['../index.html#autotoc_md10',1,'']]],
   ['application_20configuration_72',['2. Application Configuration',['../md_examples_2esp32_2scripts_2docs_2getting-started_2configuration_2index.html#autotoc_md479',1,'']]],
   ['application_20information_20access_20strong_73',['&lt;strong&gt;1. Application Information Access&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html#autotoc_md201',1,'']]],
