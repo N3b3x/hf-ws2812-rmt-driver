@@ -72,6 +72,16 @@ public:
   void SetBrightness(uint8_t value);
 
   /**
+   * @brief Resize the strip to a new LED count at runtime.
+   *
+   * Clears all pixel data to zero. The RMT symbol buffer is resized
+   * to match the new LED count and current colour encoding.
+   *
+   * @param num_leds New number of LEDs in the strip.
+   */
+  void SetNumLeds(uint32_t num_leds);
+
+  /**
    * @brief Update the bit timing parameters.
    *
    * Allows adjustment of the WS2812 protocol timings after construction.

@@ -79,6 +79,12 @@ void WS2812Strip::SetBrightness(uint8_t value) {
   brightness_ = value;
 }
 
+void WS2812Strip::SetNumLeds(uint32_t num_leds) {
+  num_leds_ = num_leds;
+  pixels_.assign(num_leds, 0);
+  buffer_.resize(num_leds * (type_ == LedType::RGBW ? 32 : 24));
+}
+
 void WS2812Strip::SetTimings(uint16_t t0h, uint16_t t1h, uint16_t t0l, uint16_t t1l) {
   t0h_ = t0h;
   t1h_ = t1h;
