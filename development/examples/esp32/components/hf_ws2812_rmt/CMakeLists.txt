@@ -1,94 +1,30 @@
 # =============================================================================
-# WS2812 Driver Component - CMakeLists.txt
+# hf_ws2812_rmt — ESP-IDF component wrapper
 # =============================================================================
-# This component provides the WS2812 driver library
+# This thin wrapper imports the shared build-settings file and registers the
+# component for ESP-IDF.  All sources, includes, and version info are defined
+# in cmake/hf_ws2812_rmt_build_settings.cmake (single source of truth).
 # =============================================================================
 
-cmake_minimum_required(VERSION 3.16)
+# ── Locate driver root ───────────────────────────────────────────────────────
+set(HF_WS2812_RMT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../.." CACHE PATH
+    "Root of the hf-ws2812-rmt-driver repository")
 
-# =============================================================================
-# Path Configuration
-# =============================================================================
-# Set the source root path relative to this component directory
-set(SRC_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../../src")
-set(INC_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../../inc")
+if(NOT EXISTS "${HF_WS2812_RMT_ROOT}/cmake/hf_ws2812_rmt_build_settings.cmake")
+  message(FATAL_ERROR
+    "Cannot find hf_ws2812_rmt_build_settings.cmake.\n"
+    "  HF_WS2812_RMT_ROOT = ${HF_WS2812_RMT_ROOT}")
+endif()
 
-message(STATUS "WS2812 Driver - ESP32 Component Configuration")
-message(STATUS "Source Root: ${SRC_ROOT}")
+# ── Import build settings ────────────────────────────────────────────────────
+include("${HF_WS2812_RMT_ROOT}/cmake/hf_ws2812_rmt_build_settings.cmake")
 
-# =============================================================================
-# Source File Discovery and Validation
-# =============================================================================
-# List all driver source files
-set(DRIVER_SRCS
-    "${SRC_ROOT}/ws2812_control.c"
-    "${SRC_ROOT}/ws2812_cpp.cpp"
-    "${SRC_ROOT}/ws2812_effects.cpp"
-    "${SRC_ROOT}/ws2812_multi_animator.cpp"
-    "${SRC_ROOT}/led_strip_encoder.c"
-)
-
-# Check which source files actually exist and add them
-set(EXISTING_SRCS "")
-foreach(src_file ${DRIVER_SRCS})
-    if(EXISTS "${src_file}")
-        list(APPEND EXISTING_SRCS "${src_file}")
-        message(STATUS "Found source: ${src_file}")
-    else()
-        message(WARNING "Source file not found: ${src_file}")
-    endif()
-endforeach()
-
-# =============================================================================
-# Include Directories Configuration
-# =============================================================================
-# Define include directories for the driver component
-set(DRIVER_INCLUDE_DIRS
-    "${INC_ROOT}"                       # Main driver headers
-)
-
-# =============================================================================
-# Component Dependencies
-# =============================================================================
-# Define required ESP-IDF components for the driver
-set(DRIVER_REQUIRES
-    driver              # ESP-IDF driver framework
-    freertos            # FreeRTOS support
-    esp_driver_rmt      # ESP-IDF RMT driver (ESP-IDF v5.5)
-)
-
-# =============================================================================
-# Component Registration
-# =============================================================================
-# Register the driver component with ESP-IDF build system
+# ── Register ESP-IDF component ───────────────────────────────────────────────
 idf_component_register(
-    SRCS ${EXISTING_SRCS}                 # Source files (validated above)
-    INCLUDE_DIRS ${DRIVER_INCLUDE_DIRS}   # Include directories defined above
-    REQUIRES ${DRIVER_REQUIRES}           # Component dependencies defined above
+    SRCS        ${HF_WS2812_RMT_SOURCES}
+    INCLUDE_DIRS ${HF_WS2812_RMT_INCLUDE_DIRS}
+    REQUIRES     ${HF_WS2812_RMT_IDF_REQUIRES}
 )
 
-# =============================================================================
-# Compiler Configuration
-# =============================================================================
-# Set C++ standard
-target_compile_features(${COMPONENT_LIB} PRIVATE cxx_std_20)
-
-# =============================================================================
-# Compiler Flags
-# =============================================================================
 target_compile_options(${COMPONENT_LIB} PRIVATE
-    -Wall                    # Enable all warnings
-    -Wextra                  # Enable extra warnings
-    -O2                      # Optimize for performance
-    -g                       # Include debug information
-)
-
-# =============================================================================
-# Build Summary
-# =============================================================================
-list(LENGTH EXISTING_SRCS NUM_SOURCES)
-message(STATUS "=== WS2812 Driver Component Summary ===")
-message(STATUS "Component configured successfully")
-message(STATUS "Included ${NUM_SOURCES} source files")
-message(STATUS "C++ Standard: 17")
-message(STATUS "===============================================")
+    $<$<COMPILE_LANGUAGE:CXX>:-std=gnu++20>)

@@ -14,11 +14,9 @@
   <style id="jtd-nav-activation">
   
 
-    .site-nav > ul.nav-list:first-child > li > a,
-    .site-nav > ul.nav-list:first-child > li > ul > li > a,
     
-    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li:not(:nth-child(3)) > a,
-    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li > ul > li a {
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(2)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
       background-image: none;
     }
 
@@ -27,16 +25,12 @@
       background-image: none;
     }
 
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(1) > ul > li:nth-child(3) > a {
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > a {
       font-weight: 600;
       text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(1) > button svg,
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(1) > button svg,
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(1) > ul > li:nth-child(3) > button svg {
+    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg {
       transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list,
-    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list > li.nav-list-item:nth-child(1) > ul.nav-list,
-    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list > li.nav-list-item:nth-child(1) > ul.nav-list > li.nav-list-item:nth-child(3) > ul.nav-list {
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list {
       display: block;
     }
   </style>
@@ -56,21 +50,21 @@
 
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>🔌 Hardware Setup | HardFOC WS2812 Driver - development</title>
+<title>CMake Integration — WS2812 RMT Driver | HardFOC WS2812 Driver - development</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="🔌 Hardware Setup" />
+<meta property="og:title" content="CMake Integration — WS2812 RMT Driver" />
 <meta name="author" content="N3b3x" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Hardware wiring and connection guide for WS2812 LED strips" />
-<meta property="og:description" content="Hardware wiring and connection guide for WS2812 LED strips" />
-<link rel="canonical" href="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/docs/hardware_setup/" />
-<meta property="og:url" content="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/docs/hardware_setup/" />
+<meta name="description" content="ESP32 RMT based WS2812/NeoPixel Driver with precise timing for WS2812-compatible LED strips" />
+<meta property="og:description" content="ESP32 RMT based WS2812/NeoPixel Driver with precise timing for WS2812-compatible LED strips" />
+<link rel="canonical" href="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/docs/cmake_integration.html" />
+<meta property="og:url" content="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/docs/cmake_integration.html" />
 <meta property="og:site_name" content="HardFOC WS2812 Driver - development" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="🔌 Hardware Setup" />
+<meta property="twitter:title" content="CMake Integration — WS2812 RMT Driver" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"Hardware wiring and connection guide for WS2812 LED strips","headline":"🔌 Hardware Setup","url":"https://n3b3x.github.io/hf-ws2812-rmt-driver/development/docs/hardware_setup/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"ESP32 RMT based WS2812/NeoPixel Driver with precise timing for WS2812-compatible LED strips","headline":"CMake Integration — WS2812 RMT Driver","url":"https://n3b3x.github.io/hf-ws2812-rmt-driver/development/docs/cmake_integration.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -251,295 +245,109 @@
 </div>
 
     <div class="main-content-wrap">
-      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-  <ol class="breadcrumb-nav-list">
-    <li class="breadcrumb-nav-list-item"><a href="/hf-ws2812-rmt-driver/development/">HardFOC WS2812 Driver</a></li>
-    <li class="breadcrumb-nav-list-item"><a href="/hf-ws2812-rmt-driver/development/docs/">📚 Documentation</a></li>
-    <li class="breadcrumb-nav-list-item"><span>🔌 Hardware Setup</span></li>
-  </ol>
-</nav>
-
-
+      
       <div id="main-content" class="main-content">
         <main>
           
-            <h1 id="hardware-setup">
+            <h1 id="cmake-integration--ws2812-rmt-driver">
   
   
-    <a href="#hardware-setup" class="anchor-heading" aria-labelledby="hardware-setup"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Hardware Setup
+    <a href="#cmake-integration--ws2812-rmt-driver" class="anchor-heading" aria-labelledby="cmake-integration--ws2812-rmt-driver"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> CMake Integration — WS2812 RMT Driver
   
   
 </h1>
     
 
-<p>This guide covers the physical connections and hardware requirements for WS2812 LED strips.</p>
-<h2 id="pin-connections">
+<blockquote>
+  <p><strong>Canonical reference</strong>: <a href="../../../../../docs/development/CMAKE_BUILD_CONTRACT.md"><code class="language-plaintext highlighter-rouge">hf-hal-vortex-v1/docs/development/CMAKE_BUILD_CONTRACT.md</code></a></p>
+</blockquote>
+<h2 id="quick-start-esp-idf">
   
   
-    <a href="#pin-connections" class="anchor-heading" aria-labelledby="pin-connections"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pin Connections
+    <a href="#quick-start-esp-idf" class="anchor-heading" aria-labelledby="quick-start-esp-idf"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Quick start (ESP-IDF)
   
   
 </h2>
     
-<h3 id="basic-connections">
+
+<p>The ESP-IDF component wrapper lives at:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>examples/esp32/components/hf_ws2812_rmt/CMakeLists.txt
+</pre></td></tr></tbody></table></div></code></pre></div></div>
+
+<p>It imports <code class="language-plaintext highlighter-rouge">cmake/hf_ws2812_rmt_build_settings.cmake</code>, which is the single
+source of truth for sources, includes, and version information.</p>
+<h3 id="dual-mode-root-cmakeliststxt">
   
   
-    <a href="#basic-connections" class="anchor-heading" aria-labelledby="basic-connections"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Basic Connections
+    <a href="#dual-mode-root-cmakeliststxt" class="anchor-heading" aria-labelledby="dual-mode-root-cmakeliststxt"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Dual-mode root CMakeLists.txt
   
   
 </h3>
     
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>ESP32              WS2812 Strip
-─────────────────────────────────
-GPIO (e.g., 18) ─── DIN (Data In)
-5V/3.3V         ─── VCC (Power)
-GND             ─── GND (Ground)
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h3 id="connection-details">
+<p>This driver also supports installation via the <strong>ESP Component Registry</strong>
+(<code class="language-plaintext highlighter-rouge">idf_component.yml</code>). When <code class="language-plaintext highlighter-rouge">ESP_PLATFORM</code> is defined by ESP-IDF, the root
+<code class="language-plaintext highlighter-rouge">CMakeLists.txt</code> registers the component directly. Otherwise it builds
+a platform-agnostic static library.</p>
+<h2 id="layer-overview">
   
   
-    <a href="#connection-details" class="anchor-heading" aria-labelledby="connection-details"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Connection Details
+    <a href="#layer-overview" class="anchor-heading" aria-labelledby="layer-overview"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Layer overview
   
   
-</h3>
+</h2>
     
 
 <div class="table-wrapper"><table>
   <thead>
     <tr>
-      <th>ESP32 Pin</th>
-      <th>WS2812 Pin</th>
-      <th>Description</th>
-      <th>Notes</th>
+      <th>Layer</th>
+      <th>File</th>
+      <th>Role</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>GPIO (configurable)</td>
-      <td>DIN</td>
-      <td>Data input</td>
-      <td>Any output-capable GPIO</td>
+      <td>1 — Settings</td>
+      <td><code class="language-plaintext highlighter-rouge">cmake/hf_ws2812_rmt_build_settings.cmake</code></td>
+      <td>Sources, includes, version</td>
     </tr>
     <tr>
-      <td>5V or 3.3V</td>
-      <td>VCC</td>
-      <td>Power supply</td>
-      <td>See power requirements below</td>
+      <td>2 — Root</td>
+      <td><code class="language-plaintext highlighter-rouge">CMakeLists.txt</code></td>
+      <td>Dual-mode: IDF component <em>or</em> desktop library</td>
     </tr>
     <tr>
-      <td>GND</td>
-      <td>GND</td>
-      <td>Ground</td>
-      <td>Common ground required</td>
+      <td>3 — ESP-IDF</td>
+      <td><code class="language-plaintext highlighter-rouge">examples/esp32/components/…/CMakeLists.txt</code></td>
+      <td>IDF wrapper for examples</td>
     </tr>
   </tbody>
 </table></div>
-
-<p><strong>Important</strong>: The data line (DIN) must be connected to a GPIO capable of output. Most GPIOs on ESP32 support this.</p>
-<h2 id="power-requirements">
+<h2 id="version">
   
   
-    <a href="#power-requirements" class="anchor-heading" aria-labelledby="power-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Power Requirements
+    <a href="#version" class="anchor-heading" aria-labelledby="version"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Version
   
   
 </h2>
     
-<h3 id="power-supply-considerations">
-  
-  
-    <a href="#power-supply-considerations" class="anchor-heading" aria-labelledby="power-supply-considerations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Power Supply Considerations
-  
-  
-</h3>
-    
 
-<p>WS2812 LEDs can draw significant current:</p>
-<ul>
-  <li><strong>Per LED</strong>: ~60mA at full brightness white</li>
-  <li><strong>30 LEDs</strong>: ~1.8A at full brightness</li>
-  <li><strong>100 LEDs</strong>: ~6A at full brightness</li>
-</ul>
-<h3 id="power-supply-options">
-  
-  
-    <a href="#power-supply-options" class="anchor-heading" aria-labelledby="power-supply-options"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Power Supply Options
-  
-  
-</h3>
-    
+<p>The version is defined once in <code class="language-plaintext highlighter-rouge">hf_ws2812_rmt_build_settings.cmake</code> and
+stamped into <code class="language-plaintext highlighter-rouge">inc/ws2812_version.h.in</code> → <code class="language-plaintext highlighter-rouge">ws2812_version.h</code> via
+<code class="language-plaintext highlighter-rouge">configure_file()</code>.</p>
 
-<ol>
-  <li><strong>Small Strips (&lt; 20 LEDs)</strong>: Can use ESP32’s 5V pin (if available) or 3.3V with level shifter</li>
-  <li><strong>Medium Strips (20-50 LEDs)</strong>: Use external 5V power supply (2-3A recommended)</li>
-  <li><strong>Large Strips (&gt; 50 LEDs)</strong>: Use external 5V power supply (5A+ recommended)</li>
-</ol>
-<h3 id="power-wiring">
-  
-  
-    <a href="#power-wiring" class="anchor-heading" aria-labelledby="power-wiring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Power Wiring
-  
-  
-</h3>
-    
+<p>Access at runtime:</p>
 
-<p>For strips requiring external power:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre>External 5V Power Supply
-    │
-    ├── VCC ─── WS2812 Strip VCC
-    │
-    └── GND ───┬── WS2812 Strip GND
-               │
-               └── ESP32 GND (COMMON GROUND REQUIRED!)
-
-ESP32 GPIO ─── WS2812 Strip DIN
+</pre></td><td class="rouge-code"><pre><span class="n">WS2812Strip</span><span class="o">::</span><span class="n">GetDriverVersion</span><span class="p">();</span>      <span class="c1">// "1.0.0"</span>
+<span class="n">WS2812Strip</span><span class="o">::</span><span class="n">GetDriverVersionMajor</span><span class="p">();</span> <span class="c1">// 1</span>
+<span class="n">GetWS2812DriverVersion</span><span class="p">();</span>             <span class="c1">// "1.0.0" (free function)</span>
 </pre></td></tr></tbody></table></div></code></pre></div></div>
-
-<p><strong>Critical</strong>: Always connect grounds together! The ESP32 GND and power supply GND must be connected.</p>
-<h2 id="level-shifting-optional">
-  
-  
-    <a href="#level-shifting-optional" class="anchor-heading" aria-labelledby="level-shifting-optional"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Level Shifting (Optional)
-  
-  
-</h2>
-    
-
-<p>WS2812 LEDs expect <strong>5V logic levels</strong>, but ESP32 outputs <strong>3.3V</strong>. For short strips (&lt; 1 meter), 3.3V often works, but for reliability:</p>
-
-<ul>
-  <li>Use a <strong>level shifter</strong> (e.g., 74AHCT125) for the data line</li>
-  <li>Or use a <strong>resistor divider</strong> (not recommended for long strips)</li>
-</ul>
-<h2 id="physical-layout-recommendations">
-  
-  
-    <a href="#physical-layout-recommendations" class="anchor-heading" aria-labelledby="physical-layout-recommendations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Physical Layout Recommendations
-  
-  
-</h2>
-    
-
-<ul>
-  <li><strong>Keep data line short</strong>: Minimize distance between ESP32 and first LED (&lt; 1 meter ideal)</li>
-  <li><strong>Add capacitor</strong>: Place 1000µF capacitor across power supply near strip</li>
-  <li><strong>Power injection</strong>: For long strips, inject power at multiple points</li>
-  <li><strong>Shielding</strong>: Keep data line away from noise sources</li>
-</ul>
-<h2 id="example-wiring-diagram">
-  
-  
-    <a href="#example-wiring-diagram" class="anchor-heading" aria-labelledby="example-wiring-diagram"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example Wiring Diagram
-  
-  
-</h2>
-    
-<h3 id="small-strip--20-leds">
-  
-  
-    <a href="#small-strip--20-leds" class="anchor-heading" aria-labelledby="small-strip--20-leds"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Small Strip (&lt; 20 LEDs)
-  
-  
-</h3>
-    
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre>                    WS2812 Strip
-                    ┌─────────────┐
-ESP32 GPIO18 ───────┤ DIN         │
-ESP32 5V     ───────┤ VCC         │
-ESP32 GND    ───────┤ GND         │
-                    └─────────────┘
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h3 id="large-strip-external-power">
-  
-  
-    <a href="#large-strip-external-power" class="anchor-heading" aria-labelledby="large-strip-external-power"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Large Strip (External Power)
-  
-  
-</h3>
-    
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="rouge-code"><pre>External 5V PSU     WS2812 Strip
-    │               ┌─────────────┐
-    ├── VCC ────────┤ VCC         │
-    │               │             │
-    └── GND ────┬───┤ GND         │
-                │   └─────────────┘
-                │
-ESP32 GPIO18 ───┼─── DIN
-                │
-ESP32 GND ──────┘
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="gpio-selection">
-  
-  
-    <a href="#gpio-selection" class="anchor-heading" aria-labelledby="gpio-selection"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GPIO Selection
-  
-  
-</h2>
-    
-
-<p><strong>Recommended GPIOs</strong>:</p>
-<ul>
-  <li>GPIO 18 (default in Kconfig)</li>
-  <li>GPIO 19, 21, 22, 23</li>
-  <li>Any output-capable GPIO</li>
-</ul>
-
-<p><strong>Avoid</strong>:</p>
-<ul>
-  <li>GPIO 0 (boot mode, may cause issues)</li>
-  <li>GPIO 6-11 (SPI flash, not available)</li>
-  <li>Input-only GPIOs</li>
-</ul>
-<h2 id="next-steps">
-  
-  
-    <a href="#next-steps" class="anchor-heading" aria-labelledby="next-steps"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Next Steps
-  
-  
-</h2>
-    
-
-<ul>
-  <li>Verify connections with a multimeter</li>
-  <li>Proceed to <a href="/hf-ws2812-rmt-driver/development/docs/quickstart/">Quick Start</a> to test the connection</li>
-  <li>Review <a href="/hf-ws2812-rmt-driver/development/docs/configuration/">Configuration</a> for GPIO and timing settings</li>
-</ul><hr />
-
-<p><strong>Navigation</strong>
-⬅️ <a href="/hf-ws2812-rmt-driver/development/docs/quickstart/">Quick Start</a> | <a href="/hf-ws2812-rmt-driver/development/docs/platform_integration/">Next: Platform Integration ➡️</a> | <a href="/hf-ws2812-rmt-driver/development/docs/">Back to Index</a></p>
 
           
 
