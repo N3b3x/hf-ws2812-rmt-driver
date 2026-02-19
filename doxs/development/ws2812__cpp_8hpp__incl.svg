@@ -12,8 +12,8 @@
 <g id="Node000001" class="node">
 <title>Node1</title>
 <g id="a_Node000001"><a xlink:title="C++ wrapper for the HF&#45;WS2812 RMT LED driver.">
-<polygon fill="#999999" stroke="#666666" points="1053.5,-184 938.5,-184 938.5,-165 1053.5,-165 1053.5,-184"/>
-<text text-anchor="middle" x="996" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">inc/ws2812_cpp.hpp</text>
+<polygon fill="#999999" stroke="#666666" points="1473.5,-184 1358.5,-184 1358.5,-165 1473.5,-165 1473.5,-184"/>
+<text text-anchor="middle" x="1416" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">inc/ws2812_cpp.hpp</text>
 </a>
 </g>
 </g>
@@ -30,8 +30,8 @@
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node1&#45;&gt;Node2</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M938.18,-166.19C858.85,-156.15 716.96,-138.2 636.67,-128.05"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="637.08,-124.57 626.72,-126.79 636.2,-131.52 637.08,-124.57"/>
+<path fill="none" stroke="#63b8ff" d="M1358.33,-169.86C1205.7,-160.22 792.26,-134.1 637,-124.29"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="636.92,-120.78 626.72,-123.64 636.48,-127.76 636.92,-120.78"/>
 </a>
 </g>
 </g>
@@ -45,11 +45,11 @@
 </g>
 </g>
 <!-- Node1&#45;&gt;Node7 -->
-<g id="edge26_Node000001_Node000007" class="edge">
+<g id="edge27_Node000001_Node000007" class="edge">
 <title>Node1&#45;&gt;Node7</title>
-<g id="a_edge26_Node000001_Node000007"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M938.25,-170.44C792.21,-162.05 396.44,-135.23 60.11,-73.99"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="60.64,-70.53 50.17,-72.17 59.38,-77.41 60.64,-70.53"/>
+<g id="a_edge27_Node000001_Node000007"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M1358.39,-172.04C1215.74,-168.12 834.72,-155.79 518,-129 316.57,-111.96 262.78,-111.23 60.25,-74.03"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="60.64,-70.54 50.17,-72.17 59.37,-77.42 60.64,-70.54"/>
 </a>
 </g>
 </g>
@@ -66,8 +66,8 @@
 <g id="edge16_Node000001_Node000017" class="edge">
 <title>Node1&#45;&gt;Node17</title>
 <g id="a_edge16_Node000001_Node000017"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1053.52,-166.24C1132.48,-156.28 1273.85,-138.44 1354.73,-128.23"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="1355.28,-131.69 1364.77,-126.97 1354.41,-124.74 1355.28,-131.69"/>
+<path fill="none" stroke="#63b8ff" d="M1416,-164.75C1416,-157.8 1416,-147.85 1416,-139.13"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="1419.5,-139.09 1416,-129.09 1412.5,-139.09 1419.5,-139.09"/>
 </a>
 </g>
 </g>
@@ -75,17 +75,35 @@
 <g id="Node000024" class="node">
 <title>Node24</title>
 <g id="a_Node000024"><a xlink:title=" ">
-<polygon fill="#e0e0e0" stroke="#999999" points="1532.5,-129 1485.5,-129 1485.5,-110 1532.5,-110 1532.5,-129"/>
-<text text-anchor="middle" x="1509" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">vector</text>
+<polygon fill="#e0e0e0" stroke="#999999" points="1589,-129 1485,-129 1485,-110 1589,-110 1589,-129"/>
+<text text-anchor="middle" x="1537" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">ws2812_version.h</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node24 -->
-<g id="edge27_Node000001_Node000024" class="edge">
+<g id="edge26_Node000001_Node000024" class="edge">
 <title>Node1&#45;&gt;Node24</title>
-<g id="a_edge27_Node000001_Node000024"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1053.65,-171.13C1142.32,-166.83 1317.53,-155.76 1475.41,-128.8"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="1476.05,-132.24 1485.31,-127.09 1474.85,-125.34 1476.05,-132.24"/>
+<g id="a_edge26_Node000001_Node000024"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M1435.44,-164.98C1454.99,-156.42 1485.38,-143.11 1507.82,-133.28"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="1509.45,-136.39 1517.21,-129.17 1506.64,-129.98 1509.45,-136.39"/>
+</a>
+</g>
+</g>
+<!-- Node25 -->
+<g id="Node000025" class="node">
+<title>Node25</title>
+<g id="a_Node000025"><a xlink:title=" ">
+<polygon fill="#e0e0e0" stroke="#999999" points="1654.5,-129 1607.5,-129 1607.5,-110 1654.5,-110 1654.5,-129"/>
+<text text-anchor="middle" x="1631" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">vector</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node25 -->
+<g id="edge28_Node000001_Node000025" class="edge">
+<title>Node1&#45;&gt;Node25</title>
+<g id="a_edge28_Node000001_Node000025"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M1451.6,-164.93C1486.31,-156.55 1540.83,-143.3 1597.38,-129.13"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="1598.37,-132.49 1607.22,-126.66 1596.66,-125.7 1598.37,-132.49"/>
 </a>
 </g>
 </g>
@@ -444,7 +462,7 @@
 <g id="edge24_Node000017_Node000023" class="edge">
 <title>Node17&#45;&gt;Node23</title>
 <g id="a_edge24_Node000017_Node000023"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1467.15,-111.38C1527.61,-102.88 1631.23,-88.04 1720,-74 1721.27,-73.8 1722.56,-73.59 1723.86,-73.38"/>
+<path fill="none" stroke="#63b8ff" d="M1467.02,-111.18C1540.46,-100.61 1672.39,-81.53 1720,-74 1721.27,-73.8 1722.56,-73.59 1723.86,-73.38"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="1724.66,-76.8 1733.97,-71.73 1723.53,-69.89 1724.66,-76.8"/>
 </a>
 </g>
