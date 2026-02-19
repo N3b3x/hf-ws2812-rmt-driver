@@ -7,6 +7,7 @@
 #pragma once
 #include "rmt_wrapper.hpp"
 #include "ws2812_control.h"
+#include "ws2812_version.h"
 #include <cstdint>
 #include <vector>
 
@@ -96,6 +97,30 @@ public:
    */
   static uint32_t ColorWheel(uint8_t pos);
 
+  // ===========================================================================
+  // Driver Version
+  // ===========================================================================
+
+  /** @brief Get the compiled driver version string. */
+  static constexpr const char* GetDriverVersion() noexcept {
+    return HF_WS2812_RMT_VERSION_STRING;
+  }
+
+  /** @brief Get the compiled driver major version number. */
+  static constexpr uint8_t GetDriverVersionMajor() noexcept {
+    return HF_WS2812_RMT_VERSION_MAJOR;
+  }
+
+  /** @brief Get the compiled driver minor version number. */
+  static constexpr uint8_t GetDriverVersionMinor() noexcept {
+    return HF_WS2812_RMT_VERSION_MINOR;
+  }
+
+  /** @brief Get the compiled driver patch version number. */
+  static constexpr uint8_t GetDriverVersionPatch() noexcept {
+    return HF_WS2812_RMT_VERSION_PATCH;
+  }
+
 private:
   std::vector<uint32_t> pixels_;
   std::vector<rmt_symbol_word_t> buffer_;
@@ -110,5 +135,10 @@ private:
   uint8_t brightness_;
   uint32_t num_leds_;
 };
+
+/** @brief Get the WS2812 driver version string (free function). */
+inline const char* GetWS2812DriverVersion() noexcept {
+  return HF_WS2812_RMT_VERSION_STRING;
+}
 
 #endif // __cplusplus
