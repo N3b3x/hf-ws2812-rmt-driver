@@ -76,6 +76,7 @@ extern "C" void app_main() {
     ESP_LOGI(TAG, "║                    ESP32-C6 WS2812 COMPREHENSIVE TEST SUITE                   ║");
     ESP_LOGI(TAG, "║                         HardFOC WS2812 Driver Tests                          ║");
     ESP_LOGI(TAG, "╚══════════════════════════════════════════════════════════════════════════════╝");
+    ESP_LOGI(TAG, "Driver version: %s", GetWS2812DriverVersion());
 
     vTaskDelay(pdMS_TO_TICKS(1000));
 
