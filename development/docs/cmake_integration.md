@@ -1,6 +1,5 @@
 # CMake Integration — WS2812 RMT Driver
 
-> **Canonical reference**: [`hf-hal-vortex-v1/docs/development/CMAKE_BUILD_CONTRACT.md`](../../../../../docs/development/CMAKE_BUILD_CONTRACT.md)
 
 ## Quick start (ESP-IDF)
 

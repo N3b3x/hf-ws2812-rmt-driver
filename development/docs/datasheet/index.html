@@ -15,7 +15,7 @@
   
 
     
-    .site-nav > ul.nav-list:first-child > li:not(:nth-child(1)) > a,
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(3)) > a,
     .site-nav > ul.nav-list:first-child > li > ul > li a {
       background-image: none;
     }
@@ -25,12 +25,12 @@
       background-image: none;
     }
 
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > a {
+    .site-nav > ul.nav-list:first-child > li:nth-child(3) > a {
       font-weight: 600;
       text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(1) > button svg {
+    }.site-nav > ul.nav-list:first-child > li:nth-child(3) > button svg {
       transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list {
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(3) > ul.nav-list {
       display: block;
     }
   </style>
@@ -50,21 +50,21 @@
 
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HardFOC WS2812 Driver | HardFOC WS2812 Driver - development</title>
+<title>Datasheet Directory | HardFOC WS2812 Driver - development</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="HardFOC WS2812 Driver" />
+<meta property="og:title" content="Datasheet Directory" />
 <meta name="author" content="N3b3x" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips" />
-<meta property="og:description" content="ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips" />
-<link rel="canonical" href="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/" />
-<meta property="og:url" content="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/" />
+<meta name="description" content="ESP32 RMT based WS2812/NeoPixel Driver with precise timing for WS2812-compatible LED strips" />
+<meta property="og:description" content="ESP32 RMT based WS2812/NeoPixel Driver with precise timing for WS2812-compatible LED strips" />
+<link rel="canonical" href="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/docs/datasheet/" />
+<meta property="og:url" content="https://n3b3x.github.io/hf-ws2812-rmt-driver/development/docs/datasheet/" />
 <meta property="og:site_name" content="HardFOC WS2812 Driver - development" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HardFOC WS2812 Driver" />
+<meta property="twitter:title" content="Datasheet Directory" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips","headline":"HardFOC WS2812 Driver","name":"HardFOC WS2812 Driver","sameAs":["https://github.com/n3b3x/hf-ws2812-rmt-driver","https://github.com/n3b3x"],"url":"https://n3b3x.github.io/hf-ws2812-rmt-driver/development/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"ESP32 RMT based WS2812/NeoPixel Driver with precise timing for WS2812-compatible LED strips","headline":"Datasheet Directory","url":"https://n3b3x.github.io/hf-ws2812-rmt-driver/development/docs/datasheet/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -249,241 +249,73 @@
       <div id="main-content" class="main-content">
         <main>
           
-            <h1 id="hf-ws2812-driver">
+            <h1 id="datasheet-directory">
   
   
-    <a href="#hf-ws2812-driver" class="anchor-heading" aria-labelledby="hf-ws2812-driver"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> HF-WS2812 Driver
+    <a href="#datasheet-directory" class="anchor-heading" aria-labelledby="datasheet-directory"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Datasheet Directory
   
   
 </h1>
     
-<p><strong>ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips</strong></p>
 
-<p><a href="https://en.cppreference.com/w/cpp/17"><img src="https://img.shields.io/badge/C%2B%2B-17-blue.svg" alt="C++" /></a>
-<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License" /></a>
-<a href="https://github.com/N3b3x/hf-ws2812-rmt-driver/actions/workflows/esp32-examples-build-ci.yml"><img src="https://github.com/N3b3x/hf-ws2812-rmt-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main" alt="CI" /></a>
-<a href="https://n3b3x.github.io/hf-ws2812-rmt-driver/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-blue" alt="Docs" /></a></p>
-<h2 id="-table-of-contents">
+<p>This directory is intended for WS2812 LED datasheets.</p>
+<h2 id="note">
   
   
-    <a href="#-table-of-contents" class="anchor-heading" aria-labelledby="-table-of-contents"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📚 Table of Contents
-  
-  
-</h2>
-    
-<ol>
-  <li><a href="#-overview">Overview</a></li>
-  <li><a href="#-features">Features</a></li>
-  <li><a href="#-quick-start">Quick Start</a></li>
-  <li><a href="#-installation">Installation</a></li>
-  <li><a href="#-api-reference">API Reference</a></li>
-  <li><a href="#-examples">Examples</a></li>
-  <li><a href="#-documentation">Documentation</a></li>
-  <li><a href="#-contributing">Contributing</a></li>
-  <li><a href="#-license">License</a></li>
-</ol>
-<h2 id="-overview">
-  
-  
-    <a href="#-overview" class="anchor-heading" aria-labelledby="-overview"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📦 Overview
+    <a href="#note" class="anchor-heading" aria-labelledby="note"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Note
   
   
 </h2>
     
 
-<blockquote>
-  <p><strong>📖 <a href="https://n3b3x.github.io/hf-ws2812-rmt-driver/">📚🌐 Live Complete Documentation</a></strong> - 
-Interactive guides, examples, and step-by-step tutorials</p>
-</blockquote>
-
-<p><strong>HF-WS2812</strong> is an ESP32-specific driver for <strong>WS2812</strong> and compatible addressable RGB(W) LED strips (commonly known as NeoPixels). The driver uses the ESP32’s RMT (Remote Control) peripheral to generate the precise timing signals required by WS2812 LEDs, providing hardware-accelerated LED control with minimal CPU overhead.</p>
-
-<p>The driver supports both C and C++ APIs, includes built-in animation effects, and is fully configurable via ESP-IDF’s Kconfig system. It’s compatible with WS2812, WS2812B, WS2813, SK6812, and other WS2812-compatible LED variants.</p>
-<h2 id="-features">
+<p>WS2812 is a generic LED driver IC used in addressable RGB LED strips (commonly known as NeoPixels). The driver is compatible with WS2812, WS2812B, WS2813, and similar variants.</p>
+<h2 id="finding-datasheets">
   
   
-    <a href="#-features" class="anchor-heading" aria-labelledby="-features"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ✨ Features
+    <a href="#finding-datasheets" class="anchor-heading" aria-labelledby="finding-datasheets"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Finding Datasheets
   
   
 </h2>
     
+
+<p>Datasheets for WS2812 and compatible LEDs can be found from trusted sources:</p>
 
 <ul>
-  <li>✅ <strong>Hardware-Accelerated</strong>: Uses ESP32 RMT peripheral for precise timing</li>
-  <li>✅ <strong>Dual API</strong>: Both C and C++ interfaces available</li>
-  <li>✅ <strong>Animation Effects</strong>: Built-in effects library (rainbow, chase, fade, etc.)</li>
-  <li>✅ <strong>RGB and RGBW Support</strong>: 24-bit RGB and 32-bit RGBW LED types</li>
-  <li>✅ <strong>Configurable Timing</strong>: Adjustable timing parameters for different LED variants</li>
-  <li>✅ <strong>Brightness Control</strong>: Global brightness scaling (0-255)</li>
-  <li>✅ <strong>Kconfig Integration</strong>: Full ESP-IDF Kconfig configuration support</li>
-  <li>✅ <strong>Zero CPU Overhead</strong>: RMT handles signal generation automatically</li>
+  <li><strong>WS2812 Datasheet (SparkFun)</strong>: https://cdn.sparkfun.com/datasheets/Components/LED/WS2812.pdf</li>
+  <li><strong>Adafruit NeoPixel Guide</strong>: https://learn.adafruit.com/adafruit-neopixel-uberguide</li>
 </ul>
-<h2 id="-quick-start">
+<h2 id="driver-compatibility">
   
   
-    <a href="#-quick-start" class="anchor-heading" aria-labelledby="-quick-start"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🚀 Quick Start
-  
-  
-</h2>
-    
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">"ws2812_cpp.hpp"</span><span class="cp">
-#include</span> <span class="cpf">"ws2812_effects.hpp"</span><span class="cp">
-</span>
-<span class="c1">// Create strip: GPIO, RMT channel, LED count, LED type</span>
-<span class="n">WS2812Strip</span> <span class="nf">strip</span><span class="p">(</span><span class="n">GPIO_NUM_18</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">LedType</span><span class="o">::</span><span class="n">RGB</span><span class="p">);</span>
-<span class="n">WS2812Animator</span> <span class="nf">anim</span><span class="p">(</span><span class="n">strip</span><span class="p">);</span>
-
-<span class="kt">void</span> <span class="nf">app_main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">strip</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-    <span class="n">anim</span><span class="p">.</span><span class="n">setEffect</span><span class="p">(</span><span class="n">WS2812Animator</span><span class="o">::</span><span class="n">Effect</span><span class="o">::</span><span class="n">Rainbow</span><span class="p">);</span>
-    
-    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">anim</span><span class="p">.</span><span class="n">tick</span><span class="p">();</span>
-        <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-
-<p>For detailed setup, see <a href="/hf-ws2812-rmt-driver/development/docs/installation/">Installation</a> and <a href="/hf-ws2812-rmt-driver/development/docs/quickstart/">Quick Start Guide</a>.</p>
-<h2 id="-installation">
-  
-  
-    <a href="#-installation" class="anchor-heading" aria-labelledby="-installation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔧 Installation
+    <a href="#driver-compatibility" class="anchor-heading" aria-labelledby="driver-compatibility"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Driver Compatibility
   
   
 </h2>
     
 
-<ol>
-  <li><strong>Add as ESP-IDF component</strong> to your project</li>
-  <li><strong>Configure via Kconfig</strong>: Run <code class="language-plaintext highlighter-rouge">idf.py menuconfig</code> → Component Config → HF-ESP32-WS2812-RMT</li>
-  <li><strong>Include the header</strong> in your code:
-    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">"ws2812_cpp.hpp"</span><span class="c1">  // C++ API</span><span class="cp">
-</span><span class="c1">// or</span>
-<span class="cp">#include</span> <span class="cpf">"ws2812_control.h"</span><span class="c1">  // C API</span><span class="cp">
-</span></pre></td></tr></tbody></table></div></code></pre></div>    </div>
-  </li>
-</ol>
-
-<p>For detailed installation instructions, see <a href="/hf-ws2812-rmt-driver/development/docs/installation/">docs/installation.md</a>.</p>
-<h2 id="-api-reference">
+<p>The driver supports:</p>
+<ul>
+  <li><strong>WS2812</strong>: Original version</li>
+  <li><strong>WS2812B</strong>: Improved version with better timing</li>
+  <li><strong>WS2813</strong>: Version with backup data line</li>
+  <li><strong>SK6812</strong>: Compatible variant</li>
+  <li>Other WS2812-compatible LEDs</li>
+</ul>
+<h2 id="timing-configuration">
   
   
-    <a href="#-api-reference" class="anchor-heading" aria-labelledby="-api-reference"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📖 API Reference
+    <a href="#timing-configuration" class="anchor-heading" aria-labelledby="timing-configuration"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Timing Configuration
   
   
 </h2>
     
 
-<div class="table-wrapper"><table>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">begin()</code></td>
-      <td>Initialize the LED strip</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">setPixel()</code></td>
-      <td>Set color of a single LED</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">show()</code></td>
-      <td>Send colors to LED strip</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">setBrightness()</code></td>
-      <td>Set global brightness</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">setEffect()</code></td>
-      <td>Set animation effect</td>
-    </tr>
-  </tbody>
-</table></div>
-
-<p>For complete API documentation, see <a href="/hf-ws2812-rmt-driver/development/docs/api_reference/">docs/api_reference.md</a>.</p>
-<h2 id="-examples">
-  
-  
-    <a href="#-examples" class="anchor-heading" aria-labelledby="-examples"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📊 Examples
-  
-  
-</h2>
-    
-
-<p>For ESP32 examples, see the <a href="examples/esp32/">examples/esp32</a> directory.</p>
-
-<p>Detailed example walkthroughs are available in <a href="/hf-ws2812-rmt-driver/development/docs/examples/">docs/examples.md</a>.</p>
-<h2 id="-documentation">
-  
-  
-    <a href="#-documentation" class="anchor-heading" aria-labelledby="-documentation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📚 Documentation
-  
-  
-</h2>
-    
-
-<p>For complete documentation, see the <a href="/hf-ws2812-rmt-driver/development/docs/">docs directory</a>.</p>
-<h2 id="-contributing">
-  
-  
-    <a href="#-contributing" class="anchor-heading" aria-labelledby="-contributing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🤝 Contributing
-  
-  
-</h2>
-    
-
-<p>Pull requests and suggestions are welcome! Please follow the existing code style and include tests for new features.</p>
-<h2 id="-license">
-  
-  
-    <a href="#-license" class="anchor-heading" aria-labelledby="-license"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 📄 License
-  
-  
-</h2>
-    
-
-<p>This project is licensed under the <strong>GNU General Public License v3.0</strong>.
-See the <a href="/hf-ws2812-rmt-driver/development/LICENSE">LICENSE</a> file for details.</p>
+<p>The driver allows runtime configuration of timing parameters to support different LED variants and ensure accurate signal generation.</p>
 
           
 
           
-            <hr>
-<h2 class="text-delta">Table of contents</h2>
-
-<ul>
-  
-  <li>
-    <a href="/hf-ws2812-rmt-driver/development/docs/">📚 Documentation</a>
-  </li>
-  
-</ul>
+            
           
         </main>
         
