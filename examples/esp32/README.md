@@ -417,7 +417,7 @@ static constexpr uint8_t PCAL9555_I2C_ADDRESS = 0x20;  // Default address
 
 ## 📚 Additional Resources
 
-- [PCAL9555 Datasheet](../../datasheet/PCAL9555A.pdf)
+- [PCAL9555 Datasheet](../../docs/datasheet/PCAL9555A.pdf)
 - [Driver API Documentation](../../docs/api_reference.md)
 - [Platform Integration Guide](../../docs/platform_integration.md)
 - [Hardware Overview](../../docs/hardware_overview.md)
