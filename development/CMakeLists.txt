@@ -10,16 +10,13 @@
 # =============================================================================
 cmake_minimum_required(VERSION 3.16)
 
-set(HF_WS2812_RMT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH
-    "Root of the hf-ws2812-rmt-driver repository")
-
-include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/hf_ws2812_rmt_build_settings.cmake")
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/hf_ws2812_rmt_build_settings.cmake)
 
 # ── ESP-IDF path (used when installed via ESP Component Registry) ────────────
 if(ESP_PLATFORM)
   idf_component_register(
-      SRCS         ${HF_WS2812_RMT_SOURCES}
-      INCLUDE_DIRS ${HF_WS2812_RMT_INCLUDE_DIRS}
+      SRCS         ${HF_WS2812_RMT_SOURCE_FILES}
+      INCLUDE_DIRS ${HF_WS2812_RMT_PUBLIC_INCLUDE_DIRS}
       REQUIRES     ${HF_WS2812_RMT_IDF_REQUIRES}
   )
   target_compile_options(${COMPONENT_LIB} PRIVATE
@@ -33,16 +30,16 @@ project(hf_ws2812_rmt
   LANGUAGES C CXX
 )
 
-add_library(hf_ws2812_rmt STATIC ${HF_WS2812_RMT_SOURCES})
+add_library(${HF_WS2812_RMT_TARGET_NAME} STATIC ${HF_WS2812_RMT_SOURCE_FILES})
 
-target_include_directories(hf_ws2812_rmt PUBLIC ${HF_WS2812_RMT_INCLUDE_DIRS})
+target_include_directories(${HF_WS2812_RMT_TARGET_NAME} PUBLIC ${HF_WS2812_RMT_PUBLIC_INCLUDE_DIRS})
 
-target_compile_features(hf_ws2812_rmt PUBLIC cxx_std_20)
+target_compile_features(${HF_WS2812_RMT_TARGET_NAME} PUBLIC cxx_std_20)
 
 # Optional warnings
 option(HF_WS2812_RMT_ENABLE_WARNINGS "Enable compiler warnings" OFF)
 if(HF_WS2812_RMT_ENABLE_WARNINGS)
-  target_compile_options(hf_ws2812_rmt PRIVATE -Wall -Wextra -Wpedantic)
+  target_compile_options(${HF_WS2812_RMT_TARGET_NAME} PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
 # CMake package export
