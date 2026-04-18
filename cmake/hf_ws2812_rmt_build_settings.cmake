@@ -1,64 +1,61 @@
-# =============================================================================
-# hf_ws2812_rmt_build_settings.cmake — Single source of truth
-# =============================================================================
-# This file defines ALL build settings for the WS2812 RMT driver.
-# It is consumed by:
-#   1. The root CMakeLists.txt   (ESP Component Registry & desktop builds)
-#   2. The ESP-IDF component wrapper (examples/esp32/components/…/CMakeLists.txt)
-#
-# Prerequisites:
-#   HF_WS2812_RMT_ROOT must be set to the driver's repository root before
-#   including this file.
-# =============================================================================
-cmake_minimum_required(VERSION 3.16)
+#===============================================================================
+# WS2812 RMT Driver - Build Settings
+# Shared variables for target name, includes, sources, and dependencies.
+# This file is the SINGLE SOURCE OF TRUTH for the driver version.
+#===============================================================================
 
-# ── Guard ────────────────────────────────────────────────────────────────────
-if(_HF_WS2812_RMT_BUILD_SETTINGS_INCLUDED)
-  return()
-endif()
-set(_HF_WS2812_RMT_BUILD_SETTINGS_INCLUDED TRUE)
+include_guard(GLOBAL)
 
-# ── Root validation ──────────────────────────────────────────────────────────
-if(NOT DEFINED HF_WS2812_RMT_ROOT)
-  message(FATAL_ERROR "HF_WS2812_RMT_ROOT must be set before including "
-                      "hf_ws2812_rmt_build_settings.cmake")
-endif()
+set(HF_WS2812_RMT_TARGET_NAME "hf_ws2812_rmt")
 
-# ── Version ──────────────────────────────────────────────────────────────────
+#===============================================================================
+# Versioning (single source of truth)
+#===============================================================================
 set(HF_WS2812_RMT_VERSION_MAJOR 1)
 set(HF_WS2812_RMT_VERSION_MINOR 0)
 set(HF_WS2812_RMT_VERSION_PATCH 0)
-set(HF_WS2812_RMT_VERSION_STRING
-    "${HF_WS2812_RMT_VERSION_MAJOR}.${HF_WS2812_RMT_VERSION_MINOR}.${HF_WS2812_RMT_VERSION_PATCH}")
+set(HF_WS2812_RMT_VERSION "${HF_WS2812_RMT_VERSION_MAJOR}.${HF_WS2812_RMT_VERSION_MINOR}.${HF_WS2812_RMT_VERSION_PATCH}")
 
-# ── Generate version header ─────────────────────────────────────────────────
-configure_file(
-  "${HF_WS2812_RMT_ROOT}/inc/ws2812_version.h.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/generated/ws2812_version.h"
-  @ONLY
+#===============================================================================
+# Generate version header from template (into build directory)
+#===============================================================================
+set(HF_WS2812_RMT_VERSION_TEMPLATE "${CMAKE_CURRENT_LIST_DIR}/../inc/ws2812_version.h.in")
+set(HF_WS2812_RMT_VERSION_HEADER_DIR "${CMAKE_CURRENT_BINARY_DIR}/hf_ws2812_rmt_generated")
+set(HF_WS2812_RMT_VERSION_HEADER     "${HF_WS2812_RMT_VERSION_HEADER_DIR}/ws2812_version.h")
+
+file(MAKE_DIRECTORY "${HF_WS2812_RMT_VERSION_HEADER_DIR}")
+
+if(EXISTS "${HF_WS2812_RMT_VERSION_TEMPLATE}")
+    configure_file(
+        "${HF_WS2812_RMT_VERSION_TEMPLATE}"
+        "${HF_WS2812_RMT_VERSION_HEADER}"
+        @ONLY
+    )
+    message(STATUS "WS2812 RMT driver v${HF_WS2812_RMT_VERSION} — generated ws2812_version.h in ${HF_WS2812_RMT_VERSION_HEADER_DIR}")
+else()
+    message(WARNING "ws2812_version.h.in not found at ${HF_WS2812_RMT_VERSION_TEMPLATE}")
+endif()
+
+#===============================================================================
+# Public include directories
+#===============================================================================
+set(HF_WS2812_RMT_PUBLIC_INCLUDE_DIRS
+    "${CMAKE_CURRENT_LIST_DIR}/../inc"
+    "${HF_WS2812_RMT_VERSION_HEADER_DIR}"
 )
 
-# ── Source files (compiled — mixed C / C++) ──────────────────────────────────
-set(HF_WS2812_RMT_SOURCES
-    "${HF_WS2812_RMT_ROOT}/src/ws2812_control.c"
-    "${HF_WS2812_RMT_ROOT}/src/ws2812_cpp.cpp"
-    "${HF_WS2812_RMT_ROOT}/src/ws2812_effects.cpp"
-    "${HF_WS2812_RMT_ROOT}/src/ws2812_multi_animator.cpp"
-    "${HF_WS2812_RMT_ROOT}/src/led_strip_encoder.c"
+#===============================================================================
+# Source files (mixed C/C++)
+#===============================================================================
+set(HF_WS2812_RMT_SOURCE_FILES
+    "${CMAKE_CURRENT_LIST_DIR}/../src/ws2812_control.c"
+    "${CMAKE_CURRENT_LIST_DIR}/../src/ws2812_cpp.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/../src/ws2812_effects.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/../src/ws2812_multi_animator.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/../src/led_strip_encoder.c"
 )
 
-# ── Public include directories ───────────────────────────────────────────────
-set(HF_WS2812_RMT_INCLUDE_DIRS
-    "${HF_WS2812_RMT_ROOT}/inc"
-    "${CMAKE_CURRENT_BINARY_DIR}/generated"
-)
-
-# ── ESP-IDF component dependencies ──────────────────────────────────────────
-set(HF_WS2812_RMT_IDF_REQUIRES
-    driver
-    freertos
-    esp_driver_rmt
-)
-
-message(STATUS "[hf_ws2812_rmt] v${HF_WS2812_RMT_VERSION_STRING} — "
-               "${HF_WS2812_RMT_ROOT}")
+#===============================================================================
+# ESP-IDF component dependencies
+#===============================================================================
+set(HF_WS2812_RMT_IDF_REQUIRES driver freertos esp_driver_rmt)
