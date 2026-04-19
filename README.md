@@ -22,8 +22,9 @@ permalink: /
 5. [API Reference](#-api-reference)
 6. [Examples](#-examples)
 7. [Documentation](#-documentation)
-8. [Contributing](#-contributing)
-9. [License](#-license)
+8. [References](#-references)
+9. [Contributing](#-contributing)
+10. [License](#-license)
 
 ## 📦 Overview
 
@@ -33,6 +34,22 @@ permalink: /
 **HF-WS2812** is an ESP32-specific driver for **WS2812** and compatible addressable RGB(W) LED strips (commonly known as NeoPixels). The driver uses the ESP32's RMT (Remote Control) peripheral to generate the precise timing signals required by WS2812 LEDs, providing hardware-accelerated LED control with minimal CPU overhead.
 
 The driver supports both C and C++ APIs, includes built-in animation effects, and is fully configurable via ESP-IDF's Kconfig system. It's compatible with WS2812, WS2812B, WS2813, SK6812, and other WS2812-compatible LED variants.
+
+### 🔀 Chip Compatibility
+
+All variants share the same single-wire NRZ protocol with chip-specific bit timings.
+The driver exposes per-LED-type timing presets via the `LedType` parameter and lets
+you override each pulse width for non-standard parts.
+
+| Chip family | Channels | Bits / LED | T0H / T0L (ns, typ.) | T1H / T1L (ns, typ.) | Reset | Notes |
+|-------------|----------|------------|----------------------|----------------------|-------|-------|
+| WS2812      | RGB      | 24         | 350 / 800            | 700 / 600            | ≥ 50 µs | Original NeoPixel |
+| WS2812B     | RGB      | 24         | 400 / 850            | 800 / 450            | ≥ 50 µs | Most common variant |
+| WS2813      | RGB      | 24         | 300 / 300            | 750 / 300            | ≥ 250 µs | Backup data line for fault tolerance |
+| SK6812 RGBW | RGBW     | 32         | 300 / 900            | 600 / 600            | ≥ 80 µs | Adds dedicated white LED |
+| SK6812 RGB  | RGB      | 24         | 300 / 900            | 600 / 600            | ≥ 80 µs | Drop-in WS2812B alternative |
+
+For non-standard parts, override timings via Kconfig (`Component Config → HF-ESP32-WS2812-RMT`).
 
 ## ✨ Features
 
@@ -102,6 +119,17 @@ Detailed example walkthroughs are available in [docs/examples.md](docs/examples.
 ## 📚 Documentation
 
 For complete documentation, see the [docs directory](docs/index.md).
+
+## 🔗 References
+
+| Resource | Link |
+|----------|------|
+| WS2812B datasheet (Worldsemi) | <https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf> |
+| WS2813 datasheet (Worldsemi) | <https://cdn-shop.adafruit.com/product-files/3777/3777_datasheet.pdf> |
+| SK6812 (RGBW) datasheet | <https://cdn-shop.adafruit.com/product-files/2757/p2757_SK6812RGBW_REV01.pdf> |
+| ESP-IDF RMT peripheral | <https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/rmt.html> |
+| Adafruit NeoPixel Überguide | <https://learn.adafruit.com/adafruit-neopixel-uberguide> |
+| C++17 language reference | <https://en.cppreference.com/w/cpp/17> |
 
 ## 🤝 Contributing
 
