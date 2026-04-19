@@ -37,7 +37,7 @@ var searchData=
   ['information_20tools_20strong_34',['🔧 &lt;strong&gt;Configuration and Information Tools&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html#autotoc_md184',1,'']]],
   ['init_5ftest_5fprogress_5findicator_35',['init_test_progress_indicator',['../TestFramework_8h.html#a3967179ac699a5b02ef9787b549409fe',1,'TestFramework.h']]],
   ['initial_20setup_36',['1. Initial Setup',['../md_examples_2esp32_2scripts_2docs_2advanced_2multi-version-idf_2index.html#autotoc_md42',1,'']]],
-  ['installation_37',['Installation',['..//home/runner/work/hf-ws2812-rmt-driver/hf-ws2812-rmt-driver/README.md#autotoc_md711',1,'🔧 Installation'],['../md_examples_2esp32_2scripts_2docs_2getting-started_2installation_2index.html#autotoc_md521',1,'Test Installation']]],
+  ['installation_37',['Installation',['..//home/runner/work/hf-ws2812-rmt-driver/hf-ws2812-rmt-driver/README.md#autotoc_md712',1,'🔧 Installation'],['../md_examples_2esp32_2scripts_2docs_2getting-started_2installation_2index.html#autotoc_md521',1,'Test Installation']]],
   ['installation_20failed_38',['ESP-IDF Installation Failed',['../md_examples_2esp32_2scripts_2docs_2getting-started_2project-setup_2index.html#autotoc_md552',1,'']]],
   ['installation_20failures_20strong_39',['&lt;strong&gt;2. Dependency Installation Failures&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html#autotoc_md214',1,'']]],
   ['installation_20guide_40',['Installation Guide',['../md_examples_2esp32_2scripts_2docs_2getting-started_2installation_2index.html',1,'']]],

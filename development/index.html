@@ -279,6 +279,7 @@
   <li><a href="#-api-reference">API Reference</a></li>
   <li><a href="#-examples">Examples</a></li>
   <li><a href="#-documentation">Documentation</a></li>
+  <li><a href="#-references">References</a></li>
   <li><a href="#-contributing">Contributing</a></li>
   <li><a href="#-license">License</a></li>
 </ol>
@@ -299,6 +300,81 @@ Interactive guides, examples, and step-by-step tutorials</p>
 <p><strong>HF-WS2812</strong> is an ESP32-specific driver for <strong>WS2812</strong> and compatible addressable RGB(W) LED strips (commonly known as NeoPixels). The driver uses the ESP32’s RMT (Remote Control) peripheral to generate the precise timing signals required by WS2812 LEDs, providing hardware-accelerated LED control with minimal CPU overhead.</p>
 
 <p>The driver supports both C and C++ APIs, includes built-in animation effects, and is fully configurable via ESP-IDF’s Kconfig system. It’s compatible with WS2812, WS2812B, WS2813, SK6812, and other WS2812-compatible LED variants.</p>
+<h3 id="-chip-compatibility">
+  
+  
+    <a href="#-chip-compatibility" class="anchor-heading" aria-labelledby="-chip-compatibility"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔀 Chip Compatibility
+  
+  
+</h3>
+    
+
+<p>All variants share the same single-wire NRZ protocol with chip-specific bit timings.
+The driver exposes per-LED-type timing presets via the <code class="language-plaintext highlighter-rouge">LedType</code> parameter and lets
+you override each pulse width for non-standard parts.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Chip family</th>
+      <th>Channels</th>
+      <th>Bits / LED</th>
+      <th>T0H / T0L (ns, typ.)</th>
+      <th>T1H / T1L (ns, typ.)</th>
+      <th>Reset</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>WS2812</td>
+      <td>RGB</td>
+      <td>24</td>
+      <td>350 / 800</td>
+      <td>700 / 600</td>
+      <td>≥ 50 µs</td>
+      <td>Original NeoPixel</td>
+    </tr>
+    <tr>
+      <td>WS2812B</td>
+      <td>RGB</td>
+      <td>24</td>
+      <td>400 / 850</td>
+      <td>800 / 450</td>
+      <td>≥ 50 µs</td>
+      <td>Most common variant</td>
+    </tr>
+    <tr>
+      <td>WS2813</td>
+      <td>RGB</td>
+      <td>24</td>
+      <td>300 / 300</td>
+      <td>750 / 300</td>
+      <td>≥ 250 µs</td>
+      <td>Backup data line for fault tolerance</td>
+    </tr>
+    <tr>
+      <td>SK6812 RGBW</td>
+      <td>RGBW</td>
+      <td>32</td>
+      <td>300 / 900</td>
+      <td>600 / 600</td>
+      <td>≥ 80 µs</td>
+      <td>Adds dedicated white LED</td>
+    </tr>
+    <tr>
+      <td>SK6812 RGB</td>
+      <td>RGB</td>
+      <td>24</td>
+      <td>300 / 900</td>
+      <td>600 / 600</td>
+      <td>≥ 80 µs</td>
+      <td>Drop-in WS2812B alternative</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>For non-standard parts, override timings via Kconfig (<code class="language-plaintext highlighter-rouge">Component Config → HF-ESP32-WS2812-RMT</code>).</p>
 <h2 id="-features">
   
   
@@ -449,6 +525,49 @@ Interactive guides, examples, and step-by-step tutorials</p>
     
 
 <p>For complete documentation, see the <a href="/hf-ws2812-rmt-driver/development/docs/">docs directory</a>.</p>
+<h2 id="-references">
+  
+  
+    <a href="#-references" class="anchor-heading" aria-labelledby="-references"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 🔗 References
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>WS2812B datasheet (Worldsemi)</td>
+      <td><a href="https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf">https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf</a></td>
+    </tr>
+    <tr>
+      <td>WS2813 datasheet (Worldsemi)</td>
+      <td><a href="https://cdn-shop.adafruit.com/product-files/3777/3777_datasheet.pdf">https://cdn-shop.adafruit.com/product-files/3777/3777_datasheet.pdf</a></td>
+    </tr>
+    <tr>
+      <td>SK6812 (RGBW) datasheet</td>
+      <td><a href="https://cdn-shop.adafruit.com/product-files/2757/p2757_SK6812RGBW_REV01.pdf">https://cdn-shop.adafruit.com/product-files/2757/p2757_SK6812RGBW_REV01.pdf</a></td>
+    </tr>
+    <tr>
+      <td>ESP-IDF RMT peripheral</td>
+      <td><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/rmt.html">https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/rmt.html</a></td>
+    </tr>
+    <tr>
+      <td>Adafruit NeoPixel Überguide</td>
+      <td><a href="https://learn.adafruit.com/adafruit-neopixel-uberguide">https://learn.adafruit.com/adafruit-neopixel-uberguide</a></td>
+    </tr>
+    <tr>
+      <td>C++17 language reference</td>
+      <td><a href="https://en.cppreference.com/w/cpp/17">https://en.cppreference.com/w/cpp/17</a></td>
+    </tr>
+  </tbody>
+</table></div>
 <h2 id="-contributing">
   
   

@@ -64,7 +64,7 @@ var searchData=
   ['specific_20troubleshooting_20strong_61',['&lt;strong&gt;3. Environment-Specific Troubleshooting&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2advanced_2utility-scripts_2index.html#autotoc_md206',1,'']]],
   ['standard_20log_20configuration_20strong_62',['&lt;strong&gt;Standard Log Configuration&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2logging-system_2index.html#autotoc_md650',1,'']]],
   ['standard_20organization_20strong_63',['&lt;strong&gt;Standard Organization&lt;/strong&gt;',['../md_examples_2esp32_2scripts_2docs_2logging-system_2index.html#autotoc_md592',1,'']]],
-  ['start_64',['Start',['..//home/runner/work/hf-ws2812-rmt-driver/hf-ws2812-rmt-driver/README.md#autotoc_md710',1,'🚀 Quick Start'],['../md_examples_2esp32_2scripts_2docs_2ci-pipeline.html#autotoc_md277',1,'Quick Start'],['../md_examples_2esp32_2scripts_2docs_2core-systems.html#autotoc_md350',1,'Quick Start']]],
+  ['start_64',['Start',['..//home/runner/work/hf-ws2812-rmt-driver/hf-ws2812-rmt-driver/README.md#autotoc_md711',1,'🚀 Quick Start'],['../md_examples_2esp32_2scripts_2docs_2ci-pipeline.html#autotoc_md277',1,'Quick Start'],['../md_examples_2esp32_2scripts_2docs_2core-systems.html#autotoc_md350',1,'Quick Start']]],
   ['started_65',['Getting Started',['../md_examples_2esp32_2scripts_2docs_2contributing_2index.html#autotoc_md313',1,'']]],
   ['started_20with_20hardfoc_20esp_20idf_20project_20tools_66',['Getting Started with HardFOC ESP-IDF Project Tools',['../md_examples_2esp32_2scripts_2docs_2getting-started_2index.html',1,'']]],
   ['state_67',['state',['../structrmt__led__strip__encoder__t.html#a0471ba99f129e342cbdd1859d12b38f3',1,'rmt_led_strip_encoder_t']]],
