@@ -35,6 +35,8 @@ permalink: /
 
 The driver supports both C and C++ APIs, includes built-in animation effects, and is fully configurable via ESP-IDF's Kconfig system. It's compatible with WS2812, WS2812B, WS2813, SK6812, and other WS2812-compatible LED variants.
 
+![WS2812 NRZ bit-encoding and 24-bit pixel cascade](docs/assets/ws2812-nrz.svg)
+
 ### 🔀 Chip Compatibility
 
 All variants share the same single-wire NRZ protocol with chip-specific bit timings.

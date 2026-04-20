@@ -9,6 +9,8 @@ permalink: /docs/hardware_setup/
 
 # Hardware Setup
 
+![WS2812 NRZ bit-encoding and 24-bit pixel cascade](assets/ws2812-nrz.svg)
+
 This guide covers the physical connections and hardware requirements for WS2812 LED strips.
 
 ## Pin Connections
