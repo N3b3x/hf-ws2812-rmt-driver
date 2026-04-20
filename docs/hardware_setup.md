@@ -84,6 +84,8 @@ WS2812 LEDs expect **5V logic levels**, but ESP32 outputs **3.3V**. For short st
 
 ## Example Wiring Diagram
 
+![WS2812 wiring](assets/ws2812-wiring.svg)
+
 ### Small Strip (< 20 LEDs)
 
 ```
