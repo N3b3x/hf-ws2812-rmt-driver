@@ -435,7 +435,7 @@
   },"62": {
     "doc": "🔌 Hardware Setup",
     "title": "Hardware Setup",
-    "content": "This guide covers the physical connections and hardware requirements for WS2812 LED strips. ",
+    "content": ". This guide covers the physical connections and hardware requirements for WS2812 LED strips. ",
     "url": "/hf-ws2812-rmt-driver/development/docs/hardware_setup/#hardware-setup",
     
     "relUrl": "/docs/hardware_setup/#hardware-setup"

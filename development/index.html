@@ -300,6 +300,8 @@ Interactive guides, examples, and step-by-step tutorials</p>
 <p><strong>HF-WS2812</strong> is an ESP32-specific driver for <strong>WS2812</strong> and compatible addressable RGB(W) LED strips (commonly known as NeoPixels). The driver uses the ESP32’s RMT (Remote Control) peripheral to generate the precise timing signals required by WS2812 LEDs, providing hardware-accelerated LED control with minimal CPU overhead.</p>
 
 <p>The driver supports both C and C++ APIs, includes built-in animation effects, and is fully configurable via ESP-IDF’s Kconfig system. It’s compatible with WS2812, WS2812B, WS2813, SK6812, and other WS2812-compatible LED variants.</p>
+
+<p><img src="/hf-ws2812-rmt-driver/development/docs/assets/ws2812-nrz.svg" alt="WS2812 NRZ bit-encoding and 24-bit pixel cascade" /></p>
 <h3 id="-chip-compatibility">
   
   
