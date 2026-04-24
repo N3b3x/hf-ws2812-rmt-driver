@@ -61,4 +61,7 @@ exclude = [
   
   # Documentation site URLs (may not be published yet)
   '^https://n3b3x\.github\.io/hf-ws2812-rmt-driver/.*',
+
+  # Adafruit CDN — product file URLs change; README datasheet link kept for humans
+  '^https://cdn-shop\.adafruit\.com/',
 ]
