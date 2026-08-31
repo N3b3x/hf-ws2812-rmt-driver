@@ -1,5 +1,5 @@
 <map id="inc/ws2812_control.h" name="inc/ws2812_control.h">
-<area shape="rect" id="Node000001" title="ESP&#45;IDF RMT based driver for WS2812 / NeoPixel LED chains." alt="" coords="405,5,563,31"/>
+<area shape="rect" id="Node000001" title="ESP&#45;IDF RMT backend for WS2812 / NeoPixel LED chains." alt="" coords="405,5,563,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,79,109,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="413,33,123,81,122,76,412,28"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="134,79,253,104"/>

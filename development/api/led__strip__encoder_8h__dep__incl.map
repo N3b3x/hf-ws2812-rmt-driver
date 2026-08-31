@@ -1,6 +1,6 @@
 <map id="inc/led_strip_encoder.h" name="inc/led_strip_encoder.h">
 <area shape="rect" id="Node000001" title=" " alt="" coords="447,5,617,31"/>
-<area shape="rect" id="Node000002" href="$ws2812__control_8h.html" title="ESP&#45;IDF RMT based driver for WS2812 / NeoPixel LED chains." alt="" coords="335,79,494,104"/>
+<area shape="rect" id="Node000002" href="$ws2812__control_8h.html" title="ESP&#45;IDF RMT backend for WS2812 / NeoPixel LED chains." alt="" coords="335,79,494,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="503,40,435,81,432,76,500,35"/>
 <area shape="rect" id="Node000010" href="$ws2812__control_8c.html" title=" " alt="" coords="453,152,611,177"/>
 <area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="535,45,535,152,529,152,529,45"/>

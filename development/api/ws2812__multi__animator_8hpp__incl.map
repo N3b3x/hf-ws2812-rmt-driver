@@ -10,7 +10,7 @@
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1849,173,855,234,854,229,1849,167"/>
 <area shape="rect" id="Node000009" title=" " alt="" coords="5,299,72,324"/>
 <area shape="poly" id="edge29_Node000003_Node000009" title=" " alt="" coords="1849,170,1369,187,1036,204,696,228,392,255,258,272,86,301,85,296,257,267,391,249,696,223,1036,199,1369,182,1849,165"/>
-<area shape="rect" id="Node000019" href="$ws2812__control_8h.html" title="ESP&#45;IDF RMT based driver for WS2812 / NeoPixel LED chains." alt="" coords="1825,225,1961,251"/>
+<area shape="rect" id="Node000019" href="$ws2812__control_8h.html" title="ESP&#45;IDF RMT backend for WS2812 / NeoPixel LED chains." alt="" coords="1825,225,1961,251"/>
 <area shape="poly" id="edge18_Node000003_Node000019" title=" " alt="" coords="1914,178,1903,213,1898,211,1909,177"/>
 <area shape="rect" id="Node000026" title=" " alt="" coords="1985,225,2124,251"/>
 <area shape="poly" id="edge28_Node000003_Node000026" title=" " alt="" coords="1938,175,2021,217,2019,221,1936,180"/>

@@ -1,6 +1,6 @@
 <map id="src/ws2812_control.c" name="src/ws2812_control.c">
 <area shape="rect" id="Node000001" title=" " alt="" coords="440,5,599,31"/>
-<area shape="rect" id="Node000002" href="$ws2812__control_8h.html" title="ESP&#45;IDF RMT based driver for WS2812 / NeoPixel LED chains." alt="" coords="346,79,482,104"/>
+<area shape="rect" id="Node000002" href="$ws2812__control_8h.html" title="ESP&#45;IDF RMT backend for WS2812 / NeoPixel LED chains." alt="" coords="346,79,482,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="504,33,444,73,441,69,501,28"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="5,152,124,177"/>
 <area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="469,33,385,54,289,81,190,116,106,149,104,144,188,111,288,76,383,49,468,28"/>

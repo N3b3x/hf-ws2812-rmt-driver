@@ -1,7 +1,7 @@
 {"0": {
     "doc": "HardFOC WS2812 Driver",
     "title": "HF-WS2812 Driver",
-    "content": "ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips . ",
+    "content": "ESP32 RMT-based driver for WS2812 / NeoPixel addressable RGB(W) LED strips . This repository is an ESP-IDF RMT backend, not a portable CRTP chip driver. inc/ includes ESP-IDF headers on purpose. Other hf-*-driver trees must not copy that pattern. ",
     "url": "/hf-ws2812-rmt-driver/development/#hf-ws2812-driver",
     
     "relUrl": "/#hf-ws2812-driver"
