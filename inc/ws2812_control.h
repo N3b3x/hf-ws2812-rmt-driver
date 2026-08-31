@@ -1,7 +1,12 @@
 #pragma once
 /**
  * @file ws2812_control.h
- * @brief ESP-IDF RMT based driver for WS2812 / NeoPixel LED chains
+ * @brief ESP-IDF RMT backend for WS2812 / NeoPixel LED chains.
+ *
+ * This is **not** a portable CRTP chip driver. Public headers include
+ * ESP-IDF (`driver/rmt_*.h`, `sdkconfig.h`). Hosts that are not ESP32
+ * do not compile this tree.
+ *
  * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
  */
 #include "driver/gpio.h"
