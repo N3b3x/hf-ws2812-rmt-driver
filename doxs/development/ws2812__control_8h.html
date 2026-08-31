@@ -101,7 +101,7 @@ $(function(){initNavTree('ws2812__control_8h.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
-<p>ESP-IDF RMT based driver for WS2812 / NeoPixel LED chains.  
+<p>ESP-IDF RMT backend for WS2812 / NeoPixel LED chains.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;driver/gpio.h&quot;</code><br />
 <code>#include &quot;driver/rmt_tx.h&quot;</code><br />
@@ -160,7 +160,8 @@ Functions</h2></td></tr>
 <tr class="separator:ad29cefe70b3d27b150b8fdc2a4f09593"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>ESP-IDF RMT based driver for WS2812 / NeoPixel LED chains. </p>
+<div class="textblock"><p>ESP-IDF RMT backend for WS2812 / NeoPixel LED chains. </p>
+<p>This is <b>not</b> a portable CRTP chip driver. Public headers include ESP-IDF (<code>driver/rmt_*.h</code>, <code>sdkconfig.h</code>). Hosts that are not ESP32 do not compile this tree.</p>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024-2025 HardFOC. All rights reserved. </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a4c4ae9a4146ce8d6a5debc90300d9abd" name="a4c4ae9a4146ce8d6a5debc90300d9abd"></a>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="ESP&#45;IDF RMT based driver for WS2812 / NeoPixel LED chains.">
+<g id="a_Node000001"><a xlink:title="ESP&#45;IDF RMT backend for WS2812 / NeoPixel LED chains.">
 <polygon fill="#999999" stroke="#666666" points="386.5,-250 267.5,-250 267.5,-231 386.5,-231 386.5,-250"/>
 <text text-anchor="middle" x="327" y="-238" font-family="Helvetica,sans-Serif" font-size="10.00">inc/ws2812_control.h</text>
 </a>
